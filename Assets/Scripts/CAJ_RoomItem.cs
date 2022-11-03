@@ -1,16 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Realtime;
 
 public class CAJ_RoomItem : MonoBehaviour
 {
-    //내용 
-    public Text roomInfo;
+    //제목 
+    public Text roomTitle;
 
-    //설명
-    public Text roomDesc;
+    //수익률
+    public Text roomReturn;
 
     //맵 id
     int map_id;
@@ -35,18 +36,24 @@ public class CAJ_RoomItem : MonoBehaviour
         //게임오브젝트의 이름을 roomName으로!
         name = roomName;
         //방이름 (0/0)
-        roomInfo.text = roomName + " (" + currPlayer + " / " + maxPlayer + ")"; 
+        //roomTitle.text = roomName + " (" + currPlayer + " / " + maxPlayer + ")"; 
+        roomTitle.text = roomName; 
     }
 
     public void SetInfo(RoomInfo info)
     {
         SetInfo((string)info.CustomProperties["room_name"], info.PlayerCount, info.MaxPlayers);
 
-        //desc 설정
-        roomDesc.text = (string)info.CustomProperties["desc"];
+        //수익률 설정
+        roomReturn.text = (string)info.CustomProperties["room_return"];
+        
+        
+        
+        //float roomreturn = info.CustomProperties["room_return"];
+        //roomReturn.text = (float)info.CustomProperties["room_return"];
 
         //map id 설정
-        map_id = (int)info.CustomProperties["map_id"];
+        //map_id = (int)info.CustomProperties["map_id"];
     }
 
 

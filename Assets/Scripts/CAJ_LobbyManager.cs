@@ -54,21 +54,24 @@ public class CAJ_LobbyManager : MonoBehaviourPunCallbacks
         roomOptions.MaxPlayers = byte.Parse(inputMaxPlayer.text);
         // 룸 리스트에 보이지 않게? 보이게?
         roomOptions.IsVisible = true;
+        roomOptions.IsOpen = false;
         // custom 정보를 셋팅
         ExitGames.Client.Photon.Hashtable hash = new ExitGames.Client.Photon.Hashtable();
-        hash["desc"] = "여긴 초보방이다! " + Random.Range(1, 1000);
-        hash["map_id"] = Random.Range(0, mapThumbs.Length);
+        
         hash["room_name"] = inputRoomName.text;
-        //hash["password"] = inputPassword.text;
+        hash["room_return"] = inputReturn.text;
+        hash["max_player"] = inputMaxPlayer.text;
+        
         roomOptions.CustomRoomProperties = hash;
         // custom 정보를 공개하는 설정
         roomOptions.CustomRoomPropertiesForLobby = new string[] {
-            "desc", "map_id", "room_name", "password"
+            "room_name", "room_return", "max_player"
         };
                 
         // 방 생성 요청 (해당 옵션을 이용해서)
         //PhotonNetwork.CreateRoom(inputRoomName.text + inputPassword.text, roomOptions);
         PhotonNetwork.CreateRoom(inputRoomName.text, roomOptions);
+        print("roomOptions : " + roomOptions);
     }
     
     //방이 생성되면 호출 되는 함수
@@ -179,10 +182,14 @@ public class CAJ_LobbyManager : MonoBehaviourPunCallbacks
                 //    inputRoomName.text = room;
                 //};
             
-                string desc = (string)info.CustomProperties["desc"];
-                int map_id = (int)info.CustomProperties["map_id"];
+                //string desc = (string)info.CustomProperties["desc"];
+                //int map_id = (int)info.CustomProperties["map_id"];
+
+                float room_return = (float)info.CustomProperties["room_return"];
+                int max_player = (int)info.CustomProperties["max_player"];
+                
                 print("info.CustomProperties : " + info.CustomProperties);
-                print("desc , map_id" + desc + ", " + map_id);
+                print("room_return , max_player" + room_return + ", " + max_player);
             }
         }
     }
