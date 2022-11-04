@@ -6,10 +6,6 @@ using UnityEngine.UI;
 
 public class CAJ_PlayerMove : MonoBehaviourPun
 {
-
-    //public PhotonView PV;
-    private Transform tr;
-
     //속력
     public float moveSpeed = 5;
     //characterController 담을 변수
@@ -21,9 +17,7 @@ public class CAJ_PlayerMove : MonoBehaviourPun
     public float jumpPower = 5;
     //y방향 속력
     float yVelocity;
-
-    private Vector3 _input;
-
+    
     //도착 위치
     Vector3 receivePos;
     //회전되야 하는 값
@@ -33,34 +27,7 @@ public class CAJ_PlayerMove : MonoBehaviourPun
 
     //PlayerState 컴포넌트
     //PlayerState playerState;
-
-    public enum State
-    {
-        Idle,
-        Walk,
-        Sit,
-
-    }
-    public State m_State;
-    Animator anim;
-
-
-    //이모티콘
-
-    public Sprite[] imoticon;
-    public GameObject imoticonPrefab;
-    private KeyCode[] keyCodes = {
-KeyCode.Alpha1,
-KeyCode.Alpha2,
-KeyCode.Alpha3,
-KeyCode.Alpha4,
-KeyCode.Alpha5,
-KeyCode.Alpha6,
-KeyCode.Alpha7,
-KeyCode.Alpha8,
-KeyCode.Alpha9,
-};
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -68,10 +35,6 @@ KeyCode.Alpha9,
         cc = GetComponent<CharacterController>();
         //PlayerState 컴포넌트 가져오기
         //playerState = GetComponent<PlayerState>();
-        anim = GetComponentInChildren<Animator>();
-
-        if (photonView.IsMine)
-            Camera.main.GetComponent<IsometricCamera_YJ>().target = tr.Find("CameraPivot").transform;
     }
 
     // Update is called once per frame
@@ -80,17 +43,6 @@ KeyCode.Alpha9,
         //1. WSAD의 신호를 받자.
         float h = Input.GetAxisRaw("Horizontal"); //A : -1, D : 1, 누르지 않으면 : 0
         float v = Input.GetAxisRaw("Vertical");
-
-        if (_input == Vector3.zero)
-        {
-            anim.SetBool("Walking", false);
-            m_State = State.Idle;
-        }
-        else
-        {
-            anim.SetBool("Walking", true);
-            m_State = State.Walk;
-        }
 
         //2. 받은 신호로 방향을 만든다.
         Vector3 dir = transform.forward * v + transform.right * h; // new Vector3(h, 0, v);
@@ -119,19 +71,5 @@ KeyCode.Alpha9,
         //3. 그 방향으로 움직이자.
         //P = P0 + vt
         cc.Move(dir * moveSpeed * Time.deltaTime);
-
-        for (int i = 0; i < keyCodes.Length; i++)
-        {
-            if (Input.GetKeyDown(keyCodes[i]))
-            {
-                GameObject imo = gameObject.transform.GetChild(0).gameObject;
-                EmoDestory_LYJ emo = imo.GetComponent<EmoDestory_LYJ>();
-                emo.emoOn = true;
-                emo.checkTime = 0;
-                SpriteRenderer spriteRenderer = imo.GetComponent<SpriteRenderer>();
-                spriteRenderer.sprite = imoticon[i];
-                imo.transform.parent = gameObject.transform;
-            }
-        }
     }
 }
