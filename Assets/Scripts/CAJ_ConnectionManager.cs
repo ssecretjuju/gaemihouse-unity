@@ -52,6 +52,6 @@ public class CAJ_ConnectionManager : MonoBehaviourPunCallbacks
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
 
         //LobbyScene으로 이동
-        PhotonNetwork.LoadLevel("CAJ_LobbyScene");
+        PhotonNetwork.LoadLevel("LYJ_LobbyScene");
     }
 }

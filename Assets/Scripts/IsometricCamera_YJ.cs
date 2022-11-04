@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IsometricCamera : MonoBehaviour
+public class IsometricCamera_YJ : MonoBehaviour
 {
 	public Transform target;
 	public float smoothing = 5f;
