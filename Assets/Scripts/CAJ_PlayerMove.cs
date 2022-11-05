@@ -6,8 +6,7 @@ using UnityEngine.UI;
 
 public class CAJ_PlayerMove : MonoBehaviourPun
 {
-    public Text nickName;
-    
+
     //public PhotonView PV;
     private Transform tr;
 
@@ -65,8 +64,6 @@ KeyCode.Alpha9,
     // Start is called before the first frame update
     void Start()
     {
-        nickName.text = photonView.Owner.NickName;
-        
         //characterController 를 담자
         cc = GetComponent<CharacterController>();
         //PlayerState 컴포넌트 가져오기
