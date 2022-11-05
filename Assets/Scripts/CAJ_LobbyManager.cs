@@ -54,7 +54,7 @@ public class CAJ_LobbyManager : MonoBehaviourPunCallbacks
         roomOptions.MaxPlayers = byte.Parse(inputMaxPlayer.text);
         // 룸 리스트에 보이지 않게? 보이게?
         roomOptions.IsVisible = true;
-        roomOptions.IsOpen = true;
+        roomOptions.IsOpen = false;
         // custom 정보를 셋팅
         ExitGames.Client.Photon.Hashtable hash = new ExitGames.Client.Photon.Hashtable();
         
