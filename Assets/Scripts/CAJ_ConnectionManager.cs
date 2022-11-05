@@ -8,20 +8,44 @@ public class CAJ_ConnectionManager : MonoBehaviourPunCallbacks
 {
     //접속 Button
     public Button btnConnect;
+    
+    //닉네임 InputField
+    public InputField inputNickName;
 
     
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // 닉네임(InputField)이 변경될때 호출되는 함수 등록
+        inputNickName.onValueChanged.AddListener(OnValueChanged);
+        // 닉네임(InputField)에서 Enter를 쳤을때 호출되는 함수 등록
+        inputNickName.onSubmit.AddListener(OnSubmit);
+        // 닉네임(InputField)에서 Focusing을 잃었을때 호출되는 함수 등록
+        inputNickName.onEndEdit.AddListener(OnEndEdit);
     }
     
+    public void OnValueChanged(string s)
+    {
+        //만약에 s의 길이가 0보다 크다면 : 접속 버튼 활성화
+        //그렇지 않다면 : 접속 버튼을 비활성화 
+        btnConnect.interactable = s.Length > 0;
+    }
+
+    public void OnSubmit(string s)
+    {
+        //만약에 s의 길이가 0보다 크다면
+        if(s.Length > 0)
+        {
+            //접속 하자!
+            OnClickConnect();
+        }
+        //print("닉네임 : " + s);
+    }
+
+    public void OnEndEdit(string s)
+    {
+    }
+
     public void OnClickConnect()
     {
         //서버 접속 요청
@@ -41,8 +65,11 @@ public class CAJ_ConnectionManager : MonoBehaviourPunCallbacks
         base.OnConnectedToMaster();
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
         
+        //내 닉네임 설정
+        PhotonNetwork.NickName = inputNickName.text;
         //로비 진입 요청
         PhotonNetwork.JoinLobby();
+        print("닉네임 : " + inputNickName.text);
     }
 
     //로비 진입 성공시 호출
