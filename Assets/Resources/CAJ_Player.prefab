@@ -51,6 +51,9 @@ MonoBehaviour:
   moveSpeed: 5
   jumpPower: 5
   lerpSpeed: 100
+  m_State: 0
+  imoticon: []
+  imoticonPrefab: {fileID: 0}
 --- !u!143 &5872571578575567475
 CharacterController:
   m_ObjectHideFlags: 0
