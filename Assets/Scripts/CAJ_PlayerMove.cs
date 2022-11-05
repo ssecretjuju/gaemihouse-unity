@@ -67,11 +67,15 @@ KeyCode.Alpha9,
         //characterController 를 담자
         cc = GetComponent<CharacterController>();
         //PlayerState 컴포넌트 가져오기
-        //playerState = GetComponent<PlayerState>();
+        //playerState = GetComponent<PlayerState>();k
         anim = GetComponentInChildren<Animator>();
 
-        if (photonView.IsMine)
-            Camera.main.GetComponent<IsometricCamera_YJ>().target = tr.Find("CameraPivot").transform;
+        // if (photonView.IsMine)
+        //     Camera.main.GetComponent<IsometricCamera_YJ>().target = tr.Find("CameraPivot").transform;
+        // else
+        // {
+        //     return;
+        // }
     }
 
     // Update is called once per frame
@@ -124,13 +128,13 @@ KeyCode.Alpha9,
         {
             if (Input.GetKeyDown(keyCodes[i]))
             {
-                GameObject imo = gameObject.transform.GetChild(0).gameObject;
-                EmoDestory_LYJ emo = imo.GetComponent<EmoDestory_LYJ>();
-                emo.emoOn = true;
-                emo.checkTime = 0;
-                SpriteRenderer spriteRenderer = imo.GetComponent<SpriteRenderer>();
-                spriteRenderer.sprite = imoticon[i];
-                imo.transform.parent = gameObject.transform;
+                // GameObject imo = gameObject.transform.GetChild(0).gameObject;
+                // EmoDestory_LYJ emo = imo.GetComponent<EmoDestory_LYJ>();
+                // //emo.emoOn = true;
+                // //emo.checkTime = 0;
+                // SpriteRenderer spriteRenderer = imo.GetComponent<SpriteRenderer>();
+                // spriteRenderer.sprite = imoticon[i];
+                // imo.transform.parent = gameObject.transform;
             }
         }
     }
