@@ -24,9 +24,11 @@ public class CAJ_LobbyManager : MonoBehaviourPunCallbacks
 
     //방의 정보들   
     Dictionary<string, RoomInfo> roomCache = new Dictionary<string, RoomInfo>();
-    //룸 리스트 Content
+    //방 배열 (일단 안 쓰고) 
     public List<Transform> PosList;
     
+    //룸 리스트 
+    public Transform roomPosition;
     
     public Transform trListContent;
 
@@ -168,15 +170,26 @@ public class CAJ_LobbyManager : MonoBehaviourPunCallbacks
         foreach(RoomInfo info in roomCache.Values)
         {
             print("roomName : " + (string)info.CustomProperties["room_name"]);
-            for (int i = 0; i < LimitMaxRoom; i++)
+            GameObject go = Instantiate(roomItemFactory, roomPosition);
+            //룸아이템 정보를 셋팅(방제목(0/0))
+            CAJ_RoomItem item = go.GetComponent<CAJ_RoomItem>();
+            item.SetInfo(info);
+            item.onClickAction = SetRoomName;
+            
+            
+            float room_return = (float)info.CustomProperties["room_return"];
+            int max_player = (int)info.CustomProperties["max_player"];
+                
+            print("info.CustomProperties : " + info.CustomProperties);
+            print("room_return , max_player" + room_return + ", " + max_player);
+            
+            
+            //for (int i = 0; i < LimitMaxRoom; i++)
             {
-                GameObject go = Instantiate(roomItemFactory, PosList[i]);
-                //룸아이템 정보를 셋팅(방제목(0/0))
-                CAJ_RoomItem item = go.GetComponent<CAJ_RoomItem>();
-                item.SetInfo(info);
+                
             
                 //roomItem 버튼이 클릭되면 호출되는 함수 등록
-                item.onClickAction = SetRoomName;
+                
                 //람다식
                 //item.onClickAction = (string room) => {
                 //    inputRoomName.text = room;
@@ -185,11 +198,7 @@ public class CAJ_LobbyManager : MonoBehaviourPunCallbacks
                 //string desc = (string)info.CustomProperties["desc"];
                 //int map_id = (int)info.CustomProperties["map_id"];
 
-                float room_return = (float)info.CustomProperties["room_return"];
-                int max_player = (int)info.CustomProperties["max_player"];
                 
-                print("info.CustomProperties : " + info.CustomProperties);
-                print("room_return , max_player" + room_return + ", " + max_player);
             }
         }
     }
