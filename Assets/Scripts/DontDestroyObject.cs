@@ -2,9 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
-public class DontDestroyObject : MonoBehaviourPunCallbacks
+public class DontDestroyObject : MonoBehaviour
 {
     //public 
     private void Awake()
