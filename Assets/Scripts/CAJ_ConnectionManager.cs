@@ -20,6 +20,7 @@ public class CAJ_ConnectionManager : MonoBehaviourPunCallbacks
         instance = this;
     }
     
+    
     public void NickNameSave()
     {
         PlayerPrefs.SetString("Name", inputNickName.text);
@@ -27,20 +28,22 @@ public class CAJ_ConnectionManager : MonoBehaviourPunCallbacks
     
     public void OnValueChanged(string s)
     {
-        //만약에 s의 길이가 0보다 크다면
-        //접속 버튼을 활성화 하자         
-        //그렇지 않다면
-        //접속 버튼을 비활성화 하자
+        //만약에 s의 길이가 0보다 크다면 : 접속 버튼 활성화      
+        //그렇지 않다면 : 접속 버튼 비활성화 
         btnConnect.interactable = s.Length > 0;       
 
-        print("OnValueChanged : " + s);
+        //print("OnValueChanged : " + s);
     }
     
     // Start is called before the first frame update
     void Start()
     {
+        // 닉네임(InputField)이 변경될때 호출되는 함수 등록
+        inputNickName.onValueChanged.AddListener(OnValueChanged);
         // 닉네임(InputField)에서 Enter를 쳤을때 호출되는 함수 등록
         inputNickName.onSubmit.AddListener(OnSubmit);
+        // 닉네임(InputField)에서 Focusing을 잃었을때 호출되는 함수 등록
+        inputNickName.onEndEdit.AddListener(OnEndEdit);
     }
     
     public void OnSubmit(string s)
@@ -48,16 +51,15 @@ public class CAJ_ConnectionManager : MonoBehaviourPunCallbacks
         //만약에 s의 길이가 0보다 크다면
         if(s.Length > 0)
         {
-            //접속 하자!
+            //접속!
             OnClickConnect();
         }
-        print("닉네임 입력 : " + s);
+        //print("닉네임 입력 : " + s);
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public void OnEndEdit(string s)
     {
-        
+        //print("OnEndEdit : " + s);
     }
     
     public void OnClickConnect()
@@ -94,5 +96,6 @@ public class CAJ_ConnectionManager : MonoBehaviourPunCallbacks
 
         //LobbyScene으로 이동
         PhotonNetwork.LoadLevel("CAJ_LobbyScene");
+        print("닉네임 : " + PhotonNetwork.NickName);
     }
 }
