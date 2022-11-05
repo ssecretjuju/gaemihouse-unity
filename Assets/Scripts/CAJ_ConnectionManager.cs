@@ -52,6 +52,7 @@ public class CAJ_ConnectionManager : MonoBehaviourPunCallbacks
             OnClickConnect();
         }
         print("닉네임 입력 : " + s);
+        print(PhotonNetwork.NickName);
     }
 
     // Update is called once per frame

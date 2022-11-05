@@ -4,9 +4,23 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using UnityEngine.EventSystems;
+using System.IO;
+using Newtonsoft.Json;
+
+public class ChatInfo
+{
+    //닉네임
+    public string nickName;
+    //대화
+    public string chat;
+}
+
 
 public class CAJ_ChatManager : MonoBehaviourPun
 {
+    public ChatInfo data = new ChatInfo();
+    
+    
     //ChatItme 공장
     public GameObject chatItemFactory;
     //InputChat 
@@ -54,8 +68,43 @@ public class CAJ_ChatManager : MonoBehaviourPun
             //}
 
         }
+        
+        // if(Input.GetKeyDown(KeyCode.Return))
+        // {
+        //     data.nickName = PhotonNetwork.NickName;
+        //     data.chat = inputChat.text;
+        // }
     }
 
+    public void ChatSave()
+    {
+        //닉네임
+        data.nickName = PhotonNetwork.NickName;
+        //채팅
+        data.chat = inputChat.text;
+
+        // 닉네임:채팅 을 Json으로 변환
+        string jsonData = JsonUtility.ToJson(data);
+        // Json 출력
+        print(jsonData);
+        
+        print(Application.dataPath);
+        print(Application.persistentDataPath);
+        
+        //저장 경로 가져오기
+        string path = Application.dataPath + "/Data";
+        
+        // "/Data"경로가 존재한다면? (false -> 만들기)
+        if (Directory.Exists(path) == false)
+        {
+            Directory.CreateDirectory(path);
+        }
+        
+        
+        //Text 파일로 저장
+        File.WriteAllText(path+ "/data.txt", jsonData);
+    }
+    
     //inputChat에서 엔터를 눌렀을 때 호출되는 함수
     void OnSubmit(string s)
     {
@@ -65,6 +114,10 @@ public class CAJ_ChatManager : MonoBehaviourPun
 
         //1.글을 쓰다가 엔터를 치면
         photonView.RPC("RpcAddChat", RpcTarget.All, chatText);
+        
+        //Json저장
+        ChatSave();
+        
 
         //4. inputChat의 내용을 초기화
         inputChat.text = "";
