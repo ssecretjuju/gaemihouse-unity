@@ -35,7 +35,7 @@ public class CAJ_ChatItem : MonoBehaviour
 
     void AAA()
     {
-        //print("크기가 변경되었다!!!");
+        print("크기가 변경되었다!!!");
         //height 맞춰주자
         rt.sizeDelta = new Vector2(rt.sizeDelta.x, chatText.preferredHeight);
     }
