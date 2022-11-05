@@ -6,52 +6,14 @@ using Photon.Pun;
 
 public class CAJ_ConnectionManager : MonoBehaviourPunCallbacks
 {
-    public static CAJ_ConnectionManager instance;
-    
     //접속 Button
     public Button btnConnect;
 
     
-    //닉네임 InputField
-    public InputField inputNickName;
-    
-    private void Awake()
-    {
-        instance = this;
-    }
-    
-    public void NickNameSave()
-    {
-        PlayerPrefs.SetString("Name", inputNickName.text);
-    }
-    
-    public void OnValueChanged(string s)
-    {
-        //만약에 s의 길이가 0보다 크다면
-        //접속 버튼을 활성화 하자         
-        //그렇지 않다면
-        //접속 버튼을 비활성화 하자
-        btnConnect.interactable = s.Length > 0;       
-
-        print("OnValueChanged : " + s);
-    }
-    
     // Start is called before the first frame update
     void Start()
     {
-        // 닉네임(InputField)에서 Enter를 쳤을때 호출되는 함수 등록
-        inputNickName.onSubmit.AddListener(OnSubmit);
-    }
-    
-    public void OnSubmit(string s)
-    {
-        //만약에 s의 길이가 0보다 크다면
-        if(s.Length > 0)
-        {
-            //접속 하자!
-            OnClickConnect();
-        }
-        print("닉네임 입력 : " + s);
+        
     }
 
     // Update is called once per frame
@@ -79,9 +41,6 @@ public class CAJ_ConnectionManager : MonoBehaviourPunCallbacks
         base.OnConnectedToMaster();
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
         
-        
-        //내 닉네임 설정
-        PhotonNetwork.NickName = inputNickName.text;
         //로비 진입 요청
         PhotonNetwork.JoinLobby();
     }
