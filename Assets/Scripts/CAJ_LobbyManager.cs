@@ -7,27 +7,39 @@ using Photon.Realtime;
 
 public class CAJ_LobbyManager : MonoBehaviourPunCallbacks
 {
-    //수익률 InputField
-    public InputField inputReturn;
-
-    //최대 방 개수 (0~10)
-    public int LimitMaxRoom = 10;
+    // Name : string
+    // PlayerCount : int
+    // MaxPlayer : byte
+    // IsOpen, IsVisible : bool 
     
-    //방이름 InputField
+    // + Hashtable 안에 지정 값 -> 수익률(return) : float 
+    
+    
+    //<InputField>
+    // 1. 수익률
+    public InputField inputReturn;
+    // 2. 방 이름
     public InputField inputRoomName;
-    //총인원 InputField
+    // 3. 방 최대 인원
     public InputField inputMaxPlayer;
+    
+    //<Button>
     //방참가 Button
     public Button btnJoin;
     //방생성 Button
     public Button btnCreate;
 
+    
+    //최대 방 개수 (0~10)
+    public int LimitMaxRoom = 10;
+    
+    
     //방의 정보들   
     Dictionary<string, RoomInfo> roomCache = new Dictionary<string, RoomInfo>();
     //방 배열 (일단 안 쓰고) 
     public List<Transform> PosList;
     
-    //룸 리스트 
+    //룸 리스트 (이거 씀!) 
     public Transform roomPosition;
     
     public Transform trListContent;
@@ -38,13 +50,33 @@ public class CAJ_LobbyManager : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        
+        // 방이름(InputField)이 변경될때 호출되는 함수 등록
+        inputRoomName.onValueChanged.AddListener(OnRoomNameValueChanged);
+        // 총인원(InputField)이 변경될때 호출되는 함수 등록
+        inputMaxPlayer.onValueChanged.AddListener(OnMaxPlayerValueChanged);
+        // 방 수익률(InputField)이 변경될때 호출되는 함수 등록
+        inputReturn.onValueChanged.AddListener(OnRoomReturnValueChanged);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnRoomReturnValueChanged(string s)
     {
-        
+        //생성
+        btnCreate.interactable = s.Length > 0;
+    }
+
+    public void OnRoomNameValueChanged(string s)
+    {
+        //참가
+        btnJoin.interactable = s.Length > 0;
+        //생성
+        btnCreate.interactable = s.Length > 0 && inputMaxPlayer.text.Length > 0 && inputReturn.text.Length > 0 ;
+    }
+
+    public void OnMaxPlayerValueChanged(string s)
+    {
+        //생성
+        //btnCreate.interactable = s.Length > 0 && inputRoomName.text.Length > 0;
+        btnCreate.interactable = s.Length > 0;
     }
     
     //방 생성
@@ -64,6 +96,8 @@ public class CAJ_LobbyManager : MonoBehaviourPunCallbacks
         hash["room_return"] = inputReturn.text;
         hash["max_player"] = inputMaxPlayer.text;
         
+        //PhotonNetwork.JoinOrCreateRoom()
+        
         roomOptions.CustomRoomProperties = hash;
         // custom 정보를 공개하는 설정
         roomOptions.CustomRoomPropertiesForLobby = new string[] {
@@ -73,7 +107,7 @@ public class CAJ_LobbyManager : MonoBehaviourPunCallbacks
         // 방 생성 요청 (해당 옵션을 이용해서)
         //PhotonNetwork.CreateRoom(inputRoomName.text + inputPassword.text, roomOptions);
         PhotonNetwork.CreateRoom(inputRoomName.text, roomOptions);
-        print("roomOptions : " + roomOptions);
+        print("roomOptions 프린트 : ");
     }
     
     //방이 생성되면 호출 되는 함수
@@ -122,7 +156,7 @@ public class CAJ_LobbyManager : MonoBehaviourPunCallbacks
         //룸리스트 정보를 업데이트
         UpdateRoomCache(roomList);
         //룸리스트 UI 전체 생성
-        CreateRoomListUI(roomList);
+        CreateRoomListUI();
     }
 
     void DeleteRoomListUI()
@@ -165,7 +199,7 @@ public class CAJ_LobbyManager : MonoBehaviourPunCallbacks
     public GameObject roomItemFactory;
     public GameObject roomItemFactory1;
     public GameObject roomItemFactory2;
-    void CreateRoomListUI(List<RoomInfo> roomList)
+    void CreateRoomListUI()
     {
         foreach(RoomInfo info in roomCache.Values)
         {
@@ -175,9 +209,9 @@ public class CAJ_LobbyManager : MonoBehaviourPunCallbacks
             CAJ_RoomItem item = go.GetComponent<CAJ_RoomItem>();
             item.SetInfo(info);
             item.onClickAction = SetRoomName;
+                          
             
-            
-            float room_return = (float)info.CustomProperties["room_return"];
+            string room_return = (string)info.CustomProperties["room_return"];
             int max_player = (int)info.CustomProperties["max_player"];
                 
             print("info.CustomProperties : " + info.CustomProperties);

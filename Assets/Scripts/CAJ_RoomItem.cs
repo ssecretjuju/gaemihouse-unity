@@ -44,9 +44,11 @@ public class CAJ_RoomItem : MonoBehaviour
     {
         SetInfo((string)info.CustomProperties["room_name"], info.PlayerCount, info.MaxPlayers);
 
-        //수익률 설정
-        roomReturn.text = (string)info.CustomProperties["room_return"];
-        
+        // float roomreturnturn = float.Parse(roomReturn.text);
+        //
+        // //수익률 설정
+        // roomreturnturn = (float)info.CustomProperties["room_return"];
+        //
         
         
         //float roomreturn = info.CustomProperties["room_return"];
