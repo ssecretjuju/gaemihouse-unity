@@ -1413,6 +1413,7 @@ GameObject:
   m_Component:
   - component: {fileID: 267270075}
   - component: {fileID: 267270076}
+  - component: {fileID: 267270077}
   m_Layer: 0
   m_Name: LobbyManager
   m_TagString: Untagged
@@ -1442,7 +1443,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 267270074}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28ada22eb65b4fd428166b020693c007, type: 3}
   m_Name: 
@@ -1467,9 +1468,29 @@ MonoBehaviour:
   roomPosition: {fileID: 1858396908}
   trListContent: {fileID: 1858396908}
   mapThumbs: []
-  roomItemFactory: {fileID: 2026640412957626206, guid: 05570128637516e45bad9f3d276650c6, type: 3}
+  roomItemFactory: {fileID: 919132149155446097, guid: 9a9684b26efa60548864f2f434a26608, type: 3}
   roomItemFactory1: {fileID: 2026640412957626206, guid: eaaed4d7d09885c4aa48e3779551048f, type: 3}
   roomItemFactory2: {fileID: 2026640412957626206, guid: c5e0c25c3af3294448b02d9cff9d9c3e, type: 3}
+--- !u!114 &267270077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267270074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98a7ccbe0163c78429655c1506dd6b73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputRoomName: {fileID: 647796368}
+  inputPassword: {fileID: 311444317}
+  inputMaxPlayer: {fileID: 755962102}
+  btnJoin: {fileID: 1585027962}
+  btnCreate: {fileID: 214774426}
+  trListContent: {fileID: 1858396908}
+  mapThumbs: []
+  roomItemFactory: {fileID: 919132149155446097, guid: 26d839e3ece9f5442be690e75187f475, type: 3}
 --- !u!1 &272494012
 GameObject:
   m_ObjectHideFlags: 0
@@ -3603,6 +3624,7 @@ GameObject:
   - component: {fileID: 755962104}
   - component: {fileID: 755962103}
   - component: {fileID: 755962102}
+  - component: {fileID: 755962105}
   m_Layer: 5
   m_Name: InputField (Legacy) (1)
   m_TagString: Untagged
@@ -3738,6 +3760,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 755962100}
   m_CullTransparentMesh: 1
+--- !u!114 &755962105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755962100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc33a39070010f94fb1c2dd721c1286d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showHtmlElement: 0
 --- !u!1 &763872006
 GameObject:
   m_ObjectHideFlags: 0
