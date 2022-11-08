@@ -287,7 +287,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 431005651}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CAJ_ConnectionManager, Assembly-CSharp
         m_MethodName: OnClickConnect
         m_Mode: 1
@@ -378,7 +378,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 431005649}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5e092dd1bd419d41952bc21e390abe2, type: 3}
+  m_Script: {fileID: 11500000, guid: 06306c99658bb2f498021cf2864e40fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   btnConnect: {fileID: 427880126}

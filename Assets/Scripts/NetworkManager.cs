@@ -20,7 +20,7 @@ public class NetworkManager : MonoBehaviour
 
     IEnumerator GetText()
     {
-        UnityWebRequest www = UnityWebRequest.Get("http://192.168.0.34:8080/shareholder-room/yield");
+        UnityWebRequest www = UnityWebRequest.Get("http://192.168.0.34:8080/member/aa");
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)
