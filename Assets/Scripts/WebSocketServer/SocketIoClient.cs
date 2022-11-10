@@ -25,7 +25,7 @@ public class SocketIoClient : MonoBehaviourPun
         //inputChat에서 엔터를 눌렀을 때 호출되는 함수 등록
         //inputChat.onSubmit.AddListener(OnSubmit);
         
-        ws = new WebSocket("ws://192.168.0.182:8001");
+        ws = new WebSocket("ws://13.125.89.145:8001");
         ws.Connect();
 
         //접속했을 때 
@@ -69,7 +69,7 @@ public class SocketIoClient : MonoBehaviourPun
             // }
     
             //send : 입력 보내는 것 
-            ws.Send(PhotonNetwork.NickName + " : " + message);
+            ws.Send(PhotonNetwork.NickName + "%" + message);
 
             inputChat.text = "";
             
@@ -88,6 +88,9 @@ public class SocketIoClient : MonoBehaviourPun
 
             //3.text 컴포넌트 가져와서 inputField의
             //내용을 셋팅
+            // ChatItem chatItem = item.GetComponent<ChatItem>();
+            // chatItem.SetText(chat);
+            
             CAJ_ChatItem chatItem = item.GetComponent<CAJ_ChatItem>();
             chatItem.SetText(message);
 

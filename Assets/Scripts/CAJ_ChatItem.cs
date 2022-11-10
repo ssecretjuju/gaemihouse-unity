@@ -27,10 +27,10 @@ public class CAJ_ChatItem : MonoBehaviour
         
     }
 
-    public void SetText(string chat)
+    public void SetText(string message)
     {
         //텍스트 셋팅
-        chatText.text = chat;        
+        chatText.text = message;        
     }
 
     void AAA()
