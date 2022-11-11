@@ -25,7 +25,7 @@ public class SocketIoClient : MonoBehaviourPun
         //inputChat에서 엔터를 눌렀을 때 호출되는 함수 등록
         //inputChat.onSubmit.AddListener(OnSubmit);
         
-        ws = new WebSocket("ws://13.125.89.145:8001");
+        ws = new WebSocket("ws://3.34.133.115:8000");
         ws.Connect();
 
         //접속했을 때 

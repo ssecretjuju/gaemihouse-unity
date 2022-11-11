@@ -29,7 +29,7 @@ public class PredictBoardManager : MonoBehaviour
             data.searchText = searchText.text;
 
             HttpRequester requester = new HttpRequester();
-            requester.url = "http://13.125.89.145:8080/stock-prediction/" + searchText.text;
+            requester.url = "http://3.34.133.115:8080/stock-prediction/" + searchText.text;
             requester.requestType = RequestType.POST;
             print("test");
 
