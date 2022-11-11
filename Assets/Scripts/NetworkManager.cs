@@ -20,7 +20,7 @@ public class NetworkManager : MonoBehaviour
 
     IEnumerator GetText()
     {
-        UnityWebRequest www = UnityWebRequest.Get("http://192.168.0.34:8080/member/aa");
+        UnityWebRequest www = UnityWebRequest.Get("http://3.34.133.115:8080/member/aa");
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)
@@ -29,7 +29,7 @@ public class NetworkManager : MonoBehaviour
         }
         else
         {
-            // Show results as text
+            // Show results as text 
             Debug.Log(www.downloadHandler.text);
 
             // Or retrieve results as binary data

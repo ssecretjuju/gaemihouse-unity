@@ -42,6 +42,7 @@ MonoBehaviour:
   - RpcAddChat
   - <Update>g__RpcAddChat|7_0
   - <Update>g__RpcAddChat|15_0
+  - <Update>g__RpcAddChat|9_0
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0
