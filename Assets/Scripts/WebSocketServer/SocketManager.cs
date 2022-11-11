@@ -1,12 +1,29 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 using WebSocketSharp;
 using Photon.Pun;
 using UnityEngine.EventSystems;
 
-public class SocketIoClient : MonoBehaviourPun
+public class SocketManager : MonoBehaviourPun
 {
+    public Text chatLog;
+    public InputField input;
+    private string chatters;
+    private ScrollRect scroll_rect;
+    private string temp;
+    
+    //소켓 선언
+    public WebSocket ws;
+
+    private string mbti_name;
+
+    [Header("캐릭터의 닉네임")] public Text name;
+    public string IP = "ws://3.34.133.115:8000";
+    
     //ChatItme 공장
     public GameObject chatItemFactory;
     //InputChat 
@@ -18,14 +35,13 @@ public class SocketIoClient : MonoBehaviourPun
     public RectTransform rtScrollView;
     float prevContentH;
     
-    private WebSocket ws;
     
     void Start()
     {
         //inputChat에서 엔터를 눌렀을 때 호출되는 함수 등록
         //inputChat.onSubmit.AddListener(OnSubmit);
         
-        ws = new WebSocket("ws://3.34.133.115:8001");
+        ws = new WebSocket("ws://3.34.133.115:8000");
         ws.Connect();
 
         //접속했을 때 
