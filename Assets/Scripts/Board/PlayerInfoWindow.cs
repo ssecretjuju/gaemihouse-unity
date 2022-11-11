@@ -9,11 +9,13 @@ using UnityEngine.Networking;
 //팝업 윈도우에 담을 플레이어 정보: 주식경력, 평균수익률
 //플레이어 자신을 누르면 기능하지 않는다.
 
-//만약 팝업창이 활성화 되면 회원정보를 가져와 연동한다.
 public class PlayerInfoWindow : MonoBehaviour
 {
-    public string career;
-    public int yieldRate;
+    public GameObject DoubleClick;
+    public Canvas playerInfoWindow;
+
+    public Text carrerText;
+    public Text yieldText;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +26,16 @@ public class PlayerInfoWindow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //만약 팝업창이 활성화된다면
+        if(GameObject.Find("PlayerInfoWindow").GetComponent<DoubleClick>().enabled == true)
+        {
+            //회원정보에 저장되어있는 경력, 수익률 텍스트 동기화
+
+        }
+    }
+
+    public void OnEscBtn()
+    {
+        playerInfoWindow.enabled = false;
     }
 }

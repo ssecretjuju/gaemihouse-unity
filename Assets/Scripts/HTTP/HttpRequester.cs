@@ -29,6 +29,7 @@ public class HttpRequester : MonoBehaviour
     public Action<DownloadHandler> onComplete;
 
 
+    public string imgUrl;
     ////////////////
     //public Action<UploadHandler> action;
 }
