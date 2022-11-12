@@ -10,7 +10,6 @@ using Random = UnityEngine.Random;
 public class roomPostInfo
 {
     public string roomTitle;
-    public float roomYield;
     public int roomLimitedNumber;
 }
 
@@ -74,7 +73,7 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
     {
         roomPostInfo data = new roomPostInfo();
         data.roomTitle = inputRoomName.text;
-        data.roomYield = float.Parse(inputReturn.text);
+        //data.roomYield = float.Parse(inputReturn.text);
         data.roomLimitedNumber = int.Parse(inputMaxPlayer.text);
         // data.isOpen = true;
         // List<string> roomMember = new List<string>();
