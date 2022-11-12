@@ -29,7 +29,9 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     //public List<Transform> buildingPos;
     //public Vector3[] spawnPos;
     public List<Transform> spawnPos;
-
+    
+    //룸 종류 리스트
+    public List<GameObject> RoomItemFactory;
 
     //map Thumbnail
     public GameObject[] mapThumbs;
@@ -146,6 +148,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     void DeleteRoomListUI()
     {
         foreach(Transform tr in trListContent)
+        //foreach(Transform spa in spawnPos)
         {
             Destroy(tr.gameObject);
         }
@@ -178,7 +181,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
             }
         }
     }
-
+    
     public GameObject roomItemFactory1;
     public GameObject roomItemFactory2;
     public GameObject roomItemFactory3;
@@ -190,6 +193,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         foreach(RoomInfo info in roomCache.Values)
         {
             float desc = (float)(info.CustomProperties["desc"]);
+            
             
             //GameObject go = GameObject.Instantiate()
             //for (int i = 0; i < 10; i++)
@@ -225,7 +229,16 @@ public class LobbyManager : MonoBehaviourPunCallbacks
                     CAJ_RoomItem  item = go.GetComponent<CAJ_RoomItem >();
                     item.SetInfo(info);
                 }
-                // 4. 수익률 > 100
+                // 4. 수익률
+                else if (desc > 0 && desc < 100)
+                {
+                    //룸아이템 만든다.
+                    GameObject go = Instantiate(roomItemFactory3, spawnPos[count]);
+                    //룸아이템 정보를 셋팅(방제목(0/0))
+                    CAJ_RoomItem  item = go.GetComponent<CAJ_RoomItem >();
+                    item.SetInfo(info);
+                }
+                // 5. 수익률 > 100
                 else
                 {
                     //룸아이템 만든다.
