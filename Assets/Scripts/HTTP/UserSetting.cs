@@ -18,17 +18,13 @@ public class UserInfo
 
 }
 
-public class LoginInfo
-{
-    public string id;
-    public string password;
-}
 
-[Serializable]
-public class PostTokenData
-{
-    public string accessToken;
-}
+
+//[Serializable]
+//public class PostTokenData
+//{
+//    public string accessToken;
+//}
 
 
 
@@ -81,41 +77,41 @@ public class UserSetting : MonoBehaviour
     }
 
 
-    public void OnClickLogin()
-    {
-        LoginInfo data = new LoginInfo();
-        data.id = Logid.text;
-        data.password = Logpassword.text;
-     
+    //public void OnClickLogin()
+    //{
+    //    LoginInfo data = new LoginInfo();
+    //    data.id = Logid.text;
+    //    data.password = Logpassword.text;
 
-        HttpRequester requester = new HttpRequester();
-        requester.url = "http://192.168.1.77:8801/login";
-        requester.requestType = RequestType.POST;
 
-        requester.postData = JsonUtility.ToJson(data, true);
-        print(requester.postData);
+    //    HttpRequester requester = new HttpRequester();
+    //    requester.url = "http://192.168.1.77:8801/login";
+    //    requester.requestType = RequestType.POST;
 
-        ///////////
-        requester.onComplete = OnCilckDownload;
+    //    requester.postData = JsonUtility.ToJson(data, true);
+    //    print(requester.postData);
 
-        HttpManager.instance.SendRequest(requester);
-        
-    }
+    //    ///////////
+    //    requester.onComplete = OnCilckDownload;
 
-    public void OnCilckDownload(DownloadHandler handler)
-    {
-        //배열 데이터를 키값에 넣는다.
-        //string s = "{\"accessToken\":" + handler.text + "}";
+    //    HttpManager.instance.SendRequest(requester);
 
-        //List<PostData>
-        PostTokenData postTokenData = JsonUtility.FromJson<PostTokenData>(handler.text);
+    //}
 
-        print(postTokenData.accessToken);
+    //public void OnCilckDownload(DownloadHandler handler)
+    //{
+    //    //배열 데이터를 키값에 넣는다.
+    //    //string s = "{\"accessToken\":" + handler.text + "}";
 
-        PlayerPrefs.SetString("token", postTokenData.accessToken);
-     
-        print("조회 완료");
-    }
+    //    //List<PostData>
+    //    PostTokenData postTokenData = JsonUtility.FromJson<PostTokenData>(handler.text);
+
+    //    print(postTokenData.accessToken);
+
+    //    PlayerPrefs.SetString("token", postTokenData.accessToken);
+
+    //    print("조회 완료");
+    //}
     ///
 
 }

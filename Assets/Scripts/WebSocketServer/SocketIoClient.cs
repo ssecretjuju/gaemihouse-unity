@@ -5,8 +5,14 @@ using WebSocketSharp;
 using Photon.Pun;
 using UnityEngine.EventSystems;
 
+using System.Text;
+
 public class SocketIoClient : MonoBehaviourPun
 {
+    private ScrollRect scroll_rect;
+    private string temp;
+    public Text chatLog;
+    
     //ChatItme 공장
     public GameObject chatItemFactory;
     //InputChat 
@@ -15,20 +21,18 @@ public class SocketIoClient : MonoBehaviourPun
     public RectTransform trContent;
     
     
-    public RectTransform rtScrollView;
+    //public RectTransform rtScrollView;
     float prevContentH;
     
     private WebSocket ws;
     
     void Start()
     {
-        //inputChat에서 엔터를 눌렀을 때 호출되는 함수 등록
-        //inputChat.onSubmit.AddListener(OnSubmit);
-        
-        ws = new WebSocket("ws://192.168.0.182:8001");
+        ws = new WebSocket("ws://3.34.133.115:8001");
+        //서버에 연결! 
         ws.Connect();
 
-        //접속했을 때 
+        //접속했을 때 (서버가 연결된 경우)
         ws.OnOpen += (res, e) => {
             Debug.Log($"{ws.ReadyState.ToString()} => Open이면 연결 성공");
         };
@@ -40,7 +44,7 @@ public class SocketIoClient : MonoBehaviourPun
             //Debug.Log(e.Data);
         };
 
-        //접속종료할 때 보여주고 싶으면 
+        //접속종료할 때 보여주고 싶으면 (서버 닫힘)
         ws.OnClose += (res, e) =>
         {
             Debug.Log($"연결 종료");
@@ -69,7 +73,7 @@ public class SocketIoClient : MonoBehaviourPun
             // }
     
             //send : 입력 보내는 것 
-            ws.Send(PhotonNetwork.NickName + " : " + message);
+            ws.Send(PhotonNetwork.NickName + "%" + message);
 
             inputChat.text = "";
             
@@ -88,6 +92,9 @@ public class SocketIoClient : MonoBehaviourPun
 
             //3.text 컴포넌트 가져와서 inputField의
             //내용을 셋팅
+            // ChatItem chatItem = item.GetComponent<ChatItem>();
+            // chatItem.SetText(chat);
+            
             CAJ_ChatItem chatItem = item.GetComponent<CAJ_ChatItem>();
             chatItem.SetText(message);
 

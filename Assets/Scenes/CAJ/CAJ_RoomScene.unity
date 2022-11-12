@@ -1691,10 +1691,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c7f072eadbde904abee922d2689b9f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chatLog: {fileID: 0}
   chatItemFactory: {fileID: 5188808548922973885, guid: ee525fb6ca7258c408450015a3e88a6b, type: 3}
   inputChat: {fileID: 68555375}
   trContent: {fileID: 25933536}
-  rtScrollView: {fileID: 755022695}
 --- !u!1 &2133368843
 GameObject:
   m_ObjectHideFlags: 0
