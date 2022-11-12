@@ -36,4 +36,6 @@ public class CAJ_NetworkManager : MonoBehaviour
             byte[] results = www.downloadHandler.data;
         }
     }
+    
+    
 }

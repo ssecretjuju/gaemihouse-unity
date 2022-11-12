@@ -18,7 +18,7 @@ public class RoomListSetting : MonoBehaviour
     }
     
     IEnumerator GetText()
-    {
+    {                                                                      
         UnityWebRequest www = UnityWebRequest.Get("http://3.34.133.115:8080/shareholder-room");
         yield return www.SendWebRequest();
 
