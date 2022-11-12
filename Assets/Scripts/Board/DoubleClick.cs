@@ -9,8 +9,6 @@ public class DoubleClick : MonoBehaviour
     private int clickCounter;
     public Canvas playerInfoWindow;
 
-    public GameObject PlayerInfoWindow;
-
 
     // Start is called before the first frame update
     void Start()

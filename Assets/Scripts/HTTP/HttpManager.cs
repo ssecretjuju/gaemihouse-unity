@@ -71,8 +71,9 @@ public class HttpManager : MonoBehaviour
         {
             print(webRequest.downloadHandler.text);
 
+            
             //완료되었다고 requester.onComplete를 실행
-            if(requester.onComplete != null)
+            if (requester.onComplete != null)
             {
                 requester.onComplete(webRequest.downloadHandler);
             }

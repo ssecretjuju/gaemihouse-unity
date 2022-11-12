@@ -6,6 +6,14 @@ using Photon.Realtime;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
+[Serializable]
+public class roomPostInfo
+{
+    public string roomTitle;
+    public float roomYield;
+    public int roomLimitedNumber;
+}
+
 public class NewLobbyManager : MonoBehaviourPunCallbacks
 {
     public GameObject roomItemFactory1;
@@ -61,7 +69,27 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
         //생성
         btnCreate.interactable = s.Length > 0 && inputRoomName.text.Length > 0;
     }
-   
+
+    public void PostRoomInfoClick()
+    {
+        roomPostInfo data = new roomPostInfo();
+        data.roomTitle = inputRoomName.text;
+        data.roomYield = float.Parse(inputReturn.text);
+        data.roomLimitedNumber = int.Parse(inputMaxPlayer.text);
+        // data.isOpen = true;
+        // List<string> roomMember = new List<string>();
+
+        HttpRequester requester = new HttpRequester();
+        requester.url = "http://3.34.133.115:8080/shareholder-room";
+        requester.requestType = RequestType.POST;
+        print("Post test");
+        
+        requester.postData = JsonUtility.ToJson(data, true);
+        print(requester.postData);
+        
+        HttpManager.instance.SendRequest(requester);
+        print("Post 완료!");
+    }
 
     //방 생성
     public void CreateRoom()

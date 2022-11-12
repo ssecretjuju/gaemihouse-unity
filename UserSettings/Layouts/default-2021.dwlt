@@ -14,10 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1536
     y: -191
     width: 1920
     height: 989
+=======
+    x: 0
+    y: 43.2
+    width: 1536
+    height: 772.8
+>>>>>>> origin/feature/LYJ
   m_ShowMode: 4
   m_Title: Hierarchy
   m_RootView: {fileID: 2}
@@ -44,8 +51,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1920
     height: 989
+=======
+    width: 1536
+    height: 772.8
+>>>>>>> origin/feature/LYJ
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
@@ -69,7 +81,11 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1920
+=======
+    width: 1536
+>>>>>>> origin/feature/LYJ
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -90,8 +106,13 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 969
     width: 1920
+=======
+    y: 752.8
+    width: 1536
+>>>>>>> origin/feature/LYJ
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -115,12 +136,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
+<<<<<<< HEAD
     width: 1920
     height: 939
   m_MinSize: {x: 300, y: 300}
   m_MaxSize: {x: 24288, y: 24288}
   vertical: 0
   controlID: 158
+=======
+    width: 1536
+    height: 722.8
+  m_MinSize: {x: 300, y: 200}
+  m_MaxSize: {x: 24288, y: 16192}
+  vertical: 0
+  controlID: 123
+>>>>>>> origin/feature/LYJ
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,12 +170,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1131
     height: 939
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
   controlID: 29
+=======
+    width: 895.2
+    height: 722.8
+  m_MinSize: {x: 100, y: 200}
+  m_MaxSize: {x: 8096, y: 16192}
+  vertical: 1
+  controlID: 28
+>>>>>>> origin/feature/LYJ
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -163,8 +202,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 1131
     height: 345
+=======
+    width: 895.2
+    height: 186.4
+>>>>>>> origin/feature/LYJ
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 15}
@@ -189,9 +233,15 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 345
     width: 1131
     height: 594
+=======
+    y: 186.4
+    width: 895.2
+    height: 536.4
+>>>>>>> origin/feature/LYJ
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 17}
@@ -217,6 +267,7 @@ MonoBehaviour:
   - {fileID: 12}
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1131
     y: 0
     width: 453
@@ -225,6 +276,16 @@ MonoBehaviour:
   m_MaxSize: {x: 8096, y: 24288}
   vertical: 1
   controlID: 108
+=======
+    x: 895.2
+    y: 0
+    width: 381.60004
+    height: 722.8
+  m_MinSize: {x: 100, y: 200}
+  m_MaxSize: {x: 8096, y: 16192}
+  vertical: 1
+  controlID: 55
+>>>>>>> origin/feature/LYJ
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -242,9 +303,15 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 453
     height: 130
   m_MinSize: {x: 102, y: 121}
+=======
+    width: 381.60004
+    height: 269.6
+  m_MinSize: {x: 202, y: 221}
+>>>>>>> origin/feature/LYJ
   m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 18}
   m_Panes:
@@ -267,11 +334,19 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 130
     width: 453
     height: 273
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
+=======
+    y: 269.6
+    width: 381.60004
+    height: 453.19998
+  m_MinSize: {x: 232, y: 271}
+  m_MaxSize: {x: 10002, y: 10021}
+>>>>>>> origin/feature/LYJ
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -292,12 +367,21 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 0
     y: 403
     width: 453
     height: 536
   m_MinSize: {x: 232, y: 271}
   m_MaxSize: {x: 10002, y: 10021}
+=======
+    x: 1276.8
+    y: 0
+    width: 259.19995
+    height: 722.8
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
+>>>>>>> origin/feature/LYJ
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -318,6 +402,7 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1584
     y: 0
     width: 336
@@ -330,6 +415,16 @@ MonoBehaviour:
   - {fileID: 21}
   m_Selected: 0
   m_LastSelected: 0
+=======
+    x: 0
+    y: 73.6
+    width: 865.4
+    height: 258.2
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+>>>>>>> origin/feature/LYJ
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -350,14 +445,22 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 2667
     y: -31
     width: 451
     height: 252
+=======
+    x: 895.2
+    y: 343.2
+    width: 379.60004
+    height: 432.19998
+>>>>>>> origin/feature/LYJ
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
+<<<<<<< HEAD
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
@@ -387,6 +490,120 @@ MonoBehaviour:
       m_IsLocked: 1
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 4c969a2b90040154d917609493e03593
+=======
+  m_SearchFilter:
+    m_NameFilter: 
+    m_ClassNames: []
+    m_AssetLabels: []
+    m_AssetBundleNames: []
+    m_VersionControlStates: []
+    m_SoftLockControlStates: []
+    m_ReferencingInstanceIDs: 
+    m_SceneHandles: 
+    m_ShowAllHits: 0
+    m_SkipHidden: 0
+    m_SearchArea: 1
+    m_Folders:
+    - Assets/Scenes/LYJ
+    m_Globs: []
+    m_OriginalText: 
+  m_ViewMode: 1
+  m_StartGridSize: 16
+  m_LastFolders:
+  - Assets/Scenes/LYJ
+  m_LastFoldersGridSize: 16
+  m_LastProjectPath: D:\graphic\alpha_JU\gaemihouse-unity
+  m_LockTracker:
+    m_IsLocked: 0
+  m_FolderTreeState:
+    scrollPos: {x: 0, y: 279.80002}
+    m_SelectedIDs: 6a5e0000
+    m_LastClickedID: 24170
+    m_ExpandedIDs: 00000000365e0000385e00003a5e0000605e0000925e0000d45e000006fe010000ca9a3b
+    m_RenameOverlay:
+      m_UserAcceptedRename: 0
+      m_Name: 
+      m_OriginalName: 
+      m_EditFieldRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      m_UserData: 0
+      m_IsWaitingForDelay: 0
+      m_IsRenaming: 0
+      m_OriginalEventType: 11
+      m_IsRenamingFilename: 1
+      m_ClientGUIView: {fileID: 11}
+    m_SearchString: 
+    m_CreateAssetUtility:
+      m_EndAction: {fileID: 0}
+      m_InstanceID: 0
+      m_Path: 
+      m_Icon: {fileID: 0}
+      m_ResourceFile: 
+  m_AssetTreeState:
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: 00000000365e0000385e00003a5e0000
+    m_RenameOverlay:
+      m_UserAcceptedRename: 0
+      m_Name: 
+      m_OriginalName: 
+      m_EditFieldRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      m_UserData: 0
+      m_IsWaitingForDelay: 0
+      m_IsRenaming: 0
+      m_OriginalEventType: 11
+      m_IsRenamingFilename: 1
+      m_ClientGUIView: {fileID: 0}
+    m_SearchString: 
+    m_CreateAssetUtility:
+      m_EndAction: {fileID: 0}
+      m_InstanceID: 0
+      m_Path: 
+      m_Icon: {fileID: 0}
+      m_ResourceFile: 
+  m_ListAreaState:
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 0
+    m_ExpandedInstanceIDs: c623000020e30200422e0000d62c0000682e0000162f00006e61000000000000ca03280046605f00
+    m_RenameOverlay:
+      m_UserAcceptedRename: 0
+      m_Name: 
+      m_OriginalName: 
+      m_EditFieldRect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      m_UserData: 0
+      m_IsWaitingForDelay: 0
+      m_IsRenaming: 0
+      m_OriginalEventType: 11
+      m_IsRenamingFilename: 1
+      m_ClientGUIView: {fileID: 7}
+    m_CreateAssetUtility:
+      m_EndAction: {fileID: 0}
+      m_InstanceID: 0
+      m_Path: 
+      m_Icon: {fileID: 0}
+      m_ResourceFile: 
+    m_NewAssetIndexInList: -1
+    m_ScrollPosition: {x: 0, y: 0}
+    m_GridSize: 16
+  m_SkipHiddenPackages: 0
+  m_DirectoriesAreaWidth: 162
+>>>>>>> origin/feature/LYJ
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -407,10 +624,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1536
     y: -161
     width: 1130
     height: 324
+=======
+    x: 0
+    y: 73.6
+    width: 894.2
+    height: 165.4
+>>>>>>> origin/feature/LYJ
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -420,8 +644,13 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
+<<<<<<< HEAD
       snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: -101, y: -26}
+=======
+      snapOffset: {x: -101, y: -26}
+      snapOffsetDelta: {x: 0, y: 0}
+>>>>>>> origin/feature/LYJ
       snapCorner: 3
       id: Tool Settings
       index: 0
@@ -431,9 +660,9 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: -141, y: 149}
-      snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 1
+      snapOffset: {x: -141, y: -171.79999}
+      snapOffsetDelta: {x: 0, y: 6.1999817}
+      snapCorner: 3
       id: unity-grid-and-snap-toolbar
       index: 1
       layout: 1
@@ -442,7 +671,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 24.8}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-scene-view-toolbar
@@ -475,8 +704,13 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
+<<<<<<< HEAD
       snapOffset: {x: 67.5, y: -103}
       snapOffsetDelta: {x: 0, y: -20}
+=======
+      snapOffset: {x: 67.5, y: -140.8}
+      snapOffsetDelta: {x: 0, y: 0}
+>>>>>>> origin/feature/LYJ
       snapCorner: 2
       id: Orientation
       index: 0
@@ -612,9 +846,15 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: -119.702805, y: 259.84308, z: -943.8817}
     speed: 2
     m_Value: {x: -119.702805, y: 259.84308, z: -943.8817}
+=======
+    m_Target: {x: -31.258911, y: 10.580802, z: 106.57731}
+    speed: 2
+    m_Value: {x: -31.258911, y: 10.580802, z: 106.57731}
+>>>>>>> origin/feature/LYJ
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -661,6 +901,7 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
+<<<<<<< HEAD
     m_Target: {x: -0.13098209, y: 0.07346542, z: -0.009929648, w: -0.98881125}
     speed: 2
     m_Value: {x: -0.13095592, y: 0.073450744, z: -0.009927664, w: -0.9886137}
@@ -668,6 +909,15 @@ MonoBehaviour:
     m_Target: 107.821144
     speed: 2
     m_Value: 107.821144
+=======
+    m_Target: {x: -0.27488717, y: 0.63135225, z: -0.25578168, w: -0.6785594}
+    speed: 2
+    m_Value: {x: -0.27488226, y: 0.631341, z: -0.25577712, w: -0.67854726}
+  m_Size:
+    m_Target: 23.577179
+    speed: 2
+    m_Value: 23.577179
+>>>>>>> origin/feature/LYJ
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -685,7 +935,11 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
+<<<<<<< HEAD
   m_LastSceneViewRotation: {x: 0.058838263, y: 0.090634204, z: -0.0053487243, w: 0.9942218}
+=======
+  m_LastSceneViewRotation: {x: -0.16811495, y: -0.8188866, z: 0.4600001, w: -0.29928374}
+>>>>>>> origin/feature/LYJ
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -714,8 +968,13 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73.6
+<<<<<<< HEAD
     width: 835
     height: 260.6
+=======
+    width: 865.4
+    height: 279
+>>>>>>> origin/feature/LYJ
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -774,6 +1033,22 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
+    - e00: 1.0032252
+      e01: 0
+      e02: 0
+      e03: -275.92908
+      e10: 0
+      e11: 1.0032252
+      e12: 0
+      e13: 19.863953
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
   m_PreviewAnimator: {fileID: 0}
   m_AnimatorController: {fileID: 9100000, guid: 202d5bb85fe9f6840849599333ed728b, type: 2}
   m_BreadCrumbs:
@@ -810,10 +1085,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 1536
     y: 184
     width: 1130
     height: 573
+=======
+    x: 0
+    y: 260
+    width: 894.2
+    height: 515.4
+>>>>>>> origin/feature/LYJ
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
@@ -848,8 +1130,13 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMin: 1
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
+<<<<<<< HEAD
     m_HSlider: 0
     m_VSlider: 0
+=======
+    m_HSlider: 1
+    m_VSlider: 1
+>>>>>>> origin/feature/LYJ
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
@@ -860,16 +1147,24 @@ MonoBehaviour:
       serializedVersion: 2
       x: 0
       y: 21
+<<<<<<< HEAD
       width: 1130
       height: 552
     m_Scale: {x: 0.51111114, y: 0.51111114}
     m_Translation: {x: 565, y: 275.99994}
+=======
+      width: 894.2
+      height: 494.40002
+    m_Scale: {x: 0.68366694, y: 0.68366665}
+    m_Translation: {x: 447.09998, y: 209.65855}
+>>>>>>> origin/feature/LYJ
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
+<<<<<<< HEAD
       x: -1105.4347
       y: -539.9999
       width: 2210.8694
@@ -877,6 +1172,15 @@ MonoBehaviour:
     m_MinimalGUI: 1
   m_defaultScale: 0.51111114
   m_LastWindowPixelSize: {x: 1130, y: 573}
+=======
+      x: -653.9734
+      y: -306.66782
+      width: 1307.9468
+      height: 723.1595
+    m_MinimalGUI: 1
+  m_defaultScale: 0.57222223
+  m_LastWindowPixelSize: {x: 1117.75, y: 644.25}
+>>>>>>> origin/feature/LYJ
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -902,14 +1206,53 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 2667
     y: -161
     width: 451
     height: 109
+=======
+    x: 895.2
+    y: 73.6
+    width: 379.60004
+    height: 248.6
+>>>>>>> origin/feature/LYJ
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
+<<<<<<< HEAD
+=======
+  m_SceneHierarchy:
+    m_TreeViewState:
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 46a70000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 94ccc9ffc4cdc9ff1ed0c9ff74dac9ff5edcc9ffc2dcc9ff16ddc9ff66ddc9ff0aefc9fffcefc9fffc1aceffdc2cceff9c2eceff4e33ceff2463d2ffe063d2ff5c64d2ff1865d2ff6c67d2ff7067d2ff7467d2ff7867d2ffb067d2ffb467d2ffc867d2ffcc67d2ff9469d2ff823bd3ffde64d7fff46cd7ff42abd8ff4eabd8ffaab7dcffcebcdcff04cfdeffbed0deffc2d0deffc4d0deff08d1deff5cd1deff3ed3deff3ad5deff84e6deff18f2e3ff920ae4ff500be4ff8018e9ff4a38e9ff367de9fff27de9ff7e81e9ff8281e9ff8681e9ff8a81e9ffc281e9ffc681e9ffda81e9ffde81e9ffa683e9ffaa83e9ff4684e9ff8c84e9ff8246eeffb64bf3ffb24ef3ff2875f8ff569bf8ff22a3f8ffa89efdffa87dfeff729afeffeca0feff68b2feff62bdfeffb0c2feff22c8feff38c8fefff8c8feffbeddfeffdec4ffff2efbfffff4fffffffea800007eac00006a050300c4230300f4da03002e610400d66104005cba5a00f0c65a0002cc5a00bcd25a000e835f004ef8630064f863006cf86300
+      m_RenameOverlay:
+        m_UserAcceptedRename: 0
+        m_Name: 
+        m_OriginalName: 
+        m_EditFieldRect:
+          serializedVersion: 2
+          x: 0
+          y: 0
+          width: 0
+          height: 0
+        m_UserData: 0
+        m_IsWaitingForDelay: 0
+        m_IsRenaming: 0
+        m_OriginalEventType: 11
+        m_IsRenamingFilename: 0
+        m_ClientGUIView: {fileID: 10}
+      m_SearchString: 
+    m_ExpandedScenes: []
+    m_CurrenRootInstanceID: 0
+    m_LockTracker:
+      m_IsLocked: 0
+    m_CurrentSortingName: TransformSorting
+  m_WindowGUID: 4c969a2b90040154d917609493e03593
+>>>>>>> origin/feature/LYJ
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1070,10 +1413,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 3120
     y: -161
     width: 335
     height: 918
+=======
+    x: 1276.8
+    y: 73.6
+    width: 258.19995
+    height: 701.8
+>>>>>>> origin/feature/LYJ
   m_ViewDataDictionary: {fileID: 0}
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default

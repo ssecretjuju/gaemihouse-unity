@@ -20,13 +20,6 @@ public class SearchInfo
 [Serializable]
 public class ImageUrl
 {
-    public int stockPredictionCode;
-    public string stockPredictionName;
-    public string stockPredictionImage1;
-}
-[System.Serializable]
-public class Data
-{
     public int status;
     public string message;
     public string data;
@@ -59,23 +52,24 @@ public class PredictBoardManager : MonoBehaviour
     }
 
     public RawImage img;
+    string ss;
 
     //검색했을 때 받는 이미지 주소값을 저장
     public void OnCompleteSearch(DownloadHandler handler)
     {
-        Data data = JsonUtility.FromJson<Data>(handler.text);
-        ImageUrl url = JsonUtility.FromJson<ImageUrl>(data.data);
-        print(handler);
-        Debug.Log(url.stockPredictionImage1);
-        //print(imgUrl.stockPredictionImage1);
-        StartCoroutine(GetTexture(img, url.stockPredictionImage1));
+        ImageUrl url = JsonUtility.FromJson<ImageUrl>(handler.text);
+        print(url.data);
+
+        ss = url.data;
+        
+        StartCoroutine(GetTexture());
+
     }
 
     //저장된 이미지 주소를 텍스처화해서 띄운다.
-
-    IEnumerator GetTexture(RawImage img, string url)
+    IEnumerator GetTexture()
     {
-        UnityWebRequest www = UnityWebRequestTexture.GetTexture("url");
+        UnityWebRequest www = UnityWebRequestTexture.GetTexture(ss);
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)
@@ -88,3 +82,6 @@ public class PredictBoardManager : MonoBehaviour
         }
     }
 }
+
+
+

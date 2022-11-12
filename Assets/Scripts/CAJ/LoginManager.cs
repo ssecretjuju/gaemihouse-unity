@@ -39,20 +39,7 @@ public class LoginManager : MonoBehaviour
     //로그인
     public InputField id;
     public InputField password;
-
-    //UI
-    public GameObject LoginFail;
-
-    //회원가입
-    public InputField memberId;
-    public InputField memberPassword;
-    public InputField memeberName;
-    public InputField memberNickname;
-    public InputField accountFirm;
-    public InputField accountNum;
-    public InputField appKey;
-    public InputField appSecret;
-
+    
     //로그인
     public void OnClickLogin()
     {
@@ -99,24 +86,24 @@ public class LoginManager : MonoBehaviour
 
     public void OnClickSave()
     {
-        UserInfo data = new UserInfo();
-        data.memberId = memberId.text;
-        data.memberPassword = password.text;
-        data.memberName = memeberName.text;
-        data.memberNickname = memberNickname.text;
-
-        HttpRequester requester = new HttpRequester();
-        requester.url = "http://3.34.133.115:8080/auth/signup";
-        requester.requestType = RequestType.POST;
-
-        requester.postData = JsonUtility.ToJson(data, true);
-        print(requester.postData);
-
-        
-        requester.onComplete = OnCilckDownload;
-        
-        
-        HttpManager.instance.SendRequest(requester);
+        // UserInfo data = new UserInfo();
+        // data.memberId = memberId.text;
+        // data.memberPassword = password.text;
+        // data.memberName = memeberName.text;
+        // data.memberNickname = memberNickname.text;
+        //
+        // HttpRequester requester = new HttpRequester();
+        // requester.url = "http://3.34.133.115:8080/auth/signup";
+        // requester.requestType = RequestType.POST;
+        //
+        // requester.postData = JsonUtility.ToJson(data, true);
+        // print(requester.postData);
+        //
+        //
+        // requester.onComplete = OnCilckDownload;
+        //
+        //
+        // HttpManager.instance.SendRequest(requester);
     }
     
     public void OnCilckDownload(DownloadHandler handler)
