@@ -13,7 +13,7 @@ public class PlayerInfoWindow : MonoBehaviour
 {
     public GameObject DoubleClick;
     public GameObject playerInfoWindow;
-    public string memberName;
+    public Text nickName;
     public Text carrerText;
     public Text yieldText;
 
@@ -31,12 +31,15 @@ public class PlayerInfoWindow : MonoBehaviour
 
     public void OnPlayerWindow()
     {
-        //만약 팝업창이 활성화된다면
+        //팝업창이 활성화
         playerInfoWindow.SetActive(true);
+        print("켜졋띠");
         print("data :" + LoginManager.Instance.playerData.yield);
-
+        
         carrerText.text = LoginManager.Instance.playerData.stockCareer;
         yieldText.text = LoginManager.Instance.playerData.yield;
+        nickName.text = LoginManager.Instance.playerData.memberNickname;
+
         //회원정보에 저장되어있는 경력, 수익률 텍스트 동기화
         //LoginManager.Instance.playerData.yield = yieldText.text;
 
