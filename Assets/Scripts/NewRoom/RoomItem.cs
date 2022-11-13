@@ -42,7 +42,7 @@ public class RoomItem : MonoBehaviour
         string sreturn = info.CustomProperties["desc"].ToString();
         print("string return : " + sreturn);
 
-        roomDesc.text = sreturn + "  %";
+        roomDesc.text = sreturn + " %";
         //roomDesc.text = (string)info.CustomProperties["desc"];
         //roomDesc.text = (int)info.CustomProperties["desc"];
 

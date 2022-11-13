@@ -20,7 +20,7 @@ public class CAJ_NetworkManager : MonoBehaviour
 
     IEnumerator GetText()
     {
-        UnityWebRequest www = UnityWebRequest.Get("http://3.34.133.115:8080/world/insert");
+        UnityWebRequest www = UnityWebRequest.Get("http://3.34.133.115:8080/member/code/1");
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)
@@ -36,4 +36,6 @@ public class CAJ_NetworkManager : MonoBehaviour
             byte[] results = www.downloadHandler.data;
         }
     }
+    
+    
 }

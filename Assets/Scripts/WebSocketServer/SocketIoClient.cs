@@ -6,13 +6,10 @@ using Photon.Pun;
 using UnityEngine.EventSystems;
 
 using System.Text;
+using Unity.VisualScripting;
 
 public class SocketIoClient : MonoBehaviourPun
 {
-    private ScrollRect scroll_rect;
-    private string temp;
-    public Text chatLog;
-    
     //ChatItme 공장
     public GameObject chatItemFactory;
     //InputChat 
@@ -49,9 +46,21 @@ public class SocketIoClient : MonoBehaviourPun
         {
             Debug.Log($"연결 종료");
         };
+        
+        //InputChat에서 엔터를 눌렀을 때 호출되는 함수
+        inputChat.onSubmit.AddListener(OnSubmit);
     }
-    
 
+    void OnSubmit(string s)
+    {
+        //1. 글을 쓰다가 엔터를 치면
+        //2. ChatItem을 하나 만든다. (부모 : ScrollView - Content)
+        GameObject item = Instantiate(chatItemFactory, trContent);
+        
+        //3. text 컴포넌트 가져와서 inputField의 내용을 세팅
+        Text t = item.GetComponent<Text>();
+        t.text = inputChat.text;
+    }
     
     void Update()
     {
