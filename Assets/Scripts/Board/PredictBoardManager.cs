@@ -27,7 +27,15 @@ public class ImageUrl
 
 public class PredictBoardManager : MonoBehaviour
 {
+    public GameObject predictCanvas;
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            predictCanvas.SetActive(true);
+        }
+    }
     public InputField searchText;
 
     //버튼을 눌렀을 때 검색한 텍스트를 저장하고 싶다.

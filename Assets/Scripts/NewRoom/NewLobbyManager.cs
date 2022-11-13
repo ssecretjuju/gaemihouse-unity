@@ -24,7 +24,7 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
     //방이름 InputField
     public InputField inputRoomName;
     //수익률 InputField
-    public InputField inputReturn;
+    //public InputField inputReturn;
     //총인원 InputField
     public InputField inputMaxPlayer;
     
@@ -107,7 +107,8 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
         ExitGames.Client.Photon.Hashtable hash = new ExitGames.Client.Photon.Hashtable();
         //hash["desc"] = "여긴 초보방이다! " + Random.Range(1, 1000);
         //hash["desc"] = int.Parse(inputReturn.text);
-        hash["desc"] = float.Parse(inputReturn.text);
+        //hash["desc"] = float.Parse(inputReturn.text);
+        hash["desc"] = 0;
         hash["map_id"] = Random.Range(0, mapThumbs.Length);
         hash["room_name"] = inputRoomName.text;
         
@@ -123,7 +124,7 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
         print(roomOptions);
                 
         // 방 생성 요청 (해당 옵션을 이용해서)
-        PhotonNetwork.CreateRoom(inputRoomName.text + inputReturn.text, roomOptions);
+        PhotonNetwork.CreateRoom(inputRoomName.text, roomOptions);
     }
 
     //방이 생성되면 호출 되는 함수

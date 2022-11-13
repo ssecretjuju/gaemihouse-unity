@@ -19,7 +19,7 @@ public class CAJ_GameManager : MonoBehaviourPunCallbacks
         
         //플레이어를 생성한다.
         //PhotonNetwork.Instantiate("Player", spawnPos[idx], Quaternion.identity);
-        PhotonNetwork.Instantiate("CAJ_Player", new Vector3(-4, 1, -8), Quaternion.identity);
+        PhotonNetwork.Instantiate("AntPlayer", new Vector3(-4, 1, -8), Quaternion.identity);
     }
 
     // Update is called once per frame

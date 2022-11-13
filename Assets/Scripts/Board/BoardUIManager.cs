@@ -18,7 +18,7 @@ public class BoardUIManager : MonoBehaviour
     public Button cancelBtn;
     public GameObject boardItem;
     public Transform boardItemParent;
-    public Canvas boardCanvas;
+    public GameObject boardCanvas;
 
 
 
@@ -28,9 +28,10 @@ public class BoardUIManager : MonoBehaviour
     public void OnClickWriteBtn()
     {
         writeWindow.SetActive(true);
+        boardCanvas.SetActive(false);
 
         //다시 눌렀을 때 초기화
-        if(inputTitle.text != null && inputContent.text != null)
+        if (inputTitle.text != null && inputContent.text != null)
         {
             inputTitle.text = "";
             inputContent.text = "";
@@ -43,6 +44,8 @@ public class BoardUIManager : MonoBehaviour
     //글이 10개가 넘어가면 다음페이지(1페이지,2페이지..)가 형성된다.(보류)
     public void OnClickOkBtn()
     {
+        boardCanvas.SetActive(true);
+
         GameObject Item = Instantiate(boardItem, boardItemParent);
 
         //write창의 inputfield 내용과 prefab inputfield 내용을 동기화한다.
@@ -56,6 +59,7 @@ public class BoardUIManager : MonoBehaviour
         if (inputTitle.text != null && inputContent.text != null)
         {
             writeWindow.SetActive(false);
+            
         }
 
     }
@@ -65,22 +69,26 @@ public class BoardUIManager : MonoBehaviour
     public void OnClickBackBtn()
     {
         writeWindow.SetActive(false);
+        boardCanvas.SetActive(true);
     }
 
     //x버튼 누르면 글 게시판이 닫힌다
 
     public void OnEscBtn()
     {
-        boardCanvas.enabled = false;
+        boardCanvas.SetActive(false);
     }
     void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            boardCanvas.SetActive(true);
+        }
     }
 }
