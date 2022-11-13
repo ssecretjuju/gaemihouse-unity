@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/CAJ/CAJ_ConnectionScene.unity
     guid: 45c848591d01879498dcf957716a1776
   - enabled: 1
+    path: Assets/Scenes/CAJ/CAJ_Login.unity
+    guid: e14ac72e41c1b84409714bbc9906adc6
+  - enabled: 1
     path: Assets/Scenes/CAJ/CAJ_LobbyScene.unity
     guid: c87003765f440a04681663547d6c4260
   - enabled: 1

@@ -12,8 +12,8 @@ using UnityEngine.Networking;
 public class PlayerInfoWindow : MonoBehaviour
 {
     public GameObject DoubleClick;
-    public Canvas playerInfoWindow;
-
+    public GameObject playerInfoWindow;
+    public string memberName;
     public Text carrerText;
     public Text yieldText;
 
@@ -26,16 +26,27 @@ public class PlayerInfoWindow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //만약 팝업창이 활성화된다면
-        if(GameObject.Find("PlayerInfoWindow").GetComponent<DoubleClick>().enabled == true)
-        {
-            //회원정보에 저장되어있는 경력, 수익률 텍스트 동기화
 
-        }
     }
 
+    public void OnPlayerWindow()
+    {
+        //만약 팝업창이 활성화된다면
+        playerInfoWindow.SetActive(true);
+        print("data :" + LoginManager.Instance.playerData.yield);
+
+        carrerText.text = LoginManager.Instance.playerData.stockCareer;
+        yieldText.text = LoginManager.Instance.playerData.yield;
+        //회원정보에 저장되어있는 경력, 수익률 텍스트 동기화
+        //LoginManager.Instance.playerData.yield = yieldText.text;
+
+
+
+
+
+    }
     public void OnEscBtn()
     {
-        playerInfoWindow.enabled = false;
+        playerInfoWindow.SetActive(false);
     }
 }
