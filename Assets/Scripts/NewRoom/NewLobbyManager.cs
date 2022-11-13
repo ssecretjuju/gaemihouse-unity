@@ -19,6 +19,7 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
     public GameObject roomItemFactory2;
     public GameObject roomItemFactory3;
     public GameObject roomItemFactory4;
+    public GameObject roomItemFactory5;
     
     //방이름 InputField
     public InputField inputRoomName;
@@ -42,6 +43,9 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
     //public Vector3[] spawnPos;
     public List<Transform> spawnPos;
 
+    //룸 종류 리스트
+    //public List<GameObject> RoomItemFactory;
+    
 
     //map Thumbnail
     public GameObject[] mapThumbs;
@@ -225,7 +229,7 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
             //for (int i = 0; i < 10; i++)
             {
                 // 1. 수익률 < 0
-                if (desc < 0)
+                if (desc <= -10)
                 {
                     //for (roomCache.ContainsKey(roomList[i]))
                     //룸아이템 만든다.
@@ -238,7 +242,7 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
                     item.OnClickAction = JoinRoom;
                 }
                 // 2. 수익률 == 0
-                else if (desc == 0)
+                else if (desc > -10 && desc <=-3)
                 {
                     //룸아이템 만든다.
                     GameObject go = Instantiate(roomItemFactory2, spawnPos[count]);
@@ -247,7 +251,7 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
                     item.SetInfo(info);
                 }
                 // 3. 0 < 수익률 < 100
-                else if (desc > 0 && desc < 100)
+                else if (desc > -3 && desc <= 3)
                 {
                     //룸아이템 만든다.
                     GameObject go = Instantiate(roomItemFactory3, spawnPos[count]);
@@ -256,10 +260,19 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
                     item.SetInfo(info);
                 }
                 // 4. 수익률 > 100
-                else
+                else if (desc > 3 && desc <= 20)
                 {
                     //룸아이템 만든다.
                     GameObject go = Instantiate(roomItemFactory4, spawnPos[count]);
+                    //룸아이템 정보를 셋팅(방제목(0/0))
+                    RoomItem item = go.GetComponent<RoomItem>();
+                    item.SetInfo(info);
+                }
+                // 5. 수익률 > 20
+                else
+                {
+                    //룸아이템 만든다.
+                    GameObject go = Instantiate(roomItemFactory5, spawnPos[count]);
                     //룸아이템 정보를 셋팅(방제목(0/0))
                     RoomItem item = go.GetComponent<RoomItem>();
                     item.SetInfo(info);

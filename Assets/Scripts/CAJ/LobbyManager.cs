@@ -6,7 +6,7 @@ using Photon.Realtime;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-public class LobbyManager : MonoBehaviourPunCallbacks
+ public class LobbyManager : MonoBehaviourPunCallbacks
 {
     //방이름 InputField
     public InputField inputRoomName;
