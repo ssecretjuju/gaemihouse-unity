@@ -9,7 +9,7 @@ public class CAJ_Prefab : MonoBehaviour
 {
     private GameObject prefab_obj;
 
-    public ObjectInfo objInfo = new ObjectInfo();
+    public ObjectInfo1 objInfo = new ObjectInfo1();
     
     // Start is called before the first frame update
     void Start()
@@ -56,12 +56,12 @@ public class CAJ_Prefab : MonoBehaviour
         print(jsonData);
         
         //jsonData -> ObjectInfo
-        ObjectInfo info = JsonUtility.FromJson<ObjectInfo>(jsonData);
+        ObjectInfo1 info = JsonUtility.FromJson<ObjectInfo1>(jsonData);
         //오브젝트 생성
         CreateObject(info);
     }
 
-    void CreateObject(ObjectInfo info)
+    void CreateObject(ObjectInfo1 info)
     {
         //GameObject cloneobj = GameObject.Instantiate("LobbyScene_Prefab");
         prefab_obj = Resources.Load("LobbyScene_Prefab") as GameObject;
@@ -80,7 +80,7 @@ public class CAJ_Prefab : MonoBehaviour
 }
 
 [Serializable]
-public class ObjectInfo
+public class ObjectInfo1
 {
     //위치, 크기, 각도를 담는 클래스 틀
     //public int type;

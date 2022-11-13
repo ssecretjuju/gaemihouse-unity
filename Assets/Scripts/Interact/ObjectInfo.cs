@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PressF : MonoBehaviour
+public class ObjectInfo : MonoBehaviour
 {
-    ObjectInfo objinfo;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,4 +16,3 @@ public class PressF : MonoBehaviour
         
     }
 }
-
