@@ -7,7 +7,7 @@ public class DoubleClick : MonoBehaviour
     private float firstClickTime, timeBetweenClicks;
     private bool coroutineAllowed;
     private int clickCounter;
-    public Canvas playerInfoWindow;
+    public GameObject playerInfoWindow;
 
 
     // Start is called before the first frame update
@@ -17,7 +17,7 @@ public class DoubleClick : MonoBehaviour
         timeBetweenClicks = 0.2f;
         clickCounter = 0;
         coroutineAllowed = true;
-        playerInfoWindow.enabled = false;
+        
     }
 
     // Update is called once per frame
@@ -41,7 +41,7 @@ public class DoubleClick : MonoBehaviour
             if(clickCounter == 2)
             {
                 //팝업창 활성화
-                playerInfoWindow.enabled = true;
+                playerInfoWindow.SetActive(true);
                 Debug.Log("Double Click");
                 break;
             }

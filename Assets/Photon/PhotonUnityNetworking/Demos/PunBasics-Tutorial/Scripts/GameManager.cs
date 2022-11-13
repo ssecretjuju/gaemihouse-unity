@@ -28,7 +28,7 @@ namespace Photon.Pun.Demo.PunBasics
 
 		#region Public Fields
 
-		static public GameManager Instance;
+		public static GameManager Instance;
 
 		#endregion
 

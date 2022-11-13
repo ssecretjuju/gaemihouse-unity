@@ -53,7 +53,7 @@ public class BoardUIManager : MonoBehaviour
         content.text = inputContent.text;
 
         //만약 내용을 입력하고 ok버튼을 클릭하면 글쓰기창이 닫힌다.
-        if(inputTitle.text != null && inputContent.text != null)
+        if (inputTitle.text != null && inputContent.text != null)
         {
             writeWindow.SetActive(false);
         }
