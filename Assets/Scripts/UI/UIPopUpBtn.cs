@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class YesBtn : MonoBehaviour
+public class UiPopUpBtn : MonoBehaviour
 {
     public GameObject FirstUI;
 
