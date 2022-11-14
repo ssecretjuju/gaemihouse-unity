@@ -89,6 +89,7 @@ public class RoomItem : MonoBehaviour
             //onClickAction 실행
             //onClickAction(name);
             OnClickAction(name);
+            print("OnClickAction 실행");
         }
 
         ////1. InputRoomName 게임오브젝 찾자

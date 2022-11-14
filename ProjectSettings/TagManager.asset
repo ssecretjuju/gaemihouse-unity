@@ -11,6 +11,7 @@ TagManager:
   - LevelCrossing
   - Train
   - Human
+  - House
   layers:
   - Default
   - TransparentFX

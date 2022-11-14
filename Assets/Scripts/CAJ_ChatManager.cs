@@ -14,9 +14,15 @@ public class CAJ_ChatManager : MonoBehaviourPun
     //ScrollView의 Content transform
     public RectTransform trContent;
 
+    public GameObject chatCanvas;
+
     //나의 닉네임 색깔
     Color nickColor;
 
+    public void OnChatBtn()
+    {
+        chatCanvas.SetActive(true);
+    }
     void Start()
     {
         //inputChat에서 엔터를 눌렀을 때 호출되는 함수 등록

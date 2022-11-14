@@ -256,6 +256,8 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
                     //룸아이템 정보를 셋팅(방제목(0/0))
                     RoomItem item = go.GetComponent<RoomItem>();
                     item.SetInfo(info);
+
+                    item.OnClickAction = JoinRoom;
                 }
                 // 3. 0 < 수익률 < 100
                 else if (desc > -3 && desc <= 3)
@@ -265,6 +267,8 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
                     //룸아이템 정보를 셋팅(방제목(0/0))
                     RoomItem item = go.GetComponent<RoomItem>();
                     item.SetInfo(info);
+
+                    item.OnClickAction = JoinRoom;
                 }
                 // 4. 수익률 > 100
                 else if (desc > 3 && desc <= 20)
@@ -274,6 +278,9 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
                     //룸아이템 정보를 셋팅(방제목(0/0))
                     RoomItem item = go.GetComponent<RoomItem>();
                     item.SetInfo(info);
+
+                    item.OnClickAction = JoinRoom;
+                    print("방 클릭");
                 }
                 // 5. 수익률 > 20
                 else
@@ -283,6 +290,8 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
                     //룸아이템 정보를 셋팅(방제목(0/0))
                     RoomItem item = go.GetComponent<RoomItem>();
                     item.SetInfo(info);
+
+                    item.OnClickAction = JoinRoom;
                 }
 
             }
