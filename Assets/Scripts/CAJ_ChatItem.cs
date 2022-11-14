@@ -9,6 +9,8 @@ public class CAJ_ChatItem : MonoBehaviour
     XRText chatText;
     //RectTransform
     RectTransform rt;
+    public Text nickname;
+
     void Awake()
     {
         chatText = GetComponent<XRText>();
