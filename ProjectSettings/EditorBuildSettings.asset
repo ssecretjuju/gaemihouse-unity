@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CAJ/CAJ_Login.unity
     guid: 3aa9a7658fa8bdb418f423efe300c05f
   - enabled: 1

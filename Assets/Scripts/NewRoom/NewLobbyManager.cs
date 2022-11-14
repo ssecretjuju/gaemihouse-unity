@@ -226,8 +226,8 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
         int count = 0;
         foreach(RoomInfo info in roomCache.Values)
         {
-            //float desc = info.CustomProperties["desc"];
-            float desc = 0;
+            desc = info.CustomProperties["desc"];
+            //float desc = 0;
             
             //GameObject go = GameObject.Instantiate()
             //for (int i = 0; i < 10; i++)

@@ -23,6 +23,12 @@ public class DoubleClick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+
+    public void DoubleClick12()
+    {
         if (Input.GetMouseButtonUp(0))
             clickCounter += 1;
 
@@ -32,7 +38,6 @@ public class DoubleClick : MonoBehaviour
             StartCoroutine(DoubleClickDetection());
         }
     }
-
     private IEnumerator DoubleClickDetection()
     {
         coroutineAllowed = false;
