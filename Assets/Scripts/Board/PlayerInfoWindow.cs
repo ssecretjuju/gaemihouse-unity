@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Text;
 using UnityEngine.Networking;
+using System;
 
 //다른 플레이어를 클릭하면 팝업 윈도우가 활성화된다 -> DoublcClick 스크립트에서 함
 //팝업 윈도우에 담을 플레이어 정보: 주식경력, 평균수익률
@@ -38,7 +39,11 @@ public class PlayerInfoWindow : MonoBehaviour
         print("data :" + LoginManager.Instance.playerData.yield);
         
         carrerText.text = LoginManager.Instance.playerData.stockCareer;
-        yieldText.text = LoginManager.Instance.playerData.yield;
+
+        float yield = float.Parse(LoginManager.Instance.playerData.yield);
+        print(yield);
+        //yield = Math.Round(yield, 3);
+        yieldText.text = yield + "%";
         nickName.text = LoginManager.Instance.playerData.memberNickname;
 
         //회원정보에 저장되어있는 경력, 수익률 텍스트 동기화
