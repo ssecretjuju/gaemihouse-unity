@@ -307,6 +307,8 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
     }
 
 
+
+
     //이전 Thumbnail id
     int prevMapId = -1;
     void SetRoomName(string room, int map_id, float desc)

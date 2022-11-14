@@ -27,7 +27,7 @@ public class Node : MonoBehaviour
     // public Text name;
 
     [Header("IP입력_ PORT : 3333")]
-    public string IP = "ws://172.16.17.137:3333";
+    public string IP = "ws://3.34.133.115:8001";
     
     void Start()
     {
@@ -137,7 +137,7 @@ public class Node : MonoBehaviour
             // input.ActivateInputField();
             //
             //
-            ws.Send(string.Format(input.text));
+            ws.Send("NickName : " + string.Format(input.text));
             chatLog.text += input.text + "\n";
 
             input.text = "";

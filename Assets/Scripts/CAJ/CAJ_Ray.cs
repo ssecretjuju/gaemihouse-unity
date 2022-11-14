@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering;
 
 public class CAJ_Ray : MonoBehaviour
 {
@@ -14,5 +15,16 @@ public class CAJ_Ray : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void Ray()
+    {
+        Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+
+        }
     }
 }
