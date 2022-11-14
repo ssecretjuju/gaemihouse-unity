@@ -36,6 +36,13 @@ public class PredictBoardManager : MonoBehaviour
             predictCanvas.SetActive(true);
         }
     }
+
+    public void OnCancelBtn()
+    {
+        predictCanvas.SetActive(false);
+    }
+
+
     public InputField searchText;
 
     //버튼을 눌렀을 때 검색한 텍스트를 저장하고 싶다.
