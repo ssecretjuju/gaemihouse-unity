@@ -26,7 +26,4 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/LYJ/LYJ_RoomScene.unity
     guid: dfdd3acff2a2d4b4687940e890d6fbc6
-  - enabled: 0
-    path: Assets/Scenes/CAJ/Before_LobbyScene.unity
-    guid: 5485b0245d5132a49bbeb95ebbd82e27
   m_configObjects: {}

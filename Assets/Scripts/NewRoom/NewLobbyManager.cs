@@ -15,6 +15,8 @@ public class roomPostInfo
 
 public class NewLobbyManager : MonoBehaviourPunCallbacks
 {
+    public static NewLobbyManager Instance;
+    
     public GameObject roomItemFactory1;
     public GameObject roomItemFactory2;
     public GameObject roomItemFactory3;
@@ -24,7 +26,7 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
     //방이름 InputField
     public InputField inputRoomName;
     //수익률 InputField
-    //public InputField inputReturn;
+    public InputField inputReturn;
     //총인원 InputField
     public InputField inputMaxPlayer;
     
@@ -107,13 +109,13 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
         ExitGames.Client.Photon.Hashtable hash = new ExitGames.Client.Photon.Hashtable();
         //hash["desc"] = "여긴 초보방이다! " + Random.Range(1, 1000);
         //hash["desc"] = int.Parse(inputReturn.text);
-        //hash["desc"] = float.Parse(inputReturn.text);
-        hash["desc"] = 0;
+        hash["desc"] = float.Parse(inputReturn.text);
+        //hash["desc"] = 0;
         hash["map_id"] = Random.Range(0, mapThumbs.Length);
         hash["room_name"] = inputRoomName.text;
         
         //hash["password"] = float.Parse(inputReturn.text);
-        roomOptions.CustomRoomProperties = hash;
+        //roomOptions.CustomRoomProperties = hash;
         // custom 정보를 공개하는 설정
         // roomOptions.CustomRoomPropertiesForLobby = new string[] {
         //     "desc", "map_id", "room_name", "password"
@@ -224,7 +226,8 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
         int count = 0;
         foreach(RoomInfo info in roomCache.Values)
         {
-            float desc = (float)(info.CustomProperties["desc"]);
+            //float desc = info.CustomProperties["desc"];
+            float desc = 0;
             
             //GameObject go = GameObject.Instantiate()
             //for (int i = 0; i < 10; i++)
