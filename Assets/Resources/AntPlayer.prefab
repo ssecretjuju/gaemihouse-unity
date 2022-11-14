@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2476883763635138459}
   - component: {fileID: 7393465064898467477}
   - component: {fileID: 3950087598394466055}
+  - component: {fileID: 3632456208308914291}
   m_Layer: 0
   m_Name: AntPlayer
   m_TagString: Untagged
@@ -49,6 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c45977537d2e73045a0af97926cdb760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nickName: {fileID: 0}
   moveSpeed: 15
   jumpPower: 5
   lerpSpeed: 100
@@ -112,6 +114,26 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
+--- !u!95 &3632456208308914291
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2476883763635138462}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 98242995e7f28e5449eb2fbd5e41b13e, type: 3}
+  m_Controller: {fileID: 9100000, guid: 202d5bb85fe9f6840849599333ed728b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5131041941318291078
 GameObject:
   m_ObjectHideFlags: 0

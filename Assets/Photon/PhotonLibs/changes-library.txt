@@ -446,7 +446,14 @@ LoadBalancing:
 *** Version 4.1.1.18 (19. December 2017 - rev4540)
     Fixed: Exception in QueueOutgoingAcknowledgement() with a lock(). This avoids threading issues between Send- and Receive-thread. This was an issue mostly seen in Photon Voice, which uses the library multi-threaded.
     Changed: Network Simulation now only stores the actual data of messages, instead of storing an action/delegate.
-    Note: The delegate IL code for Network Simulation was instantiating a "display class" instance and caused GC garbage, even if no simulation was running.
+    Note: The delegate IL code for Network Simulation was 
+    
+    
+    
+    
+    
+    
+    ating a "display class" instance and caused GC garbage, even if no simulation was running.
 LoadBalancing:
     Changed: FriendInfo.Name is now "UserId", which is up to date with it's usage.
     Changed: CheckUserOnJoin is now set by default. The RoomOptions.CheckUserOnJoin got removed.

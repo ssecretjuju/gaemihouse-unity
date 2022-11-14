@@ -24,7 +24,18 @@ public class LobbySetting : MonoBehaviour
     void Start()
     {
         // prefab_obj = Resources.Load("LobbyScene_Prefab") as GameObject;
-        // GameObject obj = MonoBehaviour.Instantiate(prefab_obj);
+        // GameObject obj = MonoBehaviour.
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        //
+        // ate(prefab_obj);
         // obj.name = "clone";
         //
         // Vector3 pos = new Vector3(5, 2, 3);

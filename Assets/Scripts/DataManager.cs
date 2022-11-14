@@ -26,7 +26,14 @@ public class DataManager : MonoBehaviour
     // void Start()
     // {
     //     GameObject obj = 
-    //         Instantiate("LobbyScene_Prefab");
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    // ate("LobbyScene_Prefab");
     //     Instantiate("LobbyScene_Prefab", new Vector3(0, 0, 0), Quaternion.identity);
     // }
 

@@ -6,12 +6,17 @@ using UnityEngine.UI;
 
 public class CAJ_PlayerMove : MonoBehaviourPun
 {
+    //닉네임 UI
+    public Text nickName;
+
+    //PlayerState 컴포넌트
+
 
     //public PhotonView PV;
     private Transform tr;
 
     //속력
-    public float moveSpeed = 5;
+    public float moveSpeed = 30;
     //characterController 담을 변수
     CharacterController cc;
 
@@ -36,14 +41,18 @@ public class CAJ_PlayerMove : MonoBehaviourPun
 
     public enum State
     {
-        Idle,
-        Walk,
-        Sit,
-
+        IDLE,
+        MOVE
     }
+
+    //현재 상태
+    public State currState;
+    
+
     public State m_State;
     Animator anim;
 
+    PlayerState playerState;
 
     //이모티콘
 
@@ -78,23 +87,52 @@ KeyCode.Alpha9,
         //}
     }
 
+    public void ChangeState(State s)
+    {
+        if (currState == s) return;
+
+        currState = s;
+
+        switch (currState)
+        {
+            case State.IDLE:
+                anim.SetTrigger("Idle");
+                break;
+            case State.MOVE:
+                anim.SetTrigger("Move");
+                break;
+        }
+    }
+
+
     // Update is called once per frame
     void Update()
     {
-        //1. WSAD의 신호를 받자.
+        if (photonView.IsMine)
+        {
+            //1. WSAD의 신호를 받자.
         float h = Input.GetAxisRaw("Horizontal"); //A : -1, D : 1, 누르지 않으면 : 0
         float v = Input.GetAxisRaw("Vertical");
 
-        if (_input == Vector3.zero)
+        if (h != 0 || v != 0)
         {
-            anim.SetBool("Walking", false);
-            m_State = State.Idle;
+            playerState.ChangeState(PlayerState.State.MOVE);
         }
         else
         {
-            anim.SetBool("Walking", true);
-            m_State = State.Walk;
+            playerState.ChangeState(PlayerState.State.IDLE);
         }
+
+        //if (_input == Vector3.zero)
+        //{
+        //    anim.SetBool("Idle", false);
+        //    m_State = State.IDLE;
+        //}
+        //else
+        //{
+        //    anim.SetBool("Move", true);
+        //    m_State = State.MOVE;
+        //}
 
         //2. 받은 신호로 방향을 만든다.
         Vector3 dir = transform.forward * v + transform.right * h; // new Vector3(h, 0, v);
@@ -137,5 +175,36 @@ KeyCode.Alpha9,
                 // imo.transform.parent = gameObject.transform;
             }
         }
+    }
+}
+
+
+
+    [PunRPC]
+    public void RpcChangeState(State s)
+    {
+        //현재 상태가 s와 같다면 함수를 나간다.
+        if (currState == s) return;
+
+        //현재 상태를 s로 셋팅
+        currState = s;
+
+        //s에 따른 animation 플레이
+        switch (s)
+        {
+            case State.IDLE:
+                anim.SetTrigger("Idle");
+                break;
+            case State.MOVE:
+                anim.SetTrigger("Move");
+                break;
+            
+        }
+    }
+
+    [PunRPC]
+    public void RpcSetTrigger(string trigger)
+    {
+        anim.SetTrigger(trigger);
     }
 }
