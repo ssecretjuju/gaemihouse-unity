@@ -29,6 +29,7 @@ public class CAJ_ChatManager : MonoBehaviourPun
         inputChat.onSubmit.AddListener(OnSubmit);
         //커서를 안보이게!
         Cursor.visible = false;
+        inputChat.text = "";
 
         nickColor = new Color(
             Random.Range(0.0f, 1.0f),
