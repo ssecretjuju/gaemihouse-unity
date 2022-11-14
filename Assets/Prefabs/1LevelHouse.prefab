@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6313882958106299407}
   - component: {fileID: 6313882958106299404}
   - component: {fileID: 6313882958106299408}
+  - component: {fileID: 9070433897881732144}
   m_Layer: 5
   m_Name: 1LevelHouse
   m_TagString: Untagged
@@ -118,6 +119,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomInfo: {fileID: 6313882958689689529}
   roomDesc: {fileID: 6313882958346582627}
+--- !u!65 &9070433897881732144
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6313882958106299405}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 23.31, y: 20.3, z: 25.09}
+  m_Center: {x: 0, y: 9.3, z: 0}
 --- !u!1 &6313882958346582625
 GameObject:
   m_ObjectHideFlags: 0

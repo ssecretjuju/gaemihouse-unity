@@ -17,6 +17,8 @@ public class roomPostInfo
 
 public class NewLobbyManager : MonoBehaviourPunCallbacks
 {
+    public Camera cam;
+
     public GameObject roomItemFactory1;
     public GameObject roomItemFactory2;
     public GameObject roomItemFactory3;
@@ -51,10 +53,47 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
 
     //map Thumbnail
     public GameObject[] mapThumbs;
-    
+
+
+    public void ClickRay()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                Debug.Log(hit.transform.gameObject);
+                string clickRoomName = hit.collider.gameObject.name.ToString();
+                Debug.Log(clickRoomName);
+                if (hit.collider.tag == "House")
+                {
+                    JoinRoom(clickRoomName);
+                }
+                else
+                {
+                    return;
+                }
+
+            }
+
+        }
+    }
+
+    public void ClickRoom()
+    {
+
+    }
+
+    void Update()
+    {
+        ClickRay();
+        ClickRoom();
+    }
 
     void Start()
-    {        
+    {
+        //cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         // 방이름(InputField)이 변경될때 호출되는 함수 등록
         inputRoomName.onValueChanged.AddListener(OnRoomNameValueChanged);
         // 총인원(InputField)이 변경될때 호출되는 함수 등록
@@ -107,12 +146,13 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
         roomOptions.IsVisible = true;
         // custom 정보를 셋팅
         ExitGames.Client.Photon.Hashtable hash = new ExitGames.Client.Photon.Hashtable();
-        //hash["desc"] = "여긴 초보방이다! " + Random.Range(1, 1000);
         //hash["desc"] = int.Parse(inputReturn.text);
         //hash["desc"] = float.Parse(inputReturn.text);
         
         hash["map_id"] = Random.Range(0, mapThumbs.Length);
         hash["room_name"] = inputRoomName.text;
+        print("인풋 이름: "+ inputRoomName.text);
+        print("방이름:" + hash["room_name"]);
         //inputReturn = 0;
         //hash["desc"] = float.Parse(inputReturn.text);
         hash["desc"] = 10.5f;
@@ -129,7 +169,9 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
         print(roomOptions);
                 
         // 방 생성 요청 (해당 옵션을 이용해서)
+        print(2222222);
         PhotonNetwork.CreateRoom(inputRoomName.text, roomOptions);
+        //print(PhotonNetwork.CurrentRoom.Name);
     }
 
     //방이 생성되면 호출 되는 함수
@@ -149,7 +191,7 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
     //방 참가 요청 (방 이름으로)
     public void JoinRoom(string inputRoomname)
     {
-        PhotonNetwork.JoinRoom(inputRoomName.text);
+        PhotonNetwork.JoinRoom(inputRoomname);
     }
 
     //방 참가가 완료 되었을 때 호출 되는 함수
@@ -245,7 +287,7 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
                     RoomItem item = go.GetComponent<RoomItem>();
                     item.SetInfo(info);
                 
-                    //roomItem 버튼이 클릭되면 호출되는 함수 등록
+                    //roomItem 버튼이 클릭되면 호출되는 함수
                     item.OnClickAction = JoinRoom;
                 }
                 // 2. 수익률 == 0
@@ -279,8 +321,8 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
                     RoomItem item = go.GetComponent<RoomItem>();
                     item.SetInfo(info);
 
-                    item.OnClickAction = JoinRoom;
-                    print("방 클릭");
+                    item.OnClickAction = JoinRoom; 
+                    //print("방 클릭");
                 }
                 // 5. 수익률 > 20
                 else
@@ -311,7 +353,8 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
 
     //이전 Thumbnail id
     int prevMapId = -1;
-    void SetRoomName(string room, int map_id, float desc)
+    //void SetRoomName(string room, int map_id, float desc)
+    void SetRoomName(string room, int map_id)
     {
         //룸이름 설정
         inputRoomName.text = room;

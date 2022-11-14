@@ -79,9 +79,13 @@ public class RoomItem : MonoBehaviour
     public void OnClick()
     {
         
-        GameObject inputRoomName = GameObject.Find("InputRoomName");
-        InputField input = inputRoomName.GetComponent<InputField>();
-        input.text = name;
+        //GameObject inputRoomName = GameObject.Find("InputRoomName");
+        //print("RoomItem 1. inputRoomName :: " + inputRoomName);
+        //InputField input = inputRoomName.GetComponent<InputField>();
+        //input.text = name;
+        //print("input.text : " + name);
+        //print("name : " + name);
+        
 
         // //만약에 onClickAction 가 null이 아니라면
         if(OnClickAction != null)
@@ -90,6 +94,11 @@ public class RoomItem : MonoBehaviour
             //onClickAction(name);
             OnClickAction(name);
             print("OnClickAction 실행");
+            print(name);
+        }
+        else
+        {
+            print("OnClickAction" + null);
         }
 
         ////1. InputRoomName 게임오브젝 찾자
