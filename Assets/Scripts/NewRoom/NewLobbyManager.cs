@@ -6,6 +6,8 @@ using Photon.Realtime;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
+
+
 [Serializable]
 public class roomPostInfo
 {
@@ -24,7 +26,7 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
     //방이름 InputField
     public InputField inputRoomName;
     //수익률 InputField
-    //public InputField inputReturn;
+    public InputField inputReturn;
     //총인원 InputField
     public InputField inputMaxPlayer;
     
@@ -108,10 +110,13 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
         //hash["desc"] = "여긴 초보방이다! " + Random.Range(1, 1000);
         //hash["desc"] = int.Parse(inputReturn.text);
         //hash["desc"] = float.Parse(inputReturn.text);
-        hash["desc"] = 0;
+        
         hash["map_id"] = Random.Range(0, mapThumbs.Length);
         hash["room_name"] = inputRoomName.text;
-        
+        //inputReturn = 0;
+        //hash["desc"] = float.Parse(inputReturn.text);
+        hash["desc"] = 10.5f;
+        //hash["desc"] = 0;
         //hash["password"] = float.Parse(inputReturn.text);
         roomOptions.CustomRoomProperties = hash;
         // custom 정보를 공개하는 설정
@@ -227,6 +232,7 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
             float desc = (float)(info.CustomProperties["desc"]);
             
             //GameObject go = GameObject.Instantiate()
+            //for (int i = 0; i < 10; i++)
             //for (int i = 0; i < 10; i++)
             {
                 // 1. 수익률 < 0
