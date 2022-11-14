@@ -70,12 +70,12 @@ KeyCode.Alpha9,
         //playerState = GetComponent<PlayerState>();k
         anim = GetComponentInChildren<Animator>();
 
-        // if (photonView.IsMine)
-        //     Camera.main.GetComponent<IsometricCamera_YJ>().target = tr.Find("CameraPivot").transform;
-        // else
-        // {
-        //     return;
-        // }
+        //if (photonView.IsMine)
+        //    Camera.main.GetComponent<IsometricCamera_YJ>().target = tr.Find("CameraPivot").transform;
+        //else
+        //{
+        //    return;
+        //}
     }
 
     // Update is called once per frame

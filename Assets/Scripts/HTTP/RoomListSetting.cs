@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-
 public class RoomListSetting : MonoBehaviour
 {
     // Start is called before the first frame update

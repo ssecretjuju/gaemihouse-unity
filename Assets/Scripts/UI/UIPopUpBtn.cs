@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIPopUpBtn : MonoBehaviour
+public class YesBtn : MonoBehaviour
 {
     public GameObject FirstUI;
 
     public GameObject SecondUI;
-  
+    
     
     // Start is called before the first frame update
     void Start()
@@ -25,6 +25,5 @@ public class UIPopUpBtn : MonoBehaviour
     {
         FirstUI.SetActive(false);
         SecondUI.SetActive(true);
-        
     }
 }

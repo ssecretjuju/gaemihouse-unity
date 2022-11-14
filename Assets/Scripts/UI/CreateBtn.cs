@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CreateBtn : MonoBehaviour
+public class UIPopUpBtn : MonoBehaviour
 {
     public GameObject PopUpUI;
     

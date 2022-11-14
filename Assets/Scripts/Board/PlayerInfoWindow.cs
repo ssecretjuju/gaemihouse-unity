@@ -13,6 +13,7 @@ public class PlayerInfoWindow : MonoBehaviour
 {
     public GameObject DoubleClick;
     public GameObject playerInfoWindow;
+    public GameObject ChatCanvas;
     public Text nickName;
     public Text carrerText;
     public Text yieldText;
@@ -51,5 +52,10 @@ public class PlayerInfoWindow : MonoBehaviour
     public void OnEscBtn()
     {
         playerInfoWindow.SetActive(false);
+    }
+
+    public void OnChatBtn()
+    {
+        ChatCanvas.SetActive(true);
     }
 }

@@ -27,6 +27,21 @@ public class ImageUrl
 
 public class PredictBoardManager : MonoBehaviour
 {
+    public GameObject predictCanvas;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            predictCanvas.SetActive(true);
+        }
+    }
+
+    public void OnCancelBtn()
+    {
+        predictCanvas.SetActive(false);
+    }
+
 
     public InputField searchText;
 
