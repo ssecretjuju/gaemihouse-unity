@@ -39,6 +39,13 @@ MonoBehaviour:
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
+  - RpcAddChat
+  - <Update>g__RpcAddChat|7_0
+  - <Update>g__RpcAddChat|15_0
+  - <Update>g__RpcAddChat|9_0
+  - <Update>g__RpcAddChat|6_0
+  - RpcChangeState
+  - RpcSetTrigger
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 0
