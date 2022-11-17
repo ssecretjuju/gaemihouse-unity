@@ -6,33 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Alpha/Alpha_Login.unity
-    guid: 3aa9a7658fa8bdb418f423efe300c05f
+    path: Assets/Scenes/LYJ/[Alpha]LYJ_LoginScene.unity
+    guid: 702c84bdeaf970c439cc748b7ddccae1
   - enabled: 1
-    path: Assets/Scenes/Alpha/Alpha_LobbyScene.unity
-    guid: c87003765f440a04681663547d6c4260
-  - enabled: 0
-    path: Assets/Scenes/CAJ/CAJ_RoomScene 1.unity
-    guid: 7309a5ac5dbf9574d87d207bf7119539
-  - enabled: 0
-    path: Assets/Scenes/CAJ/CAJ_LobbyScene 1.unity
-    guid: a64b941d82264a949b1fefc130a0f68b
+    path: Assets/Scenes/LYJ/[Alpha]LYJ_LobbyScene.unity
+    guid: b7e0db6bf5a5e7d49a0414dde62df9e3
   - enabled: 1
-    path: Assets/Scenes/Alpha/Alpha_RoomScene.unity
-    guid: 94653dcd0cf1d2c48bab36d52ef9394e
-  - enabled: 0
-    path: Assets/Scenes/CAJ/CAJ_ConnectionScene.unity
-    guid: 45c848591d01879498dcf957716a1776
-  - enabled: 0
-    path: Assets/Scenes/LYJ/LYJ_ConnectionScene.unity
-    guid: 969651e0493f8fb479fc0903f69ae1fc
-  - enabled: 0
-    path: Assets/Scenes/LYJ/LYJ_LobbyScene.unity
-    guid: a79b79fdca902eb4f81e4965941541a4
-  - enabled: 0
-    path: Assets/Scenes/LYJ/LYJ_RoomScene.unity
-    guid: dfdd3acff2a2d4b4687940e890d6fbc6
-  - enabled: 0
-    path: Assets/Scenes/CAJ/Before_LobbyScene.unity
-    guid: 5485b0245d5132a49bbeb95ebbd82e27
+    path: Assets/Scenes/LYJ/[Alpha]LYJ_RoomScene.unity
+    guid: 2135dd1c164bff445974fb44efeac466
   m_configObjects: {}
