@@ -119,7 +119,7 @@ public class LoginManager : MonoBehaviour
 
         //print("조회 완료");
 
-        SceneManager.LoadScene("[Alpha]LYJ_LobbyScene");
+        SceneManager.LoadScene("LYJ_LobbyScene");
     }
 
 

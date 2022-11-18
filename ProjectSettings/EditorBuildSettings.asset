@@ -6,12 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/LYJ/[Alpha]LYJ_LoginScene.unity
-    guid: 702c84bdeaf970c439cc748b7ddccae1
+    path: Assets/Scenes/LYJ/LYJ_Login.unity
+    guid: 3126ac137959dff4b9526afdb3ddf0a0
   - enabled: 1
-    path: Assets/Scenes/LYJ/[Alpha]LYJ_LobbyScene.unity
-    guid: b7e0db6bf5a5e7d49a0414dde62df9e3
+    path: Assets/Scenes/LYJ/LYJ_LobbyScene.unity
+    guid: a1e6e5377343d4d439d34b399f36c275
   - enabled: 1
-    path: Assets/Scenes/LYJ/[Alpha]LYJ_RoomScene.unity
-    guid: 2135dd1c164bff445974fb44efeac466
+    path: Assets/Scenes/LYJ/LYJ_RoomScene.unity
+    guid: dcaf6acf4b34d584ab1fc564568c7d39
+  - enabled: 0
+    path: Assets/Scenes/CAJ/CAJ_Login.unity
+    guid: 5ac812b65d97ca548aa7c4fb66e4409a
+  - enabled: 0
+    path: Assets/Scenes/CAJ/CAJ_LobbyScene.unity
+    guid: ecc548340835a2f40a8705c6eb074417
+  - enabled: 0
+    path: Assets/Scenes/CAJ/CAJ_RoomScene.unity
+    guid: 33b8022aa6996c84f81e98ebf6fa54cd
   m_configObjects: {}
