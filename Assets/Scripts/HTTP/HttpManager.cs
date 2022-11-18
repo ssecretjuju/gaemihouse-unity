@@ -70,7 +70,8 @@ public class HttpManager : MonoBehaviour
         if (webRequest.result == UnityWebRequest.Result.Success)
         {
             print(webRequest.downloadHandler.text);
-           
+
+
 
             //print("키워드 데이터 갯수 :"+keywordData.data.Count);
             //완료되었다고 requester.onComplete를 실행

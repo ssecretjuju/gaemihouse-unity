@@ -4,7 +4,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
+//HttpRequester : 틀 쓰는 곳
 
+//게시물 정보
+[System.Serializable]
+public class PostData
+{
+    public string roomName;
+    public int roomRegistedNumber;
+    public int roomCode;
+    public int roomYield;
+    public int roomLimitedNumber;
+}
+
+[Serializable]
+public class PostDataArray
+{
+    public List<PostData> data;
+}
 
 public enum RequestType
 {
