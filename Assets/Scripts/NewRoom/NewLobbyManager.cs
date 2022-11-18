@@ -61,6 +61,8 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
+            //House 레이어만 충돌 체크 
+            int layerMask = 1000 << LayerMask.NameToLayer("House");
             if (Physics.Raycast(ray, out hit))
             {
                 Debug.Log(hit.transform.gameObject);
