@@ -105,10 +105,10 @@ public class AntMove : MonoBehaviourPun, IPunObservable
                 //만약에 움직인다면
                 if (h != 0 || v != 0)
                 {
-                    print("h 0 아님");
+                    //print("h 0 아님");
                     //상태를 Move로
                     playerState.ChangeState(PlayerState.State.MOVE);
-                    print(11111111111);
+                    //print(11111111111);
                 }
                 //그렇지 않다면
                 else

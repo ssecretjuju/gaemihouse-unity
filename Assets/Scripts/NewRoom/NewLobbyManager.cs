@@ -269,6 +269,7 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
     
     void CreateRoomListUI()
     {
+        print("CreateRoomListUI()");
         int count = 0;
         foreach(RoomInfo info in roomCache.Values)
         {
@@ -287,9 +288,6 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
                     //룸아이템 정보를 셋팅(방제목(0/0))
                     RoomItem item = go.GetComponent<RoomItem>();
                     item.SetInfo(info);
-                
-                    //roomItem 버튼이 클릭되면 호출되는 함수
-                    item.OnClickAction = JoinRoom;
                 }
                 // 2. 수익률 == 0
                 else if (desc > -10 && desc <=-3)
@@ -299,8 +297,6 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
                     //룸아이템 정보를 셋팅(방제목(0/0))
                     RoomItem item = go.GetComponent<RoomItem>();
                     item.SetInfo(info);
-
-                    item.OnClickAction = JoinRoom;
                 }
                 // 3. 0 < 수익률 < 100
                 else if (desc > -3 && desc <= 3)
@@ -310,8 +306,6 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
                     //룸아이템 정보를 셋팅(방제목(0/0))
                     RoomItem item = go.GetComponent<RoomItem>();
                     item.SetInfo(info);
-
-                    item.OnClickAction = JoinRoom;
                 }
                 // 4. 수익률 > 100
                 else if (desc > 3 && desc <= 20)
@@ -321,9 +315,6 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
                     //룸아이템 정보를 셋팅(방제목(0/0))
                     RoomItem item = go.GetComponent<RoomItem>();
                     item.SetInfo(info);
-
-                    item.OnClickAction = JoinRoom; 
-                    //print("방 클릭");
                 }
                 // 5. 수익률 > 20
                 else
@@ -341,6 +332,7 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
             
             count++;
             print("룸 개수 : " + count);
+            print(33333333);
             //float desc = (float)info.CustomProperties["desc"];
             //int map_id = (int)info.CustomProperties["map_id"];
             //float password = (float)info.CustomProperties["password"];
