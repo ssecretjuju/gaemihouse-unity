@@ -71,7 +71,7 @@ public class HttpManager : MonoBehaviour
         {
             print(webRequest.downloadHandler.text);
 
-
+            //JsonUtility.FromJson<PostData>(webRequest.downloadHandler.text);
 
             //print("키워드 데이터 갯수 :"+keywordData.data.Count);
             //완료되었다고 requester.onComplete를 실행

@@ -62,12 +62,13 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             //House 레이어만 충돌 체크 
-            int layerMask = 1000 << LayerMask.NameToLayer("House");
-            if (Physics.Raycast(ray, out hit))
+            //int layerMask = 1000 << LayerMask.NameToLayer("House");
+            if (Physics.Raycast(ray, out hit, float.MaxValue, 1 << LayerMask.NameToLayer("House")))
             {
                 Debug.Log(hit.transform.gameObject);
                 string clickRoomName = hit.collider.gameObject.name.ToString();
                 Debug.Log(clickRoomName);
+                //클릭한 물체의 태그가 House라면 
                 if (hit.collider.tag == "House")
                 {
                     JoinRoom(clickRoomName);
@@ -76,9 +77,7 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
                 {
                     return;
                 }
-
             }
-
         }
     }
 
