@@ -21,5 +21,6 @@ public class CAJ_LobbyBtn : MonoBehaviourPunCallbacks
     {
         //PhotonNetwork.LeaveRoom();
         PhotonNetwork.LoadLevel("CAJ_LobbyScene");
+
     }
 }

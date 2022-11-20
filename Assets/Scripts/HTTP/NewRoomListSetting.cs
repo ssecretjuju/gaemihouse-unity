@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Photon.Realtime;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
@@ -89,16 +88,16 @@ public class NewRoomListSetting : MonoBehaviour
 
 
     //방의 정보들   
-    Dictionary<string, RoomInfo> roomCache = new Dictionary<string, RoomInfo>();
+    //Dictionary<string, RoomInfo> roomCache = new Dictionary<string, RoomInfo>();
 
     void CreateRoomList()
     {
         int count = 0;
-        foreach (RoomInfo info in roomCache.Values)
+        //foreach (RoomInfo info in roomCache.Values)
         {
         GameObject go = Instantiate(roomItemFactory, spawnPos[count]);
         RoomItem item = go.GetComponent<RoomItem>();
-        item.SetInfo(info);
+        //item.SetInfo(info);
         }
         count++;
     }

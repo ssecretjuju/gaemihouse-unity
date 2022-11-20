@@ -19,7 +19,7 @@ public class RoomItem : MonoBehaviour
 
     //클릭이 되었을 때 호출되는 함수를 가지고있는 변수
     //public System.Action<string, int> onClickAction;
-    public System.Action<string> OnClickAction;
+    //public System.Action<string> OnClickAction;
 
     void Start()
     {
@@ -88,18 +88,18 @@ public class RoomItem : MonoBehaviour
         
 
         // //만약에 onClickAction 가 null이 아니라면
-        if(OnClickAction != null)
-        {
-            //onClickAction 실행
-            //onClickAction(name);
-            OnClickAction(name);
-            print("OnClickAction 실행");
-            print(name);
-        }
-        else
-        {
-            print("OnClickAction" + null);
-        }
+        //if(OnClickAction != null)
+        //{
+        //    //onClickAction 실행
+        //    //onClickAction(name);
+        //    OnClickAction(name);
+        //    print("OnClickAction 실행");
+        //    print(name);
+        //}
+        //else
+        //{
+        //    print("OnClickAction" + null);
+        //}
 
         ////1. InputRoomName 게임오브젝 찾자
         //GameObject go = GameObject.Find("InputRoomName");

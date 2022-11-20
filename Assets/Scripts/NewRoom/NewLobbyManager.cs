@@ -54,7 +54,6 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
     //map Thumbnail
     public GameObject[] mapThumbs;
 
-
     public void ClickRay()
     {
         if (Input.GetMouseButtonDown(0))
@@ -332,7 +331,7 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
                     RoomItem item = go.GetComponent<RoomItem>();
                     item.SetInfo(info);
 
-                    item.OnClickAction = JoinRoom;
+                    //item.OnClickAction = JoinRoom;
                 }
 
             }
