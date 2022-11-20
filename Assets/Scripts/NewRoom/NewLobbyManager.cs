@@ -200,7 +200,15 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
     {
         base.OnJoinedRoom();
         print("OnJoinedRoom");
+        if (PhotonNetwork.CurrentRoom.Name == "전체")
+        {
+            PhotonNetwork.LoadLevel("CAJ_LobbyRoomScene");
+        }
+        else
+        {
         PhotonNetwork.LoadLevel("CAJ_RoomScene");
+            
+        }
     }
 
     //방 참가가 실패 되었을 때 호출 되는 함수
