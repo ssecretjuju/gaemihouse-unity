@@ -61,9 +61,9 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            //House 레이어만 충돌 체크 
-            //int layerMask = 1000 << LayerMask.NameToLayer("House");
-            if (Physics.Raycast(ray, out hit, float.MaxValue, 1000 << LayerMask.NameToLayer("House")))
+            //Building 레이어만 충돌 체크 
+            int mask = (1 << 3);
+            if (Physics.Raycast(ray, out hit, 125f, mask))
             {
                 Debug.Log(hit.transform.gameObject);
                 string clickRoomName = hit.collider.gameObject.name.ToString();
@@ -206,8 +206,7 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
         }
         else
         {
-        PhotonNetwork.LoadLevel("CAJ_RoomScene");
-            
+            PhotonNetwork.LoadLevel("CAJ_RoomScene");
         }
     }
 

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6313882958106299404}
   - component: {fileID: 6313882958106299408}
   - component: {fileID: 3343433275675510382}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: 4LevelHouse
   m_TagString: House
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 6313882958346582624}
   - component: {fileID: 6313882958346582626}
   - component: {fileID: 6313882958346582627}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 6313882958689689526}
   - component: {fileID: 6313882958689689528}
   - component: {fileID: 6313882958689689529}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -412,6 +412,10 @@ PrefabInstance:
     - target: {fileID: 8108840672170100115, guid: 24a7cd976aaabac40b488d9845b4ccef, type: 3}
       propertyPath: m_Name
       value: building-house-modern
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108840672170100115, guid: 24a7cd976aaabac40b488d9845b4ccef, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8108840672170596787, guid: 24a7cd976aaabac40b488d9845b4ccef, type: 3}
       propertyPath: m_RootOrder
