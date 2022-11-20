@@ -17,13 +17,23 @@ public class SubboardManager : MonoBehaviour
     public Button writeBtn;
     public Button oKBtn;
     public Button cancelBtn;
+    //public Button confirmBtn;
     public GameObject Subboard;
     public Transform boardItemParent;
     public GameObject SubboardCanvas;
+    public GameObject confirmWindow;
+
+    public Text confirmTitleText;
 
 
+    int count = 0;
+    public Text likeCountText;
 
 
+    void Start()
+    {
+        //confirmBtn.onClick.AddListener(OnClickSubboard);
+    }
     //write버튼을 누르면 글쓰기창이 뜬다. inputfield 내용을 초기화해준다.
 
     public void OnClickWriteBtn()
@@ -52,11 +62,23 @@ public class SubboardManager : MonoBehaviour
 
         //write창의 inputfield 내용과 prefab inputfield 내용을 동기화한다.
         InputField title = Item.transform.GetChild(0).GetComponent<InputField>();
-        //InputField content = Item.transform.GetChild(1).GetComponent<InputField>();
+        Text content = GameObject.Find("content").GetComponent<Text>();
+        Text confirmTitle = GameObject.Find("Title").GetComponent<Text>();
+        Text nickname = Item.transform.GetChild(1).GetComponent<Text>();
+        Text date = Item.transform.GetChild(2).GetComponent<Text>();
 
+
+        confirmTitle.text = inputTitle.text;
         title.text = inputTitle.text;
-        //content.text = inputContent.text;
+        content.text = inputContent.text;
+        //nickname.text = LoginManager.Instance.playerData.memberNickname;
 
+        string yy = System.DateTime.Now.ToString("yyyy");
+        string mm = System.DateTime.Now.ToString("MM");
+        string dd = System.DateTime.Now.ToString("dd");
+
+        date.text = yy + "-" + mm + "-" + dd;
+        
         //만약 내용을 입력하고 ok버튼을 클릭하면 글쓰기창이 닫힌다.
         if (inputTitle.text != null && inputContent.text != null)
         {
@@ -69,10 +91,18 @@ public class SubboardManager : MonoBehaviour
     public void OnClickSubboard()
     {
         //글을 누르면 제목,닉네임,날짜,내용이 표시되어있는 창이 뜬다.
-
-
+        confirmWindow.SetActive(true);
     }
     //back버튼 누르면 글쓰기창이 사라진다
+
+    public void OnClickLike()
+    {
+        count = count + 1;
+
+        string countNumber = count.ToString();
+
+        likeCountText.text = countNumber;
+    }
 
     public void OnClickBackBtn()
     {
@@ -86,10 +116,5 @@ public class SubboardManager : MonoBehaviour
     {
         SubboardCanvas.SetActive(false);
     }
-    void Start()
-    {
-
-    }
-
 
 }
