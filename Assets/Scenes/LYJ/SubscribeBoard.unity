@@ -2464,11 +2464,11 @@ MonoBehaviour:
   writeBtn: {fileID: 1117705296}
   oKBtn: {fileID: 1344389982}
   cancelBtn: {fileID: 274711765}
-  Subboard: {fileID: 2187074165368730920, guid: 7fa5e5d0bdc8735458dd3af42cf41d81, type: 3}
+  Subboard: {fileID: 7846518486290798414, guid: 7fa5e5d0bdc8735458dd3af42cf41d81, type: 3}
   boardItemParent: {fileID: 1538805757}
   SubboardCanvas: {fileID: 574451697}
+  confirmWindow: {fileID: 608964056}
   confirmTitleText: {fileID: 0}
-  confirmContentText: {fileID: 0}
   likeCountText: {fileID: 653044684}
 --- !u!4 &1593828319
 Transform:
