@@ -58,7 +58,7 @@ public class LobbyRoomList : MonoBehaviour
     }
 
     //저장 경로
-    //public string path = Application.dataPath + "/Data";
+    public string path = Application.dataPath + "/Data";
 
     public static List<RoomData> roomdata;
 
@@ -70,15 +70,28 @@ public class LobbyRoomList : MonoBehaviour
     {
         ListenData array = JsonUtility.FromJson<ListenData>(handler.text);
         print($"테스트: {array.data[1].roomCode}가 룸 코드다");
-        string path = Path.Combine(Application.dataPath, "/RoomListJson.json");
 
         string json = JsonUtility.ToJson(array);
-        
+
+        print("array : " + array);
+
+        //전역 변수에 저장
+        //dataCount = array.data.Count;
+        //array.data.Count();
+
+
+        //File.WriteAllText(Application.dataPath + "/RoomListJson.json", JsonUtility.ToJson(json));
+        //File.WriteAllText(Application.dataPath + "/RoomListJson.json", array.data[0]);
+        //string path = Path.Combine(Application.dataPath, "/RoomListJson.json");
+
+
+
         //File.WriteAllText(Application.dataPath + "/RoomListJson.json", JsonUtility.ToJson(json));
 
 
         //저장하기 
-        File.WriteAllText(path, json);
+        //File.WriteAllText(path, json);
+        print("저장!");
 
 
         //roomdata = new List<RoomData>();
@@ -99,8 +112,7 @@ public class LobbyRoomList : MonoBehaviour
         //}
 
 
-        //전역 변수에 저장
-        //dataCount = array.data.Count;
+        
 
         //print("dataCount: " + dataCount);
 
@@ -143,25 +155,26 @@ public class LobbyRoomList : MonoBehaviour
         }
     }
 
-    
-    //public IEnumerator CreateRoomUI()
-    //{
-    //    yield return null;
-    //    print("CreateRoomListUI 생성 함수 들어옴!");
-    //    int count = 0;
 
-    //    yield return null;
+    public IEnumerator CreateRoomUI()
+    {
+        yield return null;
+        print("CreateRoomListUI 생성 함수 들어옴!");
+        int count = 0;
 
-    //    print("dataCount : " + dataCount);
+        yield return null;
 
-    //    yield return null;
-    //    for (int i = 0; i < dataCount; i++)
-    //    {
-    //        print("for문 들어옴");
-    //        GameObject go = Instantiate(roomItemFactory3, spawnPos[count]);
-    //        print("생성됨!");
-    //    }
-    //}
+        print("dataCount : " + dataCount);
+
+        yield return null;
+        for (int i = 0; i < dataCount; i++)
+        {
+            print("for문 들어옴");
+            GameObject go = Instantiate(roomItemFactory3, spawnPos[count]);
+            count++;
+            print("생성됨!");
+        }
+    }
 
     //void NormalCreateRoomListUI()
     //{
