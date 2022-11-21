@@ -16,6 +16,8 @@ using Photon.Realtime;
 //->코루틴 사용 !! 
 public class LobbyRoomList : MonoBehaviour
 {
+    public static LobbyRoomList instance;
+
     void Start()
     {
         //StartCoroutine("Test");
@@ -57,13 +59,19 @@ public class LobbyRoomList : MonoBehaviour
         print("CreateRoomListUI 생성 함수 시작");
     }
 
-    //저장 경로
-    public string path = Application.dataPath + "/Data";
 
-    public static List<RoomData> roomdata;
+    //public static List<RoomData> roomdata;
+    public RoomData roomdata;
 
     //저장 경로
     //private string path;
+
+    public int dataCount;
+
+    public List<RoomData> roomList = new List<RoomData>();
+
+    public List<string> roomTitles = new List<string>();
+    public List<double> roomYields = new List<double>();
 
     //방목록 정보
     public void CompleteGetRoomListAll(DownloadHandler handler)
@@ -71,48 +79,29 @@ public class LobbyRoomList : MonoBehaviour
         ListenData array = JsonUtility.FromJson<ListenData>(handler.text);
         print($"테스트: {array.data[1].roomCode}가 룸 코드다");
 
-        string json = JsonUtility.ToJson(array);
+        foreach (RoomData rData in array.data)
+        {
+            roomTitles.Add(rData.roomTitle);
 
-        print("array : " + array);
+            roomYields.Add(rData.roomYield);
+        }
 
-        //전역 변수에 저장
-        //dataCount = array.data.Count;
-        //array.data.Count();
+       
 
+            //전역 변수에 저장
+            dataCount = array.data.Length;
 
-        //File.WriteAllText(Application.dataPath + "/RoomListJson.json", JsonUtility.ToJson(json));
+            //File.WriteAllText(Application.dataPath + "/RoomListJson.json", JsonUtility.ToJson(json));
         //File.WriteAllText(Application.dataPath + "/RoomListJson.json", array.data[0]);
         //string path = Path.Combine(Application.dataPath, "/RoomListJson.json");
 
-
-
         //File.WriteAllText(Application.dataPath + "/RoomListJson.json", JsonUtility.ToJson(json));
-
-
-        //저장하기 
-        //File.WriteAllText(path, json);
-        print("저장!");
-
-
-        //roomdata = new List<RoomData>();
-
-        //string json = JsonUtility.FromJson<RoomData>(roomdata);
-
-        //string json= JsonUtility.ToJson(array);
-        
-        
-
-
-        //string json = JsonUtility.FromJson<RoomDataArray>(handler.text);
-        
 
         //if (Directory.Exists(path) == false)
         //{
         //    Directory.CreateDirectory(path);
         //}
 
-
-        
 
         //print("dataCount: " + dataCount);
 
@@ -136,22 +125,29 @@ public class LobbyRoomList : MonoBehaviour
 
     public List<Transform> spawnPos;
 
-    public int dataCount;
-
     public Array NameArray;
 
 
+    //방의 정보들
+    private Dictionary<string, RoomInfo> roomCache = new Dictionary<string, RoomInfo>();
+
     public void CreateRoom()
     {
-
+        print("CreateRoom 실행!!!!!!!!");
         int count = 0;
 
-        for (int i = 0; i < dataCount; i++)
+        //foreach (RoomInfo info in roomCache.Values)
         {
-            GameObject go = Instantiate(roomItemFactory3, spawnPos[count]);
-            //go.name = array;
-            count++;
-            print("생성됨!");
+            for (int i = 0; i < dataCount; i++)
+            {
+                GameObject go = Instantiate(roomItemFactory3, spawnPos[count]);
+                LobbyRoomItem item = go.GetComponent<LobbyRoomItem>();
+                item.SetInfo(roomTitles[i]);
+
+                //go.name = array;
+                count++;
+                print("생성됨!");
+            }
         }
     }
 

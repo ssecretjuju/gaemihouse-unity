@@ -10,6 +10,8 @@ using System.IO;
 
 public class CAJ_LoadRoomManager : MonoBehaviour
 {
+    //public static CAJ_LoadRoomManager instance;
+
     //private string FilePath = "D:\[Project]5. GaemiHouse\gaemihouse-unity\Assets\Data";
 
 

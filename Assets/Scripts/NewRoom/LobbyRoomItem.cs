@@ -9,16 +9,32 @@ using UnityEngine.UI;
 public class LobbyRoomItem : MonoBehaviour
 {
     //방 제목
-    public TMP_Text roomName;
+    public TMP_Text roomInfo;
 
     //방 수익률
     public TMP_Text roomYield;
 
     //게임오브젝트의 이름을 roomName으로!
-    public void SetInfoName(string roomName)
+    public void SetInfo(string roomName, string roomYield)
     {
-        name = roomName;
+        //roomName = LobbyRoomList.instance.roomdata.roomTitle;
+        //name = roomName;
+        roomInfo.text = roomName;
+        //roomYield.text = roomYield.ToString();
     }
+
+    //public void SetInfoYield(double roomYield)
+    //{
+    //    string sYield = roomYield.ToString();
+
+    //    roomYield.text = sYield + "%";
+
+    //    ////desc 설정
+    //    //string sreturn = info.CustomProperties["desc"].ToString();
+    //    //print("string return : " + sreturn);
+
+    //    //roomDesc.text = sreturn + " %";
+    //}
 
     // Start is called before the first frame update
     void Start()
