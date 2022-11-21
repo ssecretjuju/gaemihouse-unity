@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -8,6 +9,7 @@ public class HttpManager : MonoBehaviour
 {
     public static HttpManager instance;
 
+    //public string path = Application.dataPath + "/Data";
     private void Awake()
     {
         //만약에 instance가 null이라면
@@ -71,6 +73,9 @@ public class HttpManager : MonoBehaviour
         {
             print(webRequest.downloadHandler.text);
 
+            ListenData array = JsonUtility.FromJson<ListenData>(webRequest.downloadHandler.text);
+            print($"테스트: {array.data[0].roomCode}가 룸 코드다");
+
             //JsonUtility.FromJson<PostData>(webRequest.downloadHandler.text);
 
             //print("키워드 데이터 갯수 :"+keywordData.data.Count);
@@ -78,6 +83,9 @@ public class HttpManager : MonoBehaviour
             if (requester.onComplete != null)
             {
                 requester.onComplete(webRequest.downloadHandler);
+                //File.WriteAllBytes(Application.dataPath + "/Data", webRequest.downloadHandler.data);
+                //print("데이터 파일로 저장");
+                //File.WriteAllText(path, webRequest.downloadHandler);
             }
             
 

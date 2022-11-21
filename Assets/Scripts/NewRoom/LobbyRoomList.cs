@@ -7,57 +7,18 @@ using UnityEngine.UI;
 
 //HTTP
 using UnityEngine.Networking;
+using System.IO;
+using Photon.Realtime;
 
-
-//포톤없이, 받아온 정보로 제목 + 수익률 배정해주기!! 
 
 //GetRoomAll로 방 목록 정보 받아오기부터 하고,
 //CreateRoomListUI를 해준다 
 //->코루틴 사용 !! 
-public class NormalRoomItem : MonoBehaviour
+public class LobbyRoomList : MonoBehaviour
 {
-    //방 제목
-    //public TMP_Text roomName;
-
-    //방 수익률
-    //public TMP_Text roomYield;
-
-
-    //IEnumerator Test()
-    //{
-    //    //이 안에, GetRoomAll이랑, NormalCreateRoomListUI 둘 다 들어가야함 ! 
-
-    //    HttpRequester requester = new HttpRequester();
-
-    //    requester.url = "http://3.34.133.115:8080/shareholder-room";
-    //    requester.requestType = RequestType.GET;
-    //    requester.onComplete = CompleteGetRoomListAll;
-
-
-    //    print("CreateRoomListUI 생성 함수 들어옴!");
-
-
-    //    int count = 0;
-
-    //    print("dataCount : " + dataCount);
-    //    for (int i = 0; i < dataCount; i++)
-    //    {
-    //        GameObject go = Instantiate(roomItemFactory3, spawnPos[count]);
-    //    }
-    //    HttpManager.instance.SendRequest(requester);
-
-    //    //NormalCreateRoomListUI();
-    //    print("CreateRoomListUI 생성 함수 시작");
-
-    //    //yield return StartCoroutine(GetRoomAll());
-    //    //yield return StartCoroutine(NormalCreateRoomListUI());
-
-    //}
-
     void Start()
     {
         //StartCoroutine("Test");
-       // print("코루틴 함수 시작");
         //GetRoom();
         GetRoomAll();
     }
@@ -96,46 +57,63 @@ public class NormalRoomItem : MonoBehaviour
         print("CreateRoomListUI 생성 함수 시작");
     }
 
+    //저장 경로
+    //public string path = Application.dataPath + "/Data";
+
+    public static List<RoomData> roomdata;
+
+    //저장 경로
+    //private string path;
+
+    //방목록 정보
     public void CompleteGetRoomListAll(DownloadHandler handler)
     {
-        RoomDataArray array = JsonUtility.FromJson<RoomDataArray>(handler.text);
+        ListenData array = JsonUtility.FromJson<ListenData>(handler.text);
+        print($"테스트: {array.data[1].roomCode}가 룸 코드다");
+        string path = Path.Combine(Application.dataPath, "/RoomListJson.json");
 
-        //전역 변수에 저장
-        dataCount = array.data.Count;
-        //print("dataCount: " + dataCount);
-
+        string json = JsonUtility.ToJson(array);
         
-        CreateRoom();
+        //File.WriteAllText(Application.dataPath + "/RoomListJson.json", JsonUtility.ToJson(json));
 
-        //for (int i = 0; i < dataCount; i++)
+
+        //저장하기 
+        File.WriteAllText(path, json);
+
+
+        //roomdata = new List<RoomData>();
+
+        //string json = JsonUtility.FromJson<RoomData>(roomdata);
+
+        //string json= JsonUtility.ToJson(array);
+        
+        
+
+
+        //string json = JsonUtility.FromJson<RoomDataArray>(handler.text);
+        
+
+        //if (Directory.Exists(path) == false)
         //{
-        //    int count = 0;
-        //    GameObject go = Instantiate(roomItemFactory3, spawnPos[count]);
-        //    print("생성됨!");
+        //    Directory.CreateDirectory(path);
         //}
 
-        for (int i = 0; i < array.data.Count; i++)
-        {
-            //print(array.data[i].roomTitle);
-            //print(array.data[i].roomYield);
-            //print("조회 완료");
-        }
+
+        //전역 변수에 저장
+        //dataCount = array.data.Count;
+
+        //print("dataCount: " + dataCount);
+
+
+        CreateRoom();
+
+        //for (int i = 0; i < array.data.Count; i++)
+        //{
+        //    //print(array.data[i].roomTitle);
+        //    //print(array.data[i].roomYield);
+        //    //print("조회 완료");
+        //}
     }
-
-    public void CreateRoom()
-    {
-
-        int count = 0;
-        for (int i = 0; i < dataCount; i++)
-        {
-            GameObject go = Instantiate(roomItemFactory3, spawnPos[count]);
-            count++;
-            print("생성됨!");
-        }
-    }
-
-    public int dataCount;
-
 
     // 2. 방 만들기
     public GameObject roomItemFactory1;
@@ -146,6 +124,26 @@ public class NormalRoomItem : MonoBehaviour
 
     public List<Transform> spawnPos;
 
+    public int dataCount;
+
+    public Array NameArray;
+
+
+    public void CreateRoom()
+    {
+
+        int count = 0;
+
+        for (int i = 0; i < dataCount; i++)
+        {
+            GameObject go = Instantiate(roomItemFactory3, spawnPos[count]);
+            //go.name = array;
+            count++;
+            print("생성됨!");
+        }
+    }
+
+    
     //public IEnumerator CreateRoomUI()
     //{
     //    yield return null;

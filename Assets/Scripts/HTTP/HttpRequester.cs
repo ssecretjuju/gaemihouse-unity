@@ -18,6 +18,13 @@ public class RoomData
     
 }
 
+public class ListenData
+{
+    public string status;
+    public string message;
+    public RoomData[] data;
+}
+
 [Serializable]
 public class RoomDataArray
 {
