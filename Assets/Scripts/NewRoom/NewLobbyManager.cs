@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.Networking;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
-
+using SimpleJSON;
 
 
 [Serializable]
@@ -124,17 +125,35 @@ public class NewLobbyManager : MonoBehaviourPunCallbacks
         // List<string> roomMember = new List<string>();
 
         HttpRequester requester = new HttpRequester();
-        requester.url = "http://3.34.133.115:8080/shareholder-room";
+        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/shareholder-room";
         requester.requestType = RequestType.POST;
         print("Post test");
         
         requester.postData = JsonUtility.ToJson(data, true);
         print(requester.postData);
-        
+
+        //requester.onComplete = OnClickRoomDownload;
+
         HttpManager.instance.SendRequest(requester);
         print("Post 완료!");
     }
 
+
+
+    //JSONNode node = JSON.Parse(htttpreqe.text);
+
+    //for (int i = 0; i < node["data"].Count; ++i)
+    //{
+    //    print(node["data"][i]["roomCode"]);    
+    //}
+
+    //void OnClickRoomDownload(DownloadHandler handler)
+    //{
+    //    JSONArray array = JSON.Parse(data);
+
+    //    print(node["data"]["yield"]);
+
+    //}
     //방 생성
     public void CreateRoom()
     {

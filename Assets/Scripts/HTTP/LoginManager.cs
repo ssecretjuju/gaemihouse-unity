@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using SimpleJSON;
 
 //로그인창에 아이디,비밀번호를 입력하고 서버에 json으로 보낸다
 //서버에 내가 보낼 정보들
@@ -86,7 +87,7 @@ public class LoginManager : MonoBehaviour
 
        
         HttpRequester requester = new HttpRequester();
-        requester.url = "http://3.34.133.115:8080/member/id/" + id.text;
+        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/member/id/" + id.text;
         print(requester.url);
         requester.requestType = RequestType.GET;
 
@@ -119,7 +120,7 @@ public class LoginManager : MonoBehaviour
 
         //print("조회 완료");
 
-        SceneManager.LoadScene("LYJ_LobbyScene");
+        //SceneManager.LoadScene("LYJ_LobbyScene");
     }
 
 

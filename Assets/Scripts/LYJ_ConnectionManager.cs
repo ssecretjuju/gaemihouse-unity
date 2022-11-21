@@ -6,20 +6,60 @@ using Photon.Pun;
 
 public class LYJ_ConnectionManager : MonoBehaviourPunCallbacks
 {
+    public static LYJ_ConnectionManager instance;
+    
     //접속 Button
     public Button btnConnect;
 
     
+    //닉네임 InputField
+    public InputField inputNickName;
+    
+    private void Awake()
+    {
+        instance = this;
+    }
+    
+    
+    public void NickNameSave()
+    {
+        PlayerPrefs.SetString("Name", inputNickName.text);
+    }
+    
+    public void OnValueChanged(string s)
+    {
+        //만약에 s의 길이가 0보다 크다면 : 접속 버튼 활성화      
+        //그렇지 않다면 : 접속 버튼 비활성화 
+        btnConnect.interactable = s.Length > 0;       
+
+        //print("OnValueChanged : " + s);
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        // 닉네임(InputField)이 변경될때 호출되는 함수 등록
+        inputNickName.onValueChanged.AddListener(OnValueChanged);
+        // 닉네임(InputField)에서 Enter를 쳤을때 호출되는 함수 등록
+        inputNickName.onSubmit.AddListener(OnSubmit);
+        // 닉네임(InputField)에서 Focusing을 잃었을때 호출되는 함수 등록
+        inputNickName.onEndEdit.AddListener(OnEndEdit);
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public void OnSubmit(string s)
     {
-        
+        //만약에 s의 길이가 0보다 크다면
+        if(s.Length > 0)
+        {
+            //접속!
+            OnClickConnect();
+        }
+        //print("닉네임 입력 : " + s);
+    }
+    
+    public void OnEndEdit(string s)
+    {
+        //print("OnEndEdit : " + s);
     }
     
     public void OnClickConnect()
@@ -41,6 +81,9 @@ public class LYJ_ConnectionManager : MonoBehaviourPunCallbacks
         base.OnConnectedToMaster();
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
         
+        
+        //내 닉네임 설정
+        PhotonNetwork.NickName = inputNickName.text;
         //로비 진입 요청
         PhotonNetwork.JoinLobby();
     }
@@ -53,5 +96,6 @@ public class LYJ_ConnectionManager : MonoBehaviourPunCallbacks
 
         //LobbyScene으로 이동
         PhotonNetwork.LoadLevel("LYJ_LobbyScene");
+        print("닉네임 : " + PhotonNetwork.NickName);
     }
 }

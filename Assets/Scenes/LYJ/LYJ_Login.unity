@@ -1908,8 +1908,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1279227499}
-        m_TargetAssemblyTypeName: CAJ_ConnectionManager, Assembly-CSharp
+      - m_Target: {fileID: 868567334}
+        m_TargetAssemblyTypeName: ChatKeyword, Assembly-CSharp
+        m_MethodName: OnKeywordClickAll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1279227501}
+        m_TargetAssemblyTypeName: LYJ_ConnectionManager, Assembly-CSharp
         m_MethodName: NickNameSave
         m_Mode: 1
         m_Arguments:
@@ -1920,21 +1932,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1279227499}
-        m_TargetAssemblyTypeName: CAJ_ConnectionManager, Assembly-CSharp
+      - m_Target: {fileID: 1279227501}
+        m_TargetAssemblyTypeName: LYJ_ConnectionManager, Assembly-CSharp
         m_MethodName: OnClickConnect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 868567334}
-        m_TargetAssemblyTypeName: ChatKeyword, Assembly-CSharp
-        m_MethodName: OnKeywordClickAll
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4306,7 +4306,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1279227500}
-  - component: {fileID: 1279227499}
+  - component: {fileID: 1279227501}
   m_Layer: 0
   m_Name: ConnectionManager
   m_TagString: Untagged
@@ -4314,20 +4314,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1279227499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1279227498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5e092dd1bd419d41952bc21e390abe2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  btnConnect: {fileID: 515501267}
-  inputNickName: {fileID: 1904907671}
 --- !u!4 &1279227500
 Transform:
   m_ObjectHideFlags: 0
@@ -4343,6 +4329,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1279227501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279227498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 903304a848bca16428150efb673fba03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btnConnect: {fileID: 515501267}
+  inputNickName: {fileID: 1904907671}
 --- !u!1 &1325320366
 GameObject:
   m_ObjectHideFlags: 0
