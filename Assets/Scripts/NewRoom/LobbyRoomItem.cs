@@ -9,17 +9,17 @@ using UnityEngine.UI;
 public class LobbyRoomItem : MonoBehaviour
 {
     //방 제목
-    public TMP_Text roomInfoTMP;
+    public TMP_Text roomInfo;
 
     //방 수익률
-    public TMP_Text roomYieldTMP;
+    public TMP_Text roomYield;
 
     //게임오브젝트의 이름을 roomName으로!
-    public void SetInfoName(string roomName)
+    public void SetInfo(string roomName, string roomYield)
     {
         //roomName = LobbyRoomList.instance.roomdata.roomTitle;
         //name = roomName;
-        roomInfoTMP.text = roomName;
+        roomInfo.text = roomName;
         //roomYield.text = roomYield.ToString();
     }
 

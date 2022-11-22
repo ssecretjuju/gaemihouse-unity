@@ -15,7 +15,7 @@ public class roomPostInfo
     public int roomLimitedNumber;
 }
 
-public class CAJ_NewLobbyManager : MonoBehaviourPunCallbacks
+public class NewLobbyManager : MonoBehaviourPunCallbacks
 {
     public Camera cam;
 

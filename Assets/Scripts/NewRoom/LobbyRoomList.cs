@@ -18,7 +18,6 @@ public class LobbyRoomList : MonoBehaviour
 {
     public static LobbyRoomList instance;
 
-    public Camera cam;
     void Start()
     {
         //StartCoroutine("Test");
@@ -143,44 +142,13 @@ public class LobbyRoomList : MonoBehaviour
             {
                 GameObject go = Instantiate(roomItemFactory3, spawnPos[count]);
                 LobbyRoomItem item = go.GetComponent<LobbyRoomItem>();
-                item.SetInfoName(roomTitles[i]);
-                //item.SetInfoYield(roomYields[i]);
+                item.SetInfo(roomTitles[i]);
+
                 //go.name = array;
                 count++;
                 print("생성됨!");
             }
         }
-    }
-
-    public void ClickRay()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            //Building 레이어만 충돌 체크 
-            int mask = (1 << 3);
-            if (Physics.Raycast(ray, out hit, 125f, mask))
-            {
-                Debug.Log(hit.transform.gameObject);
-                string clickRoomName = hit.collider.gameObject.name.ToString();
-                Debug.Log(clickRoomName);
-                //클릭한 물체의 태그가 House라면 
-                if (hit.collider.tag == "House")
-                {
-                    //JoinRoom(clickRoomName);
-                }
-                else
-                {
-                    return;
-                }
-            }
-        }
-    }
-
-    public void JoinOrCreateRoom()
-    {
-
     }
 
 
