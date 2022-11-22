@@ -96,6 +96,7 @@ public class CAJ_ConnectionManager : MonoBehaviourPunCallbacks
 
         //LobbyScene으로 이동
         PhotonNetwork.LoadLevel("CAJ_LobbyScene");
+        //PhotonNetwork.LoadLevel("CAJ_CreateScene");
         print("닉네임 : " + PhotonNetwork.NickName);
     }
 }
