@@ -137,16 +137,89 @@ public class LobbyRoomList : MonoBehaviourPunCallbacks
     //방 UI 만들기 
     public void CreateRoom()
     {
-        print("CreateRoom 실행!!!!!!!!");
         int count = 0;
 
         //foreach (RoomInfo info in roomCache.Values)
         {
             for (int i = 0; i < dataCount; i++)
             {
-                GameObject go = Instantiate(roomItemFactory3, spawnPos[count]);
-                LobbyRoomItem item = go.GetComponent<LobbyRoomItem>();
-                //건물 밖 <- 방 이름
+                double yield = roomYields[i];
+                //double roomYields[i] = yield;
+                
+                // 1. 수익률 < -10
+                if (yield <= -10)
+                {
+                    GameObject go = Instantiate(roomItemFactory1, spawnPos[count]);
+                    LobbyRoomItem item = go.GetComponent<LobbyRoomItem>();
+                    //건물 밖 <- 방 이름
+                    item.SetInfoName(roomTitles[i]);
+                    //건물 밖 <- 방 수익률
+                    item.SetInfoYield(roomYields[i]);
+
+                    //건물 오브젝트 이름 = 방 이름
+                    go.name = roomTitles[i];
+
+                    count++;
+                    print("생성됨!");
+                }
+
+                // 2.-10 < 수익률 < -3
+                else if (yield > -10 && yield <= -3)
+                {
+                    GameObject go = Instantiate(roomItemFactory2, spawnPos[count]);
+                    LobbyRoomItem item = go.GetComponent<LobbyRoomItem>();
+                    //건물 밖 <- 방 이름
+                    item.SetInfoName(roomTitles[i]);
+                    //건물 밖 <- 방 수익률
+                    item.SetInfoYield(roomYields[i]);
+
+                    //건물 오브젝트 이름 = 방 이름
+                    go.name = roomTitles[i];
+
+                    count++;
+                    print("생성됨!");
+                }
+
+                // 3. -3 < 수익률 < 3
+                else if (yield > -3 && yield <= 3)
+                {
+                    GameObject go = Instantiate(roomItemFactory3, spawnPos[count]);
+                    LobbyRoomItem item = go.GetComponent<LobbyRoomItem>();
+                    //건물 밖 <- 방 이름
+                    item.SetInfoName(roomTitles[i]);
+                    //건물 밖 <- 방 수익률
+                    item.SetInfoYield(roomYields[i]);
+
+                    //건물 오브젝트 이름 = 방 이름
+                    go.name = roomTitles[i];
+
+                    count++;
+                    print("생성됨!");
+                }
+
+                // 4. 3 < 수익률 < 20
+                else if (yield > 3 && yield <= 20)
+                {
+                    GameObject go = Instantiate(roomItemFactory4, spawnPos[count]);
+                    LobbyRoomItem item = go.GetComponent<LobbyRoomItem>();
+                    //건물 밖 <- 방 이름
+                    item.SetInfoName(roomTitles[i]);
+                    //건물 밖 <- 방 수익률
+                    item.SetInfoYield(roomYields[i]);
+
+                    //건물 오브젝트 이름 = 방 이름
+                    go.name = roomTitles[i];
+
+                    count++;
+                    print("생성됨!");
+                }
+
+                // 5. 20 < 수익률 
+                else
+                {
+                    GameObject go = Instantiate(roomItemFactory5, spawnPos[count]);
+                    LobbyRoomItem item = go.GetComponent<LobbyRoomItem>();
+                     //건물 밖 <- 방 이름
                 item.SetInfoName(roomTitles[i]);
                 //건물 밖 <- 방 수익률
                 item.SetInfoYield(roomYields[i]);
@@ -156,6 +229,7 @@ public class LobbyRoomList : MonoBehaviourPunCallbacks
 
                 count++;
                 print("생성됨!");
+                }
             }
         }
     }
