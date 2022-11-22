@@ -21,6 +21,7 @@ public class ChangeColor : MonoBehaviour
 
     public GameObject[] bodyType;
 
+   public Toggle m_Toggle;
 
     //플레이어의 얼굴 정보
     public int FaceType;
@@ -37,18 +38,29 @@ public class ChangeColor : MonoBehaviour
 
     void Start()
     {
-        toggleList[0].onValueChanged.AddListener(delegate
-        {
-            faceType[0].SetActive(true);
-            faceType[1].SetActive(false);
-            faceType[2].SetActive(false);
-            faceType[3].SetActive(false);
-        });
+
+        toggleList[1].onValueChanged.AddListener(Blackchange);
+
+        //toggleList[1].onValueChanged.AddListener(delegate
+        //{
+        //    print("ssss");
+        //    faceType[0].SetActive(false);
+        //    faceType[1].SetActive(true);
+        //    faceType[2].SetActive(false);
+        //    faceType[3].SetActive(false);
+        //});
+    }
+
+    public void Blackchange(bool boolean)
+    {
+        faceType[1].SetActive(boolean);
+        Debug.Log("tlqkf");
     }
 
     // Update is called once per frame
     void Update()
     {
+
         OnClickTypeChange();
     }
 

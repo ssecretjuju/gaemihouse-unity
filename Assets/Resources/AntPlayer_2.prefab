@@ -21165,6 +21165,8 @@ MonoBehaviour:
   - {fileID: 1096024451989406148}
   FaceType: 0
   BodyType: 0
+  toggleList:
+  - {fileID: 0}
 --- !u!143 &-6147899691123035318
 CharacterController:
   m_ObjectHideFlags: 0
