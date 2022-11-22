@@ -18,6 +18,8 @@ public class LobbyRoomList : MonoBehaviour
 {
     public static LobbyRoomList instance;
 
+    public Camera cam;
+
     void Start()
     {
         //StartCoroutine("Test");
@@ -131,6 +133,7 @@ public class LobbyRoomList : MonoBehaviour
     //방의 정보들
     private Dictionary<string, RoomInfo> roomCache = new Dictionary<string, RoomInfo>();
 
+    //방 UI 만들기 
     public void CreateRoom()
     {
         print("CreateRoom 실행!!!!!!!!");
@@ -142,15 +145,19 @@ public class LobbyRoomList : MonoBehaviour
             {
                 GameObject go = Instantiate(roomItemFactory3, spawnPos[count]);
                 LobbyRoomItem item = go.GetComponent<LobbyRoomItem>();
-                item.SetInfo(roomTitles[i]);
+                //건물 밖 <- 방 이름
+                item.SetInfoName(roomTitles[i]);
+                //건물 밖 <- 방 수익률
+                item.SetInfoYield(roomYields[i]);
 
-                //go.name = array;
+                //건물 오브젝트 이름 = 방 이름
+                go.name = roomTitles[i];
+
                 count++;
                 print("생성됨!");
             }
         }
     }
-
 
     public IEnumerator CreateRoomUI()
     {
@@ -172,22 +179,6 @@ public class LobbyRoomList : MonoBehaviour
         }
     }
 
-    //void NormalCreateRoomListUI()
-    //{
-    //    print("CreateRoomListUI 생성 함수 들어옴!");
-    //    int count = 0;
-
-    //    yield return null;
-    //    print("dataCount : " + dataCount);
-    //    for (int i = 0; i < dataCount; i++)
-    //    {
-    //        GameObject go = Instantiate(roomItemFactory3, spawnPos[count]);
-    //    }
-
-    //}
-
-
-
 
     //우선 룸 이름으로만! < 원래 : roomName (currPlayer / maxPlayer) >
     public void NormalSetInfo(string roomName)
@@ -204,4 +195,32 @@ public class LobbyRoomList : MonoBehaviour
     {
         
     }
+
+
+    public void ClickRay()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            //Building 레이어만 충돌 체크 
+            int mask = (1 << 3);
+            if (Physics.Raycast(ray, out hit, 125f, mask))
+            {
+                Debug.Log(hit.transform.gameObject);
+                string clickRoomName = hit.collider.gameObject.name.ToString();
+                Debug.Log(clickRoomName);
+                //클릭한 물체의 태그가 House라면 
+                if (hit.collider.tag == "House")
+                {
+                    //PhotonNetwork.JoinOrCreateRoom(clickRoomName);
+                }
+                else
+                {
+                    return;
+                }
+            }
+        }
+    }
+
 }
