@@ -1836,6 +1836,7 @@ MonoBehaviour:
   boardItem: {fileID: 6358297859969130289, guid: cca9707b9b09efe4c8d5762766b0b783, type: 3}
   boardItemParent: {fileID: 311115974}
   boardCanvas: {fileID: 356879760}
+  roomcodeinfo: 
 --- !u!4 &702568067
 Transform:
   m_ObjectHideFlags: 0

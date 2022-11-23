@@ -6,10 +6,12 @@ using UnityEngine.UI;
 
 //내가 쓴 글을 다른사람이 볼 수 있게 동기화 -> BoardItem에 스크립트?
 
+
 public class SubboardManager : MonoBehaviour
 {
 
     public GameObject SubwriteWindow;
+    public GameObject confirmWindow;
     public InputField inputTitle;
     public InputField inputContent;
     public Text nickName;
@@ -21,7 +23,7 @@ public class SubboardManager : MonoBehaviour
     public GameObject Subboard;
     public Transform boardItemParent;
     public GameObject SubboardCanvas;
-    public GameObject confirmWindow;
+    
 
     public Text confirmTitleText;
 
@@ -33,13 +35,14 @@ public class SubboardManager : MonoBehaviour
     void Start()
     {
         //confirmBtn.onClick.AddListener(OnClickSubboard);
+        confirmWindow.SetActive(false);
+       
     }
     //write버튼을 누르면 글쓰기창이 뜬다. inputfield 내용을 초기화해준다.
 
     public void OnClickWriteBtn()
     {
-        SubwriteWindow.SetActive(true);
-        SubboardCanvas.SetActive(false);
+        SubwriteWindow.SetActive(true);      
 
         //다시 눌렀을 때 초기화
         if (inputTitle.text != null && inputContent.text != null)
@@ -60,10 +63,12 @@ public class SubboardManager : MonoBehaviour
 
         GameObject Item = Instantiate(Subboard, boardItemParent);
 
+        confirmWindow = GameObject.Find("SubBoardCanvas").transform.GetChild(0).gameObject;
+
         //write창의 inputfield 내용과 prefab inputfield 내용을 동기화한다.
-        InputField title = Item.transform.GetChild(0).GetComponent<InputField>();
-        Text content = GameObject.Find("content").GetComponent<Text>();
-        Text confirmTitle = GameObject.Find("Title").GetComponent<Text>();
+        InputField title = Item.transform.GetChild(0).GetComponent<InputField>();      
+        Text content = confirmWindow.transform.GetChild(1).GetComponent<Text>();
+        Text confirmTitle = confirmWindow.transform.GetChild(0).GetComponent<Text>();
         Text nickname = Item.transform.GetChild(1).GetComponent<Text>();
         Text date = Item.transform.GetChild(2).GetComponent<Text>();
 
@@ -88,11 +93,7 @@ public class SubboardManager : MonoBehaviour
 
     }
 
-    public void OnClickSubboard()
-    {
-        //글을 누르면 제목,닉네임,날짜,내용이 표시되어있는 창이 뜬다.
-        confirmWindow.SetActive(true);
-    }
+
     //back버튼 누르면 글쓰기창이 사라진다
 
     public void OnClickLike()
@@ -111,10 +112,13 @@ public class SubboardManager : MonoBehaviour
     }
 
     //x버튼 누르면 글 게시판이 닫힌다
+    //x버튼 누르면 제목,내용,멤버코드,룸코드가 서버로 전송된다.
+
 
     public void OnEscBtn()
     {
         SubboardCanvas.SetActive(false);
+
     }
 
 }

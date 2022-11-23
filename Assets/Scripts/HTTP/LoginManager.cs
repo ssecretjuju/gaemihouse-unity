@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using SimpleJSON;
 
 //로그인창에 아이디,비밀번호를 입력하고 서버에 json으로 보낸다
 //서버에 내가 보낼 정보들
@@ -77,6 +78,50 @@ public class LoginManager : MonoBehaviour
     public InputField password;
     public PlayerData playerData;
 
+    public void OnClickLogin()
+    {
+        LoginInfo data = new LoginInfo();
+        data.memberId = id.text;
+        print(id.text);
+        data.memberPassword = password.text;
+
+
+        HttpRequester requester = new HttpRequester();
+        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/member/id/" + id.text;
+        print(requester.url);
+        requester.requestType = RequestType.GET;
+
+        requester.postData = JsonUtility.ToJson(data, true);
+        print(requester.postData);
+
+
+        requester.onComplete = OnCilckDownload;
+
+
+        HttpManager.instance.SendRequest(requester);
+    }
+
+    public void OnCilckDownload(DownloadHandler handler)
+    {
+
+
+        string data = System.Text.Encoding.Default.GetString(handler.data);
+
+        print("data : " + data);
+
+        ResponseData responseData = JsonUtility.FromJson<ResponseData>(data);
+
+        playerData = responseData.data;
+
+        print(playerData.yield);
+
+
+        //PlayerPrefs.SetString("token", playerData.accessToken);
+
+        SceneManager.LoadScene("LYJ_LobbyScene");
+    }
+
+
     public void CAJ_OnClickLogin()
     {
         LoginInfo data = new LoginInfo();
@@ -84,9 +129,9 @@ public class LoginManager : MonoBehaviour
         print(id.text);
         data.memberPassword = password.text;
 
-       
+
         HttpRequester requester = new HttpRequester();
-        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/" + id.text;
+        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/member/id/" + id.text;
         print(requester.url);
         requester.requestType = RequestType.GET;
 
@@ -95,29 +140,6 @@ public class LoginManager : MonoBehaviour
 
 
         requester.onComplete = CAJ_OnCilckDownload;
-
-
-        HttpManager.instance.SendRequest(requester);
-    }
-
-    public void LYJ_OnClickLogin()
-    {
-        LoginInfo data = new LoginInfo();
-        data.memberId = id.text;
-        print(id.text);
-        data.memberPassword = password.text;
-
-
-        HttpRequester requester = new HttpRequester();
-        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/" + id.text;
-        print(requester.url);
-        requester.requestType = RequestType.GET;
-
-        requester.postData = JsonUtility.ToJson(data, true);
-        print(requester.postData);
-
-
-        requester.onComplete = LYJ_OnCilckDownload;
 
 
         HttpManager.instance.SendRequest(requester);
@@ -140,50 +162,18 @@ public class LoginManager : MonoBehaviour
 
         //PlayerPrefs.SetString("token", playerData.accessToken);
 
-        //print("조회 완료");
-
-        print("SceneManager이동시작");
         SceneManager.LoadScene("New)CAJ_LobbyScene");
-        print("SceneManager이동완료");
     }
-
-
-    public void LYJ_OnCilckDownload(DownloadHandler handler)
-    {
-        
-
-        string data = System.Text.Encoding.Default.GetString(handler.data);
-
-        print("data : " + data);
-
-        ResponseData responseData = JsonUtility.FromJson<ResponseData>(data);
-
-        playerData = responseData.data;
-
-        print(playerData.yield);
-        
-
-        //PlayerPrefs.SetString("token", playerData.accessToken);
-
-        //print("조회 완료");
-
-        print("SceneManager이동시작");
-        SceneManager.LoadScene("CAJ_CreateScene");
-        print("SceneManager이동완료");
-    }
-
-    
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
-
