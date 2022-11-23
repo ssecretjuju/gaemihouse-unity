@@ -297,7 +297,7 @@ public class LobbyRoomList : MonoBehaviourPunCallbacks
                     Debug.Log("House 클릭!");
 
                     //1. 서버 접속 요청
-                    OnClickConnect();
+                    OnClickConnectLobby();
 
                     //2. 로비 접속 요청
                     print("LobbyJoin완료?");
@@ -313,7 +313,7 @@ public class LobbyRoomList : MonoBehaviourPunCallbacks
     }
 
 
-    public void OnClickConnect()
+    public void OnClickConnectLobby()
     {
         //서버 접속 요청
         PhotonNetwork.ConnectUsingSettings();

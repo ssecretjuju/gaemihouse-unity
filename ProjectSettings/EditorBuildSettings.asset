@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/CAJ/CAJ_CreateScene.unity
-    guid: 9d3fbad65149b6c488cbb4c23792fff1
+    path: Assets/CDH/CDH_RoomScene.unity
+    guid: 10c9daf0ffac1994fb1114e8878aec9d
   - enabled: 1
-    path: Assets/Scenes/CAJ/CAJ_RoomScene.unity
-    guid: 33b8022aa6996c84f81e98ebf6fa54cd
+    path: Assets/CDH/CDH_LobbyScene.unity
+    guid: 144e9bc644ec4304baccbb9e4a2b7692
   m_configObjects: {}

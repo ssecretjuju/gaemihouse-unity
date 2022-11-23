@@ -30,6 +30,7 @@ public class LobbyNetworkManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(GetText());
+        //StartCoroutine(DeleteRoom());
         //StartCoroutine(PostText());
     }
 
