@@ -2242,7 +2242,7 @@ MonoBehaviour:
   cancelBtn: {fileID: 1519664861}
   boardItem: {fileID: 6358297859969130289, guid: cca9707b9b09efe4c8d5762766b0b783, type: 3}
   boardItemParent: {fileID: 1510769727}
-  boardCanvas: {fileID: 433786991}
+  boardCanvas: {fileID: 433786988}
 --- !u!1 &1820244242
 GameObject:
   m_ObjectHideFlags: 0

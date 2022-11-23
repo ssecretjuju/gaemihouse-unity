@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/CAJ/CAJ_CafeScene.unity.meta
 guid: f2142f02b1b348b4abf71826fe6ef8f6
+========
+guid: d42b6165ccd3bc549a0967b7ce5c3603
+folderAsset: yes
+>>>>>>>> origin/feature/LYJ:Assets/Ant/TEXTURES - 복사본.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
