@@ -211,7 +211,7 @@ public class ChangeColor : MonoBehaviour
         customdata.bodyType = BodyType;
         customdata.accType = AccType;
         customdata.colorMemberNickname = LoginManager.Instance.playerData.memberNickname;
-
+                                                
         //playerdata.memberAvatarImage = File.ReadAllBytes(Application.persistentDataPath + "/Resources/AvatarImage/avatar0.png");
 
         HttpRequester requester = new HttpRequester();
@@ -227,6 +227,6 @@ public class ChangeColor : MonoBehaviour
 
     public void Gobtn()
     {
-        SceneManager.LoadScene("LYJ_LoobyScene");
+        SceneManager.LoadScene("LYJ_LobbyScene");
     }
 }

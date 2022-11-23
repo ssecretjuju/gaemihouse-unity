@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
-using Photon.Pun;
+using UnityEngine.Networking;
 using UnityEngine.UI;
+using SimpleJSON;
 using UnityEngine.SceneManagement;
+
 
 //단, CharacterController를 사용
 
@@ -18,6 +22,8 @@ public class AntMove : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         anim = GetComponentInChildren<Animator>();
+
+        
     }
 
     // Update is called once per frame

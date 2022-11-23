@@ -60,7 +60,7 @@ public class BoardUIManager : MonoBehaviour
         requester.onComplete = OnClickRoomDownload;
 
         HttpManager.instance.SendRequest(requester);
-        print("Post ¿Ï·á!");
+        print("·ëÄÚµå °Ù ¿Ï·á!");
 
     }
 

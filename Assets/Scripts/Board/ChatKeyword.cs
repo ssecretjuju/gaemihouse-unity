@@ -72,10 +72,6 @@ public class ChatKeyword : MonoBehaviour
         //keydata = keyword.data;
         //print(keydata.keywordContent1);
 
-        //JSONArray array = JSON.Parse(data);
-
-        //print(array["data"]["yield"]);
-
         //int("조회완료");
         //ResponseKeywordData keyword = JsonUtility.FromJson<ResponseKeywordData>(data);
 
