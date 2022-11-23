@@ -6,7 +6,6 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 using Photon.Pun;
 using Photon.Realtime;
-using UnityEditorInternal;
 
 [Serializable]
 public class roomPostInfo
@@ -236,32 +235,34 @@ public class RoomListSetting : MonoBehaviourPunCallbacks
     }
 
     //방 만들 때, 방장 정보를 넘겨주고 싶다.
-    public void OnClickHolder()
-    {
-        roomHolderInfo data = new roomHolderInfo();
-        data.memberCode = LoginManager.Instance.playerData.memberCode;
-        print(data.memberCode);
+    //IEnumerator OnClickHolder()
+    //{
+    //    HttpRequester requester = new HttpRequester();
+    //    requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/shareholder-room" + holder.memberCode;
+    //    print(requester.url);
+    //    requester.requestType = RequestType.POST;
 
-        HttpRequester requester = new HttpRequester();
-
-        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/shareholder-room";
-        requester.requestType = RequestType.POST;
-
-
-        print("test");
-
-        requester.postData = JsonUtility.ToJson(data, true);
-        print(requester.postData);
+    //    roomHolderInfo data = new roomHolderInfo();
+    //    data.memberCode = LoginManager.Instance.playerData.memberCode;
+    //    print(LoginManager.Instance.playerData.memberCode);
+    //    print(data);
+    //    print(data.memberCode);
 
 
-        ///////////
-        requester.onComplete = OnCompleteHolder;
-        HttpManager.instance.SendRequest(requester);
-    }
+    //    print("test");
+
+    //    requester.postData = JsonUtility.ToJson(data, true);
+    //    print(requester.postData);
+
+
+    //    ///////////
+    //    requester.onComplete = OnCompleteHolder;
+    //    HttpManager.instance.SendRequest(requester);
+    //}
 
     public void OnCompleteHolder(DownloadHandler handler)
     {
-        print("회원정보 보내기 완료 ");
+        
     }
 
 

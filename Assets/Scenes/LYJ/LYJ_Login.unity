@@ -1898,7 +1898,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2065370876}
         m_TargetAssemblyTypeName: LoginManager, Assembly-CSharp
-        m_MethodName: CAJ_OnClickLogin
+        m_MethodName: OnClickLogin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3371,16 +3371,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0abc2bb22fe57f342a8b0c8e041f212a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputRoomName: {fileID: 0}
-  inputMaxPlayer: {fileID: 0}
-  btnCreate: {fileID: 0}
-  roomName: {fileID: 0}
-  roomData:
-    roomCode: 0
-    roomTitle: 
-    roomLimitedNumber: 0
-    roomRegistedNumber: 0
-    roomYield: 0
 --- !u!1 &1000234649
 GameObject:
   m_ObjectHideFlags: 0
