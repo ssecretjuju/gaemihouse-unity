@@ -14,6 +14,18 @@ public class roomPostInfo
     public int roomLimitedNumber;
 }
 
+[Serializable]
+public class roomDeleteInfo
+{
+    public string roomTitle;
+}
+
+[Serializable]
+public class roomHolderInfo
+{
+    public int memberCode;
+}
+
 
 public class RoomListSetting : MonoBehaviourPunCallbacks
 {
@@ -29,11 +41,11 @@ public class RoomListSetting : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(GetText());
+        StartCoroutine(GetRoom());
         // 방이름(InputField)이 변경될때 호출되는 함수 등록
-        inputRoomName.onValueChanged.AddListener(OnRoomNameValueChanged);
+        //inputRoomName.onValueChanged.AddListener(OnRoomNameValueChanged);
         // 총인원(InputField)이 변경될때 호출되는 함수 등록
-        inputMaxPlayer.onValueChanged.AddListener(OnMaxPlayerValueChanged);
+        //inputMaxPlayer.onValueChanged.AddListener(OnMaxPlayerValueChanged);
 
     }
 
@@ -203,9 +215,9 @@ public class RoomListSetting : MonoBehaviourPunCallbacks
         
     }
     
-    IEnumerator GetText()
+    IEnumerator GetRoom()
     {
-        UnityWebRequest www = UnityWebRequest.Get("http://3.34.133.115:8080/shareholder-room");
+        UnityWebRequest www = UnityWebRequest.Get("http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/shareholder-room");
         yield return www.SendWebRequest();
 
         if (www.isNetworkError || www.isHttpError)
@@ -221,4 +233,110 @@ public class RoomListSetting : MonoBehaviourPunCallbacks
             byte[] results = www.downloadHandler.data;
         }
     }
+
+    //방 만들 때, 방장 정보를 넘겨주고 싶다.
+    //IEnumerator OnClickHolder()
+    //{
+    //    HttpRequester requester = new HttpRequester();
+    //    requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/shareholder-room" + holder.memberCode;
+    //    print(requester.url);
+    //    requester.requestType = RequestType.POST;
+
+    //    roomHolderInfo data = new roomHolderInfo();
+    //    data.memberCode = LoginManager.Instance.playerData.memberCode;
+    //    print(LoginManager.Instance.playerData.memberCode);
+    //    print(data);
+    //    print(data.memberCode);
+
+
+    //    print("test");
+
+    //    requester.postData = JsonUtility.ToJson(data, true);
+    //    print(requester.postData);
+
+
+    //    ///////////
+    //    requester.onComplete = OnCompleteHolder;
+    //    HttpManager.instance.SendRequest(requester);
+    //}
+
+    public void OnCompleteHolder(DownloadHandler handler)
+    {
+        
+    }
+
+
+    public InputField roomName;
+
+    //IEnumerator OnClickDeleteRoom()
+    //{
+    //    UnityWebRequest www = UnityWebRequest.Get("http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/shareholder-room");
+    //    yield return www.SendWebRequest();
+
+    //    if (www.isNetworkError || www.isHttpError)
+    //    {
+    //        Debug.Log(www.error);
+    //    }
+    //    else
+    //    {
+    //        // Show results as text
+    //        Debug.Log(www.downloadHandler.text);
+
+    //        // Or retrieve results as binary data
+    //        byte[] results = www.downloadHandler.data;
+    //    }
+    //}
+
+    //roomTitle, roomDeleteInfo
+
+    public RoomData roomData;
+    public void OnClickDelete()
+    {
+        roomDeleteInfo data = new roomDeleteInfo();
+        data.roomTitle = roomName.text;
+        print("삭제하려는 방 이름 : " + roomName.text);
+        
+
+        HttpRequester requester = new HttpRequester();
+        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/shareholder-room" +roomName.text;
+        print(requester.url);
+        requester.requestType = RequestType.DELETE;
+
+        requester.postData = JsonUtility.ToJson(data, true);
+        print(requester.postData);
+
+
+        //requester.onComplete = OnCilckDownload;
+
+
+        HttpManager.instance.SendRequest(requester);
+
+        //requester.postData = JsonUtility.ToJson(data, true);
+        //print(requester.postData);
+
+
+        //requester.onComplete = OnCilckDownload;
+
+
+        //HttpManager.instance.SendRequest(requester);
+    }
+
+    //public void OnCilckDownload(DownloadHandler handler)
+    //{
+    //    string data = System.Text.Encoding.Default.GetString(handler.data);
+
+    //    print("data : " + data);
+
+    //    //ResponseData responseData = JsonUtility.FromJson<ResponseData>(data);
+
+    //    //roomData = responseData.data;
+
+    //    //print(playerData.yield);
+
+
+    //    //PlayerPrefs.SetString("token", playerData.accessToken);
+
+    //    print("조회 완료");
+    //}
+
 }
