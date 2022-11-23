@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 6313882958106299407}
   - component: {fileID: 6313882958106299404}
   - component: {fileID: 6313882958106299408}
-  - component: {fileID: 1048949611876996932}
+  - component: {fileID: 1533577555590198703}
+  - component: {fileID: 2151131669201323782}
   m_Layer: 3
   m_Name: 3LevelHouse
   m_TagString: House
@@ -120,7 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomInfo: {fileID: 6313882958689689529}
   roomDesc: {fileID: 6313882958346582627}
---- !u!114 &1048949611876996932
+--- !u!114 &1533577555590198703
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,11 +130,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 6313882958106299405}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21e9f118a15bc4746985ad4905bec545, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ea8e1fdf2c497548a0f9d1836e9f95a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomName: {fileID: 6313882958689689529}
-  roomYield: {fileID: 6313882958346582627}
+  roomInfoTMP: {fileID: 6313882958689689529}
+  roomYieldTMP: {fileID: 6313882958346582627}
+--- !u!65 &2151131669201323782
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6313882958106299405}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 15, y: 15, z: 20}
+  m_Center: {x: 0.26, y: 7.91, z: 0}
 --- !u!1 &6313882958346582625
 GameObject:
   m_ObjectHideFlags: 0

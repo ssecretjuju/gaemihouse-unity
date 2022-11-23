@@ -27818,10 +27818,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033da13455bdec54db5da3ccd6935a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 30
-  jumpPower: 5
-  lerpSpeed: 100
-  anim: {fileID: 4295986682761860907}
+  speed: 0
+  rotationSpeed: 0
 --- !u!1 &4295986682110563404
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ TagManager:
   - Train
   - Human
   - House
+  - Car
   layers:
   - Default
   - TransparentFX

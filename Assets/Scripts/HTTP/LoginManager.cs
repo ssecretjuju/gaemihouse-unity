@@ -86,7 +86,7 @@ public class LoginManager : MonoBehaviour
 
        
         HttpRequester requester = new HttpRequester();
-        requester.url = "http://3.34.133.115:8080/member/id/" + id.text;
+        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/" + id.text;
         print(requester.url);
         requester.requestType = RequestType.GET;
 
@@ -120,7 +120,7 @@ public class LoginManager : MonoBehaviour
         //print("조회 완료");
 
         print("SceneManager이동시작");
-        //SceneManager.LoadScene("CAJ_LobbyScene");
+        SceneManager.LoadScene("CAJ_CreateScene");
         print("SceneManager이동완료");
     }
 
