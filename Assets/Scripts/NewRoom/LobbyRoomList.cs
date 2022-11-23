@@ -34,7 +34,7 @@ public class LobbyRoomList : MonoBehaviourPunCallbacks
     {
         HttpRequester requester = new HttpRequester();
 
-        requester.url = "http://3.34.133.115:8080/shareholder-room";
+        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/shareholder-room";
         requester.requestType = RequestType.GET;
         requester.onComplete = CompleteGetRoomList;
 
@@ -51,7 +51,7 @@ public class LobbyRoomList : MonoBehaviourPunCallbacks
     {
         HttpRequester requester = new HttpRequester();
 
-        requester.url = "http://3.34.133.115:8080/shareholder-room";
+        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/shareholder-room";
         requester.requestType = RequestType.GET;
         requester.onComplete = CompleteGetRoomListAll;
 
@@ -220,25 +220,25 @@ public class LobbyRoomList : MonoBehaviourPunCallbacks
         }
     }
 
-    public IEnumerator CreateRoomUI()
-    {
-        yield return null;
-        print("CreateRoomListUI 생성 함수 들어옴!");
-        int count = 0;
+    //public IEnumerator CreateRoomUI()
+    //{
+    //    yield return null;
+    //    print("CreateRoomListUI 생성 함수 들어옴!");
+    //    int count = 0;
 
-        yield return null;
+    //    yield return null;
 
-        print("dataCount : " + dataCount);
+    //    print("dataCount : " + dataCount);
 
-        yield return null;
-        for (int i = 0; i < dataCount; i++)
-        {
-            print("for문 들어옴");
-            GameObject go = Instantiate(roomItemFactory3, spawnPos[count]);
-            count++;
-            print("생성됨!");
-        }
-    }
+    //    yield return null;
+    //    for (int i = 0; i < dataCount; i++)
+    //    {
+    //        print("for문 들어옴");
+    //        GameObject go = Instantiate(roomItemFactory3, spawnPos[count]);
+    //        count++;
+    //        print("생성됨!");
+    //    }
+    //}
 
 
     //우선 룸 이름으로만! < 원래 : roomName (currPlayer / maxPlayer) >
