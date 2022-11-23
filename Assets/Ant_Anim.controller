@@ -10,8 +10,12 @@ AnimatorState:
   m_Name: Breating Idle
   m_Speed: 1
   m_CycleOffset: 0
+<<<<<<< HEAD
   m_Transitions:
   - {fileID: 3892336209378833049}
+=======
+  m_Transitions: []
+>>>>>>> parent of d9c2cab (22)
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -21,7 +25,11 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
+<<<<<<< HEAD
   m_Motion: {fileID: -203655887218126122, guid: a880a501e9e5e2b4aad66f5d67421ab7, type: 3}
+=======
+  m_Motion: {fileID: -203655887218126122, guid: c88449172e1c4bc49b8a7f6af08a827d, type: 3}
+>>>>>>> parent of d9c2cab (22)
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -55,6 +63,7 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+<<<<<<< HEAD
 --- !u!1102 &627393657190044069
 AnimatorState:
   serializedVersion: 6
@@ -82,6 +91,8 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+=======
+>>>>>>> parent of d9c2cab (22)
 --- !u!1107 &3592229950843270857
 AnimatorStateMachine:
   serializedVersion: 6
@@ -93,10 +104,14 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -3416125953679855257}
+<<<<<<< HEAD
     m_Position: {x: 350, y: 80, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 627393657190044069}
     m_Position: {x: 640, y: 90, z: 0}
+=======
+    m_Position: {x: 370, y: 100, z: 0}
+>>>>>>> parent of d9c2cab (22)
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
