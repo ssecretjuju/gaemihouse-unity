@@ -2937,11 +2937,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: {fileID: 1904907671}
   password: {fileID: 1804457073}
-  keydata:
-    keywordCount2: 
-    keywordCount1: 
-    keywordContent2: 
-    keywordContent1: 
 --- !u!4 &868567335
 Transform:
   m_ObjectHideFlags: 0
