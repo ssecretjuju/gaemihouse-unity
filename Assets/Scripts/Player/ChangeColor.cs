@@ -31,8 +31,8 @@ public class ChangeColor : MonoBehaviour
     public Text UserNickname;
 
     public GameObject[] faceType;
-
     public GameObject[] bodyType;
+    public GameObject[] accType;
 
    public Toggle m_Toggle;
 
@@ -138,37 +138,37 @@ public class ChangeColor : MonoBehaviour
         //ACC
         toggleList3[0].onValueChanged.AddListener(delegate
         {
-            bodyType[0].SetActive(true);
-            bodyType[1].SetActive(false);
-            bodyType[2].SetActive(false);
-            bodyType[3].SetActive(false);
+            accType[0].SetActive(true);
+            accType[1].SetActive(false);
+            accType[2].SetActive(false);
+            accType[3].SetActive(false);
             AccType = 0;
         });
 
         toggleList3[1].onValueChanged.AddListener(delegate
         {
-            bodyType[0].SetActive(false);
-            bodyType[1].SetActive(true);
-            bodyType[2].SetActive(false);
-            bodyType[3].SetActive(false);
+            accType[0].SetActive(false);
+            accType[1].SetActive(true);
+            accType[2].SetActive(false);
+            accType[3].SetActive(false);
             AccType = 1;
         });
 
         toggleList3[2].onValueChanged.AddListener(delegate
         {
-            bodyType[0].SetActive(false);
-            bodyType[1].SetActive(false);
-            bodyType[2].SetActive(true);
-            bodyType[3].SetActive(false);
+            accType[0].SetActive(false);
+            accType[1].SetActive(false);
+            accType[2].SetActive(true);
+            accType[3].SetActive(false);
             AccType = 2;
         });
 
         toggleList3[3].onValueChanged.AddListener(delegate
         {
-            bodyType[0].SetActive(false);
-            bodyType[1].SetActive(false);
-            bodyType[2].SetActive(false);
-            bodyType[3].SetActive(true);
+            accType[0].SetActive(false);
+            accType[1].SetActive(false);
+            accType[2].SetActive(false);
+            accType[3].SetActive(true);
             AccType = 3;
         });
 
@@ -209,5 +209,10 @@ public class ChangeColor : MonoBehaviour
 
         HttpManager.instance.SendRequest(requester);
 
+    }
+
+    public void Gobtn()
+    {
+        SceneManager.LoadScene("LYJ_LoobyScene");
     }
 }

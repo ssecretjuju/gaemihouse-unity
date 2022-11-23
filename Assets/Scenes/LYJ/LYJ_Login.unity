@@ -1920,30 +1920,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1279227501}
-        m_TargetAssemblyTypeName: LYJ_ConnectionManager, Assembly-CSharp
-        m_MethodName: NickNameSave
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1279227501}
-        m_TargetAssemblyTypeName: LYJ_ConnectionManager, Assembly-CSharp
-        m_MethodName: OnClickConnect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &515501268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2937,11 +2913,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: {fileID: 1904907671}
   password: {fileID: 1804457073}
-  keydata:
-    keywordCount2: 
-    keywordCount1: 
-    keywordContent2: 
-    keywordContent1: 
 --- !u!4 &868567335
 Transform:
   m_ObjectHideFlags: 0
