@@ -48,13 +48,16 @@ public class AntCustom : MonoBehaviour
     }
 
     public CustomData customdata;
+    public string colorMemberNickname;
 
     public void onGetCustomData()
     {
-        
+        colorMemberNickname = LoginManager.Instance.playerData.memberNickname;
+        print(colorMemberNickname);
+
         //서버에 저장된 커스텀값들을 가져온다.
         HttpRequester requester = new HttpRequester();
-        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/avatar"; 
+        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/avatar" + colorMemberNickname; 
         requester.requestType = RequestType.GET;
 
         requester.onComplete = OnLoadCustom;
