@@ -56,10 +56,13 @@ public class ChangeColor : MonoBehaviour
     {
         faceType[0].SetActive(true);
         bodyType[0].SetActive(true);
+<<<<<<< HEAD
         //accType[0].SetActive(false);
         //accType[1].SetActive(false);
         //accType[2].SetActive(false);
         //accType[3].SetActive(false);
+=======
+>>>>>>> feature/LYJ
     }
 
     // Update is called once per frame
@@ -142,38 +145,80 @@ public class ChangeColor : MonoBehaviour
         //ACC
         toggleList3[0].onValueChanged.AddListener(delegate
         {
+<<<<<<< HEAD
             bodyType[0].SetActive(true);
             bodyType[1].SetActive(false);
             bodyType[2].SetActive(false);
             bodyType[3].SetActive(false);
+=======
+            accType[0].SetActive(false);
+            accType[1].SetActive(false);
+            accType[2].SetActive(false);
+            accType[3].SetActive(false);
+            accType[4].SetActive(false);
+>>>>>>> feature/LYJ
             AccType = 0;
         });
 
         toggleList3[1].onValueChanged.AddListener(delegate
         {
+<<<<<<< HEAD
             bodyType[0].SetActive(false);
             bodyType[1].SetActive(true);
             bodyType[2].SetActive(false);
             bodyType[3].SetActive(false);
+=======
+            accType[0].SetActive(false);
+            accType[1].SetActive(true);
+            accType[2].SetActive(false);
+            accType[3].SetActive(false);
+            accType[4].SetActive(false);
+>>>>>>> feature/LYJ
             AccType = 1;
         });
 
         toggleList3[2].onValueChanged.AddListener(delegate
         {
+<<<<<<< HEAD
             bodyType[0].SetActive(false);
             bodyType[1].SetActive(false);
             bodyType[2].SetActive(true);
             bodyType[3].SetActive(false);
+=======
+            accType[0].SetActive(false);
+            accType[1].SetActive(false);
+            accType[2].SetActive(true);
+            accType[3].SetActive(false);
+            accType[4].SetActive(false);
+>>>>>>> feature/LYJ
             AccType = 2;
         });
 
         toggleList3[3].onValueChanged.AddListener(delegate
         {
+<<<<<<< HEAD
             bodyType[0].SetActive(false);
             bodyType[1].SetActive(false);
             bodyType[2].SetActive(false);
             bodyType[3].SetActive(true);
+=======
+            accType[0].SetActive(false);
+            accType[1].SetActive(false);
+            accType[2].SetActive(false);
+            accType[3].SetActive(true);
+            accType[4].SetActive(false);
+>>>>>>> feature/LYJ
             AccType = 3;
+        });
+
+        toggleList3[4].onValueChanged.AddListener(delegate
+        {
+            accType[0].SetActive(false);
+            accType[1].SetActive(false);
+            accType[2].SetActive(false);
+            accType[3].SetActive(false);
+            accType[4].SetActive(true);
+            AccType = 4;
         });
 
     }
