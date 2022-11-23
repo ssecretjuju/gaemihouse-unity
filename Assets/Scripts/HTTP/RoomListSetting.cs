@@ -13,6 +13,7 @@ public class roomPostInfo
 {
     public string roomTitle;
     public int roomLimitedNumber;
+    public string memberId;
 }
 
 [Serializable]
@@ -21,11 +22,11 @@ public class roomDeleteInfo
     public string roomTitle;
 }
 
-[Serializable]
-public class roomHolderInfo
-{
-    public int memberCode;
-}
+//[Serializable]
+//public class roomHolderInfo
+//{
+//    public int memberCode;
+//}
 
 
 public class RoomListSetting : MonoBehaviourPunCallbacks
@@ -71,9 +72,19 @@ public class RoomListSetting : MonoBehaviourPunCallbacks
         data.roomLimitedNumber = int.Parse(inputMaxPlayer.text);
         // data.isOpen = true;
         // List<string> roomMember = new List<string>();
+        string id = LoginManager.Instance.playerData.memberId;
+
+        data.memberId = id;
+        print(id);
+        print(LoginManager.Instance.playerData.memberId);
+        //print(LoginManager.Instance.playerData.username);
+        //print(LoginManager.Instance.playerData);
+
+
 
         HttpRequester requester = new HttpRequester();
-        requester.url = "http://3.34.133.115:8080/shareholder-room";
+        //requester.url = "http://3.34.133.115:8080/shareholder-room";
+        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/shareholder-room";
         requester.requestType = RequestType.POST;
         print("Post test");
 
@@ -235,34 +246,34 @@ public class RoomListSetting : MonoBehaviourPunCallbacks
         }
     }
 
-    //방 만들 때, 방장 정보를 넘겨주고 싶다.
-    public void OnClickHolder()
-    {
-        roomHolderInfo data = new roomHolderInfo();
-        data.memberCode = LoginManager.Instance.playerData.memberCode;
-        print(data.memberCode);
+    ////방 만들 때, 방장 정보를 넘겨주고 싶다.
+    //public void OnClickHolder()
+    //{
+    //    roomHolderInfo data = new roomHolderInfo();
+    //    data.memberCode = LoginManager.Instance.playerData.memberCode;
+    //    print(data.memberCode);
 
-        HttpRequester requester = new HttpRequester();
+    //    HttpRequester requester = new HttpRequester();
 
-        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/shareholder-room";
-        requester.requestType = RequestType.POST;
-
-
-        print("test");
-
-        requester.postData = JsonUtility.ToJson(data, true);
-        print(requester.postData);
+    //    requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/shareholder-room";
+    //    requester.requestType = RequestType.POST;
 
 
-        ///////////
-        requester.onComplete = OnCompleteHolder;
-        HttpManager.instance.SendRequest(requester);
-    }
+    //    print("test");
 
-    public void OnCompleteHolder(DownloadHandler handler)
-    {
-        print("회원정보 보내기 완료 ");
-    }
+    //    requester.postData = JsonUtility.ToJson(data, true);
+    //    print(requester.postData);
+
+
+    //    ///////////
+    //    requester.onComplete = OnCompleteHolder;
+    //    HttpManager.instance.SendRequest(requester);
+    //}
+
+    //public void OnCompleteHolder(DownloadHandler handler)
+    //{
+    //    print("회원정보 보내기 완료 ");
+    //}
 
 
     public InputField roomName;

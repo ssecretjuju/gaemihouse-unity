@@ -77,19 +77,6 @@ public class CAJ_LoadRoomManager : MonoBehaviour
         print("조회 완료");
     }
 
-
-
-
-    public void OnClickSignIn()
-    {
-
-    }
-
-    public void OnCompleteSignIn(DownloadHandler handler)
-    {
-
-    }
-
     // Start is called before the first frame update
     void Start()
     {

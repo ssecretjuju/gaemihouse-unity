@@ -94,21 +94,6 @@ public class LobbyRoomList : MonoBehaviourPunCallbacks
         //전역 변수에 저장
         dataCount = array.data.Length;
 
-        //File.WriteAllText(Application.dataPath + "/RoomListJson.json", JsonUtility.ToJson(json));
-        //File.WriteAllText(Application.dataPath + "/RoomListJson.json", array.data[0]);
-        //string path = Path.Combine(Application.dataPath, "/RoomListJson.json");
-
-        //File.WriteAllText(Application.dataPath + "/RoomListJson.json", JsonUtility.ToJson(json));
-
-        //if (Directory.Exists(path) == false)
-        //{
-        //    Directory.CreateDirectory(path);
-        //}
-
-
-        //print("dataCount: " + dataCount);
-
-
         CreateRoom();
 
         //for (int i = 0; i < array.data.Count; i++)
@@ -141,6 +126,7 @@ public class LobbyRoomList : MonoBehaviourPunCallbacks
 
         //foreach (RoomInfo info in roomCache.Values)
         {
+            //for (int i = dataCount; i > 0; i++)
             for (int i = 0; i < dataCount; i++)
             {
                 double yield = roomYields[i];
@@ -283,7 +269,7 @@ public class LobbyRoomList : MonoBehaviourPunCallbacks
             print("hit");
             //int mask = (1 << 3);
             int mask = 1 << LayerMask.NameToLayer("Building");
-            if (Physics.Raycast(ray, out hit, 200f, mask))
+            if (Physics.Raycast(ray, out hit, 150f, mask))
             {
                 clickRoomName = hit.collider.gameObject.name.ToString();
                 //클릭한 물체의 태그가 House라면 
@@ -301,8 +287,6 @@ public class LobbyRoomList : MonoBehaviourPunCallbacks
 
                     //2. 로비 접속 요청
                     print("LobbyJoin완료?");
-
-                    
                 }
                 else
                 {
@@ -357,11 +341,6 @@ public class LobbyRoomList : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinOrCreateRoom(clickRoomName, roomOptions, TypedLobby.Default);
     }
 
-    //public void JoinOrCreateRoom()
-    //{
-
-    //}
-
     //방 참가가 완료 되었을 때 호출 되는 함수
     public override void OnJoinedRoom()
     {
@@ -408,11 +387,5 @@ public class LobbyRoomList : MonoBehaviourPunCallbacks
 
 }
 
-//public override void JoinOrCreateRoom(string inputRoomname)
-//{
-//    PhotonNetwork.JoinOrCreateRoom(inputRoomname);
-//}
-
-//public void 
 
 

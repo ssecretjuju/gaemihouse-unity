@@ -85,7 +85,7 @@ public class HttpManager : MonoBehaviour
         else
         {
             //서버통신 실패....ㅠ
-            print("통신 실패" + webRequest.result + "\n" + webRequest.error);
+            print("통신 실패" + webRequest.result + "\n" + webRequest.error);   
         }
         yield return null;
     }
