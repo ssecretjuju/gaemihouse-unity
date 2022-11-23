@@ -120,7 +120,8 @@ public class LoginManager : MonoBehaviour
         //print("조회 완료");
 
         print("SceneManager이동시작");
-        SceneManager.LoadScene("CAJ_CreateScene");
+        //SceneManager.LoadScene("CAJ_CreateScene");
+        SceneManager.LoadScene("LYJ_LobbyScene");
         print("SceneManager이동완료");
     }
 
