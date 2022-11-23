@@ -56,10 +56,6 @@ public class ChangeColor : MonoBehaviour
     {
         faceType[0].SetActive(true);
         bodyType[0].SetActive(true);
-        accType[0].SetActive(false);
-        accType[1].SetActive(false);
-        accType[2].SetActive(false);
-        accType[3].SetActive(false);
     }
 
     // Update is called once per frame
@@ -142,10 +138,11 @@ public class ChangeColor : MonoBehaviour
         //ACC
         toggleList3[0].onValueChanged.AddListener(delegate
         {
-            accType[0].SetActive(true);
+            accType[0].SetActive(false);
             accType[1].SetActive(false);
             accType[2].SetActive(false);
             accType[3].SetActive(false);
+            accType[4].SetActive(false);
             AccType = 0;
         });
 
@@ -155,6 +152,7 @@ public class ChangeColor : MonoBehaviour
             accType[1].SetActive(true);
             accType[2].SetActive(false);
             accType[3].SetActive(false);
+            accType[4].SetActive(false);
             AccType = 1;
         });
 
@@ -164,6 +162,7 @@ public class ChangeColor : MonoBehaviour
             accType[1].SetActive(false);
             accType[2].SetActive(true);
             accType[3].SetActive(false);
+            accType[4].SetActive(false);
             AccType = 2;
         });
 
@@ -173,7 +172,18 @@ public class ChangeColor : MonoBehaviour
             accType[1].SetActive(false);
             accType[2].SetActive(false);
             accType[3].SetActive(true);
+            accType[4].SetActive(false);
             AccType = 3;
+        });
+
+        toggleList3[4].onValueChanged.AddListener(delegate
+        {
+            accType[0].SetActive(false);
+            accType[1].SetActive(false);
+            accType[2].SetActive(false);
+            accType[3].SetActive(false);
+            accType[4].SetActive(true);
+            AccType = 4;
         });
 
     }
