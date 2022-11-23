@@ -279,9 +279,6 @@ public class RoomListSetting : MonoBehaviourPunCallbacks
     public InputField roomName;
 
 
-
-    //roomTitle, roomDeleteInfo
-
     public RoomData roomData;
     public void OnClickDelete()
     {

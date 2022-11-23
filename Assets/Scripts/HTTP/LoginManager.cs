@@ -121,6 +121,48 @@ public class LoginManager : MonoBehaviour
 
     }
 
+    public void CAJ_OnClickLogin()
+    {
+        LoginInfo data = new LoginInfo();
+        data.memberId = id.text;
+        print(id.text);
+        data.memberPassword = password.text;
+
+        HttpRequester requester = new HttpRequester();
+        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/member/id/" + id.text;
+        print(requester.url);
+        requester.requestType = RequestType.GET;
+
+        requester.postData = JsonUtility.ToJson(data, true);
+        print(requester.postData);
+
+
+        requester.onComplete = CAJ_OnCilckDownload;
+
+
+        HttpManager.instance.SendRequest(requester);
+    }
+
+    public void CAJ_OnCilckDownload(DownloadHandler handler)
+    {
+        string data = System.Text.Encoding.Default.GetString(handler.data);
+
+        print("data : " + data);
+
+        ResponseData responseData = JsonUtility.FromJson<ResponseData>(data);
+
+        playerData = responseData.data;
+
+        print(playerData.yield);
+
+
+        //PlayerPrefs.SetString("token", playerData.accessToken);
+
+        //print("조회 완료");
+
+        SceneManager.LoadScene("Test)CAJ_LobbyScene");
+
+    }
 
     // Start is called before the first frame update
     void Start()
