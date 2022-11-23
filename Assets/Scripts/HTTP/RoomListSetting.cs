@@ -189,7 +189,7 @@ public class RoomListSetting : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinRoom(inputRoomname);
     }
 
-    //방 참가가 완료 되었을 때 호출 되는 함수
+    //방 참가가 완료 되었을 때 호출 되는 함수ge
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
@@ -267,24 +267,7 @@ public class RoomListSetting : MonoBehaviourPunCallbacks
 
     public InputField roomName;
 
-    //IEnumerator OnClickDeleteRoom()
-    //{
-    //    UnityWebRequest www = UnityWebRequest.Get("http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/shareholder-room");
-    //    yield return www.SendWebRequest();
 
-    //    if (www.isNetworkError || www.isHttpError)
-    //    {
-    //        Debug.Log(www.error);
-    //    }
-    //    else
-    //    {
-    //        // Show results as text
-    //        Debug.Log(www.downloadHandler.text);
-
-    //        // Or retrieve results as binary data
-    //        byte[] results = www.downloadHandler.data;
-    //    }
-    //}
 
     //roomTitle, roomDeleteInfo
 
@@ -310,32 +293,7 @@ public class RoomListSetting : MonoBehaviourPunCallbacks
 
         HttpManager.instance.SendRequest(requester);
 
-        //requester.postData = JsonUtility.ToJson(data, true);
-        //print(requester.postData);
-
-
-        //requester.onComplete = OnCilckDownload;
-
-
-        //HttpManager.instance.SendRequest(requester);
     }
 
-    //public void OnCilckDownload(DownloadHandler handler)
-    //{
-    //    string data = System.Text.Encoding.Default.GetString(handler.data);
-
-    //    print("data : " + data);
-
-    //    //ResponseData responseData = JsonUtility.FromJson<ResponseData>(data);
-
-    //    //roomData = responseData.data;
-
-    //    //print(playerData.yield);
-
-
-    //    //PlayerPrefs.SetString("token", playerData.accessToken);
-
-    //    print("조회 완료");
-    //}
 
 }

@@ -56,10 +56,10 @@ public class ChangeColor : MonoBehaviour
     {
         faceType[0].SetActive(true);
         bodyType[0].SetActive(true);
-        accType[0].SetActive(false);
-        accType[1].SetActive(false);
-        accType[2].SetActive(false);
-        accType[3].SetActive(false);
+        //accType[0].SetActive(false);
+        //accType[1].SetActive(false);
+        //accType[2].SetActive(false);
+        //accType[3].SetActive(false);
     }
 
     // Update is called once per frame

@@ -6,15 +6,10 @@ using System.IO;
 
 //룸 정보를 받아온다
 //룸 정보(이름, 수익률)에 따라 방을 만든다
-//만들어진 방을 클릭할 때, JoinOrCreateRoom()으로 방을 클릭해서 참가하게 만들어준다 
 
 public class CAJ_LoadRoomManager : MonoBehaviour
 {
-    //public static CAJ_LoadRoomManager instance;
-
-    //private string FilePath = "D:\[Project]5. GaemiHouse\gaemihouse-unity\Assets\Data";
-
-
+    
     public void OnClickGetPost()
     {
         //서버에 방 목록 조회 요청 (shareholder-room, GET)
