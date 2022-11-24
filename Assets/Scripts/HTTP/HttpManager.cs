@@ -49,8 +49,8 @@ public class HttpManager : MonoBehaviour
                 webRequest.SetRequestHeader("Content-Type", "application/json");
                 break;
             case RequestType.GET:
-                webRequest = UnityWebRequest.Get(requester.url);
-                if (accessToken != null)
+                webRequest = UnityWebRequest.Get(requester.url); 
+                if(accessToken != null)
                 {
                     webRequest.SetRequestHeader("accesstoken", accessToken);
                 }
@@ -71,7 +71,7 @@ public class HttpManager : MonoBehaviour
         if (webRequest.result == UnityWebRequest.Result.Success)
         {
             print(webRequest.downloadHandler.text);
-
+           
 
             //print("키워드 데이터 갯수 :"+keywordData.data.Count);
             //완료되었다고 requester.onComplete를 실행
@@ -79,14 +79,14 @@ public class HttpManager : MonoBehaviour
             {
                 requester.onComplete(webRequest.downloadHandler);
             }
-
+            
 
         }
         //그렇지않다면
         else
         {
             //서버통신 실패....ㅠ
-            print("통신 실패" + webRequest.result + "\n" + webRequest.error);   
+            print("통신 실패" + webRequest.result + "\n" + webRequest.error);
         }
         yield return null;
     }
