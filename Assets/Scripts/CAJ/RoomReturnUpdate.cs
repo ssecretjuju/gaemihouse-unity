@@ -22,7 +22,7 @@ public class RoomReturnUpdate : MonoBehaviourPunCallbacks
     public void ReturnChange()
     {
         //1. 룸의 상태를 취득
-        //Room room = PhotonNetwork.CurrentRoom;
+        Room room = PhotonNetwork.CurrentRoom;
         print("현재 방 상태 : " + PhotonNetwork.CurrentRoom);
 
         // 2. 룸의 커스텀 프로퍼티 취득

@@ -109,28 +109,28 @@ public class Node : MonoBehaviour
 
             // Message 를 보낼 때
             // 이름이랑 같이 보낸다
-            //ws.Send(string.Format("{0} : {1}",mbti_name, input.text ) );
-            // ws.Send(string.Format(input.text));
+            ws.Send(string.Format("{0} : {1}",mbti_name, input.text ) );
+            ws.Send(string.Format(input.text));
             //
-            // print("1");
+             print("1");
             //
             // // text 에 나오게 하고싶다.
-            // //chatLog.text += input.text + "\n";
+            chatLog.text += input.text + "\n";
             //
-            // print("2");
+            //print("2");
             //
             // // 그리고 초기화
-            // input.text = "";
+            input.text = "";
             //
-            // print("3");
+            print("3");
             //send : 입력 보내는 것 
-            //ws.Send(PhotonNetwork.NickName + "%" + input.text);
+            ws.Send(PhotonNetwork.NickName + "%" + input.text);
             
             
             //var message = input.text;
             //
             // //send : 입력 보내는 것 
-            // ws.Send(string.Format(message));
+            ws.Send(string.Format(message));
             //
             // input.text = "";
             //
@@ -138,37 +138,37 @@ public class Node : MonoBehaviour
             //
             //
 
-            //message로 바꾸기
-            ws.Send(PhotonNetwork.NickName + "%" + input.text);
+            ////message로 바꾸기
             //ws.Send(PhotonNetwork.NickName + "%" + input.text);
-            chatLog.text += input.text + "\n";
+            ////ws.Send(PhotonNetwork.NickName + "%" + input.text);
             //chatLog.text += input.text + "\n";
+            ////chatLog.text += input.text + "\n";
 
-            input.text = "";
             //input.text = "";
+            ////input.text = "";
             
-            input.ActivateInputField();
+            //input.ActivateInputField();
 
 
             
-            // 스크롤 제어
-            scroll_rect.verticalNormalizedPosition = 0.0f;
+            //// 스크롤 제어
+            //scroll_rect.verticalNormalizedPosition = 0.0f;
 
         }
     }
 
-    public void Test()
-    {
+    //public void Test()
+    //{
 
-        chatLog.enabled = false;
-        chatLog.enabled = true;
-        chatLog.text = chatLog.text;
-        //chatLog.text += msg;
-        // 스크롤 항상 아래로 고정
-        scroll_rect.verticalNormalizedPosition = 0.0f;
+    //    chatLog.enabled = false;
+    //    chatLog.enabled = true;
+    //    chatLog.text = chatLog.text;
+    //    //chatLog.text += msg;
+    //    // 스크롤 항상 아래로 고정
+    //    scroll_rect.verticalNormalizedPosition = 0.0f;
 
 
-    }
+    //}
 
     // 버튼을 누르면 인풋 필드에 있는 글을 Send 함수에 넣고 싶다,.
     // Send 함수를 눌렀을 때 그 Text 를 Scroll View 에 띄우고 싶다.
