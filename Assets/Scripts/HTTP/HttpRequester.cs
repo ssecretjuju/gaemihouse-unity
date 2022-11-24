@@ -4,7 +4,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
+//HttpRequester : 틀 
 
+//게시물 정보
+[System.Serializable]
+public class RoomData
+{
+    public int roomCode;
+    public string roomTitle;
+    public int roomLimitedNumber;
+    public int roomRegistedNumber;
+    public int roomYield;
+    
+}
+
+public class ListenData
+{
+    public string status;
+    public string message;
+    public RoomData[] data;
+}
+
+[Serializable]
+public class RoomDataArray
+{
+    public List<RoomData> data;
+}
 
 public enum RequestType
 {
