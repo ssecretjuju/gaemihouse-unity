@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 public class CAJ_ConnectionManager : MonoBehaviourPunCallbacks
 {
@@ -95,7 +96,8 @@ public class CAJ_ConnectionManager : MonoBehaviourPunCallbacks
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
 
         //LobbyScene으로 이동
-        PhotonNetwork.LoadLevel("CAJ_LobbyScene");
+        SceneManager.LoadScene("CAJ_LobbyScene");
+        //PhotonNetwork.LoadLevel("CAJ_CreateScene");
         print("닉네임 : " + PhotonNetwork.NickName);
     }
 }

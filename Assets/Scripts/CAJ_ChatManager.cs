@@ -14,7 +14,6 @@ public class CAJ_ChatManager : MonoBehaviourPun
     //ScrollView의 Content transform
     public RectTransform trContent;
 
-
     public GameObject chatCanvas;
 
     //나의 닉네임 색깔
@@ -81,7 +80,7 @@ public class CAJ_ChatManager : MonoBehaviourPun
         inputChat.ActivateInputField();
     }
 
-   
+
     public RectTransform rtScrollView;
     float prevContentH;
 
