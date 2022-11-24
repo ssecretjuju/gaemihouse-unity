@@ -212,6 +212,7 @@ GameObject:
   m_Component:
   - component: {fileID: 49066889}
   - component: {fileID: 49066890}
+  - component: {fileID: 49066891}
   m_Layer: 0
   m_Name: WebSocket
   m_TagString: Untagged
@@ -241,7 +242,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 49066888}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3b431b6bdc71a2b46bfc777325ec78a1, type: 3}
   m_Name: 
@@ -249,6 +250,21 @@ MonoBehaviour:
   chatLog: {fileID: 814774953}
   input: {fileID: 68555375}
   IP: ws://3.34.133.115:8001
+--- !u!114 &49066891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49066888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c7f072eadbde904abee922d2689b9f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chatItemFactory: {fileID: 755022694}
+  inputChat: {fileID: 68555375}
+  trContent: {fileID: 1534515204}
 --- !u!1 &68555373
 GameObject:
   m_ObjectHideFlags: 0
