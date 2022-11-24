@@ -137,10 +137,15 @@ public class Node : MonoBehaviour
             // input.ActivateInputField();
             //
             //
-            ws.Send("NickName : " + string.Format(input.text));
+
+            //message로 바꾸기
+            ws.Send(PhotonNetwork.NickName + "%" + input.text);
+            //ws.Send(PhotonNetwork.NickName + "%" + input.text);
             chatLog.text += input.text + "\n";
+            //chatLog.text += input.text + "\n";
 
             input.text = "";
+            //input.text = "";
             
             input.ActivateInputField();
 

@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 6313882958106299407}
   - component: {fileID: 6313882958106299404}
   - component: {fileID: 6313882958106299408}
-  m_Layer: 5
+  - component: {fileID: 3903668844203783206}
+  - component: {fileID: 4956069967598092310}
+  m_Layer: 3
   m_Name: 5LevelHouse
   m_TagString: House
   m_Icon: {fileID: 0}
@@ -88,7 +90,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &6313882958106299404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +122,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomInfo: {fileID: 6313882958689689529}
   roomDesc: {fileID: 6313882958346582627}
+--- !u!114 &3903668844203783206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6313882958106299405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea8e1fdf2c497548a0f9d1836e9f95a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomInfoTMP: {fileID: 6313882958689689529}
+  roomYieldTMP: {fileID: 6313882958346582627}
+--- !u!65 &4956069967598092310
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6313882958106299405}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 40, z: 20}
+  m_Center: {x: 2.06, y: 17.9, z: -4.69}
 --- !u!1 &6313882958346582625
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,7 +160,8 @@ GameObject:
   - component: {fileID: 6313882958346582624}
   - component: {fileID: 6313882958346582626}
   - component: {fileID: 6313882958346582627}
-  m_Layer: 5
+  - component: {fileID: 6047520542179219848}
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,6 +285,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6047520542179219848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6313882958346582625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a22fa464f610e49a70f05387ce3387, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6313882958689689527
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,7 +308,8 @@ GameObject:
   - component: {fileID: 6313882958689689526}
   - component: {fileID: 6313882958689689528}
   - component: {fileID: 6313882958689689529}
-  m_Layer: 5
+  - component: {fileID: 8588093414542468022}
+  m_Layer: 3
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,6 +433,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8588093414542468022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6313882958689689527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a22fa464f610e49a70f05387ce3387, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &663359184333427093
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -400,6 +455,10 @@ PrefabInstance:
     - target: {fileID: 5961027229541649923, guid: 975222ad4b49f334eb75cb5dc9df0077, type: 3}
       propertyPath: m_Name
       value: building-skyscraper
+      objectReference: {fileID: 0}
+    - target: {fileID: 5961027229541649923, guid: 975222ad4b49f334eb75cb5dc9df0077, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5961027229541814819, guid: 975222ad4b49f334eb75cb5dc9df0077, type: 3}
       propertyPath: m_RootOrder
@@ -478,6 +537,10 @@ PrefabInstance:
     - target: {fileID: 8108840672170100115, guid: 24a7cd976aaabac40b488d9845b4ccef, type: 3}
       propertyPath: m_Name
       value: building-house-modern
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108840672170100115, guid: 24a7cd976aaabac40b488d9845b4ccef, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8108840672170100115, guid: 24a7cd976aaabac40b488d9845b4ccef, type: 3}
       propertyPath: m_IsActive
@@ -604,6 +667,10 @@ PrefabInstance:
     - target: {fileID: 2215209693239599735, guid: 5f3b442e803724c4291da1b5beddba8c, type: 3}
       propertyPath: m_Name
       value: building-block-4floor-short
+      objectReference: {fileID: 0}
+    - target: {fileID: 2215209693239599735, guid: 5f3b442e803724c4291da1b5beddba8c, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2215209693239599735, guid: 5f3b442e803724c4291da1b5beddba8c, type: 3}
       propertyPath: m_IsActive
