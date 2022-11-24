@@ -154,14 +154,4 @@ public class BoardUIManager : MonoBehaviour
         
     }
 
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            boardCanvas.SetActive(true);
-
-
-        }
-    }
 }

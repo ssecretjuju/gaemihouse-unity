@@ -7930,6 +7930,7 @@ MonoBehaviour:
     accountNonLocked: 0
     credentialsNonExpired: 0
     yield: 
+    accessToken: 
 --- !u!1 &2109712433
 GameObject:
   m_ObjectHideFlags: 0
