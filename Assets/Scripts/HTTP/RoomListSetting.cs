@@ -282,26 +282,10 @@ public class RoomListSetting : MonoBehaviourPunCallbacks
     public RoomData roomData;
     public void OnClickDelete()
     {
-        roomDeleteInfo data = new roomDeleteInfo();
-        data.roomTitle = roomName.text;
-        print("삭제하려는 방 이름 : " + roomName.text);
         
-
-        HttpRequester requester = new HttpRequester();
-        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/shareholder-room" +roomName.text;
-        print(requester.url);
-        requester.requestType = RequestType.DELETE;
-
-        requester.postData = JsonUtility.ToJson(data, true);
-        print(requester.postData);
-
-
-        //requester.onComplete = OnCilckDownload;
-
-
-        HttpManager.instance.SendRequest(requester);
-
     }
+
+
 
 
 }

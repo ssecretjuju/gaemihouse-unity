@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/Beta_CameraPivot.prefab.meta
 guid: 7e037c3ab74b0cb4f86375c8ad3df0da
+========
+guid: 283768bf713921149a9c761d744c1160
+>>>>>>>> feature/LYJ:Assets/Resources/AntPlayer2.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

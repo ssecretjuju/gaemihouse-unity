@@ -24,7 +24,7 @@ public class BoardUIManager : MonoBehaviour
 
 
     //write버튼을 누르면 글쓰기창이 뜬다. inputfield 내용을 초기화해준다.
-    
+
     public void OnClickWriteBtn()
     {
         writeWindow.SetActive(true);
@@ -35,7 +35,8 @@ public class BoardUIManager : MonoBehaviour
         {
             inputTitle.text = "";
             inputContent.text = "";
-;        }
+            ;
+        }
     }
 
     //Ok버튼을 누르면 boarditem이 형성되어 정렬된다.
@@ -59,7 +60,7 @@ public class BoardUIManager : MonoBehaviour
         if (inputTitle.text != null && inputContent.text != null)
         {
             writeWindow.SetActive(false);
-            
+
         }
 
     }
@@ -80,7 +81,7 @@ public class BoardUIManager : MonoBehaviour
     }
     void Start()
     {
-        
+
     }
 
 

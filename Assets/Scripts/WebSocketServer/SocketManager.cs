@@ -22,7 +22,7 @@ public class SocketManager : MonoBehaviourPun
     private string mbti_name;
 
     [Header("캐릭터의 닉네임")] public Text name;
-    public string IP = "ws://3.34.133.115:8000";
+    public string IP = "ws://3.34.133.115:8001";
     
     //ChatItme 공장
     public GameObject chatItemFactory;

@@ -46,7 +46,7 @@ public class ChatKeyword : MonoBehaviour
     public InputField password;
     public KeywordData keydata;
     //public KeywordData keywordCount;
-    
+
 
     public void OnKeywordClickAll()
     {
@@ -71,10 +71,10 @@ public class ChatKeyword : MonoBehaviour
 
         keydata = keyword.data;
         print(keydata.keywordContent1);
-        
 
 
-        //int("조회완료");
+
+        //int("?¶?¸¿?·?");
         //ResponseKeywordData keyword = JsonUtility.FromJson<ResponseKeywordData>(data);
 
 
@@ -82,12 +82,12 @@ public class ChatKeyword : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

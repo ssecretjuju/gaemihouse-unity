@@ -11,6 +11,45 @@ using Photon.Realtime;
 //서버에서 데이터 받아와서, 입장할 때 방 만들어주기 (자동)
 //방 클릭해서 입장하기
 
+//방 만들기
+[Serializable]
+public class RoomPostInfo
+{
+    public string roomTitle;
+    public int roomLimitedNumber;
+    public string memberId;
+}
+
+//방 삭제
+[Serializable]
+public class RoomDeleteInfo
+{
+    public string roomTitle;
+}
+
+//방 가입할 때
+[Serializable]
+public class RoomJoinInfo
+{
+    public string roomTitle;
+    public string memberId;
+}
+
+//방 클릭했을 때 받는 데이터 (0, 1, -1)
+[Serializable]
+public class RoomEntranceInfo
+{
+    public int data;
+}
+
+//참여 가입 신청서 : 가입하겠다고 하면, 보내는 정보 
+[Serializable]
+public class RoomApplicationInfo
+{
+    public string roomTitle;
+    public string memberId;
+}
+
 //제목, 방 최대인원 입력해서 방 만들기 (유저)
 public class LobbyManager : MonoBehaviourPunCallbacks
 {
@@ -55,19 +94,6 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     //방생성 Button
     public Button btnCreate;
 
-    [Serializable]
-    public class roomPostInfo
-    {
-        public string roomTitle;
-        public int roomLimitedNumber;
-        public string memberId;
-    }
-
-    [Serializable]
-    public class roomDeleteInfo
-    {
-        public string roomTitle;
-    }
 
     void Start()
     {
@@ -239,6 +265,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
     public string clickRoomName;
 
+ 
+
     public void ClickRay()
     {
         if (Input.GetMouseButtonDown(0))
@@ -262,11 +290,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
                     Debug.Log(clickRoomName);
                     Debug.Log("House 클릭!");
 
-                    //1. 서버 접속 요청
-                    OnClickConnectLobby();
-
-                    //2. 로비 접속 요청
-                    print("LobbyJoin완료?");
+                    ClickRoomJoin();
                 }
                 else
                 {
@@ -275,6 +299,99 @@ public class LobbyManager : MonoBehaviourPunCallbacks
             }
         }
     }
+
+
+    public void ClickRoomJoin()
+    {
+        RoomJoinInfo joinroomdata = new RoomJoinInfo();
+        joinroomdata.memberId = LoginManager.Instance.playerData.memberId;
+        joinroomdata.roomTitle = clickRoomName;
+
+        HttpRequester requester = new HttpRequester();
+        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/shareholder-room/entrance";
+        requester.requestType = RequestType.POST;
+        print("test");
+
+        requester.postData = JsonUtility.ToJson(joinroomdata, true);
+        print(requester.postData);
+
+        requester.onComplete = OnEntranceData;
+        print("룸 이름,아디 보내기 완료");
+        ///////////
+        /// 
+        HttpManager.instance.SendRequest(requester);
+    }
+
+    public int entranceCode;
+    public GameObject applicationUI;
+
+    public GameObject NoUI;
+
+
+    public void OnEntranceData(DownloadHandler handler)
+    {
+        string data = System.Text.Encoding.Default.GetString(handler.data);
+
+        print("data : " + data);
+
+        RoomEntranceInfo entrance = JsonUtility.FromJson<RoomEntranceInfo>(data);
+
+        entranceCode = entrance.data;
+        print(entranceCode);
+
+        //0. 가입창 후 가입
+        if (entranceCode == 0)
+        {
+            //가입창 
+            applicationUI.SetActive(true);
+            
+        }
+
+        //1 : 바로 입장
+        else if (entranceCode == 1)
+        {
+            //1. 서버 접속 요청
+            OnClickConnectLobby();
+            //2. 로비 접속 요청
+        }
+
+        //-1 : 가입 x (다른 방에 가입돼있음)
+        else
+        {
+            //가입 안 된다는 경고창
+            NoUI.SetActive(true);
+        }
+    }
+
+    //접속 : 예라고 클릭할 경우 
+    public void ClickJoinYes()
+    {
+        OnClickConnectLobby();
+    }
+
+    public void ClickApplication()
+    {
+        RoomApplicationInfo roomApplicationInfo = new RoomApplicationInfo();
+        
+        roomApplicationInfo.memberId = LoginManager.Instance.playerData.memberId;
+        roomApplicationInfo.roomTitle = clickRoomName;
+
+        HttpRequester requester = new HttpRequester();
+        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/shareholder-room/join";
+        requester.requestType = RequestType.POST;
+        print("test");
+
+        requester.postData = JsonUtility.ToJson(roomApplicationInfo, true);
+        print(requester.postData);
+
+        requester.onComplete = OnEntranceData;
+        print("룸 이름,아디 보내기 완료");
+        /////////////
+        ///// 
+        HttpManager.instance.SendRequest(requester);
+
+    }
+
 
     public void OnClickConnectLobby()
     {
@@ -287,6 +404,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         base.OnConnected();
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
+        PhotonNetwork.JoinLobby();
+        print("로비로 이동!");
     }
 
     //마스터 서버 접속성공시 호출(Lobby에 진입할 수 있는 상태)
@@ -308,16 +427,17 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         base.OnJoinedLobby();
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
 
-        //LobbyScene으로 이동
-        //PhotonNetwork.LoadLevel("CAJ_LobbyScene");
-        //PhotonNetwork.LoadLevel("CAJ_CreateScene");
-        //print("닉네임 : " + PhotonNetwork.NickName);]
-
         RoomOptions roomOptions = new RoomOptions();
         //roomOptions.IsVisible = false;
         roomOptions.MaxPlayers = 20;
-
-        PhotonNetwork.JoinOrCreateRoom(clickRoomName, roomOptions, TypedLobby.Default);
+        if (clickRoomName != null)
+        {
+            PhotonNetwork.JoinOrCreateRoom(clickRoomName, roomOptions, TypedLobby.Default);
+        }
+        else
+        {
+            PhotonNetwork.LoadLevel("Test)CAJ_LobbyScene");
+        }
     }
 
     //방 참가가 완료 되었을 때 호출 되는 함수
@@ -336,6 +456,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         }
         print("방 참가 완료, 방 이름 : " + PhotonNetwork.CurrentRoom.Name);
     }
+
+
 
     //방이 생성되면 호출 되는 함수
     public override void OnCreatedRoom()
@@ -406,13 +528,11 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         roomOptions.IsVisible = true;
         // custom 정보를 셋팅
         ExitGames.Client.Photon.Hashtable hash = new ExitGames.Client.Photon.Hashtable();
-        //hash["desc"] = int.Parse(inputReturn.text);
         //hash["desc"] = float.Parse(inputReturn.text);
 
         hash["room_name"] = inputRoomName.text;
         print("인풋 이름: " + inputRoomName.text);
         print("방이름:" + hash["room_name"]);
-        //inputReturn = 0;
         //hash["desc"] = float.Parse(inputReturn.text);
         hash["desc"] = 0f;
         //hash["desc"] = 0;
@@ -432,7 +552,6 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
         OnClickConnect();
 
-
         //PhotonNetwork.CreateRoom(inputRoomName.text, roomOptions);
         //print(PhotonNetwork.CurrentRoom.Name);
     }
@@ -442,4 +561,42 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         //서버 접속 요청
         PhotonNetwork.ConnectUsingSettings();
     }
+
+
+    public void ClickLobbyBtn()
+    {
+        PhotonNetwork.LeaveRoom();
+        OnConnected();
+    }
+
+    //DeleteRoom
+
+    public InputField roomName;
+    public void OnClickDelete()
+    {
+        roomDeleteInfo data = new roomDeleteInfo();
+        data.roomTitle = roomName.text;
+        print("삭제하려는 방 이름 : " + roomName.text);
+
+
+        HttpRequester requester = new HttpRequester();
+        //requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/shareholder-room/" + roomdata.roomTitle;
+        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/shareholder-room";
+        print(requester.url);
+        requester.requestType = RequestType.DELETE;
+        
+        requester.postData = JsonUtility.ToJson(data, true);
+        print(requester.postData);
+
+        requester.onComplete = OnCilckDownload;
+
+        HttpManager.instance.SendRequest(requester);
+    }
+
+    public void OnCilckDownload(DownloadHandler handler)
+    {
+        print("조회 완료");
+    }
+
+
 }
