@@ -14,6 +14,7 @@ public class CAJ_ChatManager : MonoBehaviourPun
     //ScrollView의 Content transform
     public RectTransform trContent;
 
+
     public GameObject chatCanvas;
 
     //나의 닉네임 색깔
@@ -28,7 +29,7 @@ public class CAJ_ChatManager : MonoBehaviourPun
         //inputChat에서 엔터를 눌렀을 때 호출되는 함수 등록
         inputChat.onSubmit.AddListener(OnSubmit);
         //커서를 안보이게!
-        Cursor.visible = false;
+        //Cursor.visible = false;
         
 
         nickColor = new Color(
@@ -40,27 +41,27 @@ public class CAJ_ChatManager : MonoBehaviourPun
 
     void Update()
     {
-        //esc키를 누르면 커서를 활성화
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            Cursor.visible = true;
-        }
+        ////esc키를 누르면 커서를 활성화
+        //if(Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    Cursor.visible = true;
+        //}
 
         //어딘가를 클릭하면 커서를 활성화
-        if(Input.GetMouseButtonDown(0))
-        {
-            //만약에 커서가 UI에 없다면
-            if(EventSystem.current.IsPointerOverGameObject() == false)
-            {
-                Cursor.visible = false;
-            }
+        //if(Input.GetMouseButtonDown(0))
+        //{
+        //    //만약에 커서가 UI에 없다면
+        //    if(EventSystem.current.IsPointerOverGameObject() == false)
+        //    {
+        //        Cursor.visible = false;
+        //    }
 
-            //모바일땐
-            //if(EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId) == false)
-            //{
-            //}
+        //    //모바일땐
+        //    //if(EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId) == false)
+        //    //{
+        //    //}
 
-        }
+        //}
     }
 
     //inputChat에서 엔터를 눌렀을 때 호출되는 함수
@@ -80,7 +81,7 @@ public class CAJ_ChatManager : MonoBehaviourPun
         inputChat.ActivateInputField();
     }
 
-
+   
     public RectTransform rtScrollView;
     float prevContentH;
 

@@ -2,59 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-[System.Serializable]
-public class ObjectInfo
-{
-    public string objName;
-    public int objWidth;
-    public int objHeight;
-    public Vector3 Position;
-    public enum ObjectType
-    {
-        Text,
-        Image,
-    }
-    public ObjectType objType;
-    public bool upperObj;
-    public byte[] image;
-    public string text;
-    public enum ObjectSkill
-    {
-        nomalObj,
-        urlObj,
-        changeObj,
-        talkingObj,
-    }
-    public ObjectSkill objSkill;
-    public string urlSkill;
-    public byte[] changeSkill;
-    public string talkingSkill;
-    //애니메이션 어케해야할지 고민중
-    public string textSkill;
-    public byte[] imageSkill;
-
-    public enum InteractionType
-    {
-        pressF,
-        touch,
-    }
-    public InteractionType interactionType;
-}
-
 public class PressF : MonoBehaviour
 {
-    ObjectInfo objinfo;
+    //플레이어가 특정 사물에 다가갔을때 F키를 눌러 실행 문구가 뜬다.
+
+    bool onPlayer = false;
+    public GameObject interObject;
+ 
     // Start is called before the first frame update
     void Start()
     {
-        //objinfo = gameObject.transform.parent.GetComponent<ObjectInfo>().objectInfo;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(onPlayer == true)
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                interObject.SetActive(true);
+            }
+        }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        //만약 충돌한 것이 플레이어라면
+        if (other.tag == "Player")
+        {
+            onPlayer = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            onPlayer = false;
+        }
     }
 }
 

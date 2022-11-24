@@ -47,6 +47,7 @@ public class PlayerData
     public bool accountNonLocked;
     public bool credentialsNonExpired;
     public string yield;
+    public string accessToken;
 
     //public string data; //¼öÀÍ·ü data
 }

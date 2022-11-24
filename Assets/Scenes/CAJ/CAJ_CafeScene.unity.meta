@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/CAJ/CAJ_CafeScene.unity.meta
 guid: f2142f02b1b348b4abf71826fe6ef8f6
 DefaultImporter:
+========
+guid: cd7e5a6afacd8174e93a49daddf73e9c
+PrefabImporter:
+>>>>>>>> feature/LYJ:Assets/Resources/AntPlayer2 1 1.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

@@ -30,9 +30,6 @@ public class ChangeColor : MonoBehaviour
     //플레이어 닉네임
     public Text UserNickname;
 
-    public GameObject[] faceType;
-    public GameObject[] bodyType;
-    public GameObject[] accType;
 
    public Toggle m_Toggle;
 
@@ -46,16 +43,13 @@ public class ChangeColor : MonoBehaviour
     public List<Toggle> toggleList3;
     // 0= 검정, 1= 황금 ...
 
-    private void Awake()
-    {
-        instance = this;
-    }
+
 
 
     void Start()
     {
-        faceType[0].SetActive(true);
-        bodyType[0].SetActive(true);
+        AntCustom.instance.faceType[0].SetActive(true);
+        AntCustom.instance.bodyType[0].SetActive(true);
     }
 
     // Update is called once per frame
@@ -64,125 +58,125 @@ public class ChangeColor : MonoBehaviour
         //FACE
         toggleList[0].onValueChanged.AddListener(delegate
         {
-            faceType[0].SetActive(true);
-            faceType[1].SetActive(false);
-            faceType[2].SetActive(false);
-            faceType[3].SetActive(false);
+            AntCustom.instance.faceType[0].SetActive(true);
+            AntCustom.instance.faceType[1].SetActive(false);
+            AntCustom.instance.faceType[2].SetActive(false);
+            AntCustom.instance.faceType[3].SetActive(false);
             FaceType = 0;
         });
 
         toggleList[1].onValueChanged.AddListener(delegate
         {
 
-            faceType[0].SetActive(false);
-            faceType[1].SetActive(true);
-            faceType[2].SetActive(false);
-            faceType[3].SetActive(false);
+            AntCustom.instance.faceType[0].SetActive(false);
+            AntCustom.instance.faceType[1].SetActive(true);
+            AntCustom.instance.faceType[2].SetActive(false);
+            AntCustom.instance.faceType[3].SetActive(false);
             FaceType = 1;
         });
 
         toggleList[2].onValueChanged.AddListener(delegate
         {
-            faceType[0].SetActive(false);
-            faceType[1].SetActive(false);
-            faceType[2].SetActive(true);
-            faceType[3].SetActive(false);
+            AntCustom.instance.faceType[0].SetActive(false);
+            AntCustom.instance.faceType[1].SetActive(false);
+            AntCustom.instance.faceType[2].SetActive(true);
+            AntCustom.instance.faceType[3].SetActive(false);
             FaceType = 2;
         });
 
         toggleList[3].onValueChanged.AddListener(delegate
         {
-            faceType[0].SetActive(false);
-            faceType[1].SetActive(false);
-            faceType[2].SetActive(false);
-            faceType[3].SetActive(true);
+            AntCustom.instance.faceType[0].SetActive(false);
+            AntCustom.instance.faceType[1].SetActive(false);
+            AntCustom.instance.faceType[2].SetActive(false);
+            AntCustom.instance.faceType[3].SetActive(true);
             FaceType = 3;
         });
         //BODY
         toggleList2[0].onValueChanged.AddListener(delegate
         {
-            bodyType[0].SetActive(true);
-            bodyType[1].SetActive(false);
-            bodyType[2].SetActive(false);
-            bodyType[3].SetActive(false);
+            AntCustom.instance.bodyType[0].SetActive(true);
+            AntCustom.instance.bodyType[1].SetActive(false);
+            AntCustom.instance.bodyType[2].SetActive(false);
+            AntCustom.instance.bodyType[3].SetActive(false);
             BodyType = 0;
         });
 
         toggleList2[1].onValueChanged.AddListener(delegate
         {
-            bodyType[0].SetActive(false);
-            bodyType[1].SetActive(true);
-            bodyType[2].SetActive(false);
-            bodyType[3].SetActive(false);
+            AntCustom.instance.bodyType[0].SetActive(false);
+            AntCustom.instance.bodyType[1].SetActive(true);
+            AntCustom.instance.bodyType[2].SetActive(false);
+            AntCustom.instance.bodyType[3].SetActive(false);
             BodyType = 1;
         });
 
         toggleList2[2].onValueChanged.AddListener(delegate
         {
-            bodyType[0].SetActive(false);
-            bodyType[1].SetActive(false);
-            bodyType[2].SetActive(true);
-            bodyType[3].SetActive(false);
+            AntCustom.instance.bodyType[0].SetActive(false);
+            AntCustom.instance.bodyType[1].SetActive(false);
+            AntCustom.instance.bodyType[2].SetActive(true);
+            AntCustom.instance.bodyType[3].SetActive(false);
             BodyType = 2;
         });
 
         toggleList2[3].onValueChanged.AddListener(delegate
         {
-            bodyType[0].SetActive(false);
-            bodyType[1].SetActive(false);
-            bodyType[2].SetActive(false);
-            bodyType[3].SetActive(true);
+            AntCustom.instance.bodyType[0].SetActive(false);
+            AntCustom.instance.bodyType[1].SetActive(false);
+            AntCustom.instance.bodyType[2].SetActive(false);
+            AntCustom.instance.bodyType[3].SetActive(true);
             BodyType = 3;
 
         });
         //ACC
         toggleList3[0].onValueChanged.AddListener(delegate
         {
-            accType[0].SetActive(false);
-            accType[1].SetActive(false);
-            accType[2].SetActive(false);
-            accType[3].SetActive(false);
-            accType[4].SetActive(false);
+            AntCustom.instance.accType[0].SetActive(false);
+            AntCustom.instance.accType[1].SetActive(false);
+            AntCustom.instance.accType[2].SetActive(false);
+            AntCustom.instance.accType[3].SetActive(false);
+            AntCustom.instance.accType[4].SetActive(false);
             AccType = 0;
         });
 
         toggleList3[1].onValueChanged.AddListener(delegate
         {
-            accType[0].SetActive(false);
-            accType[1].SetActive(true);
-            accType[2].SetActive(false);
-            accType[3].SetActive(false);
-            accType[4].SetActive(false);
+            AntCustom.instance.accType[0].SetActive(false);
+            AntCustom.instance.accType[1].SetActive(true);
+            AntCustom.instance.accType[2].SetActive(false);
+            AntCustom.instance.accType[3].SetActive(false);
+            AntCustom.instance.accType[4].SetActive(false);
             AccType = 1;
         });
 
         toggleList3[2].onValueChanged.AddListener(delegate
         {
-            accType[0].SetActive(false);
-            accType[1].SetActive(false);
-            accType[2].SetActive(true);
-            accType[3].SetActive(false);
-            accType[4].SetActive(false);
+            AntCustom.instance.accType[0].SetActive(false);
+            AntCustom.instance.accType[1].SetActive(false);
+            AntCustom.instance.accType[2].SetActive(true);
+            AntCustom.instance.accType[3].SetActive(false);
+            AntCustom.instance.accType[4].SetActive(false);
             AccType = 2;
         });
 
         toggleList3[3].onValueChanged.AddListener(delegate
         {
-            accType[0].SetActive(false);
-            accType[1].SetActive(false);
-            accType[2].SetActive(false);
-            accType[3].SetActive(true);
-            accType[4].SetActive(false);
+            AntCustom.instance.accType[0].SetActive(false);
+            AntCustom.instance.accType[1].SetActive(false);
+            AntCustom.instance.accType[2].SetActive(false);
+            AntCustom.instance.accType[3].SetActive(true);
+            AntCustom.instance.accType[4].SetActive(false);
             AccType = 3;
         });
 
         toggleList3[4].onValueChanged.AddListener(delegate
         {
-            accType[0].SetActive(false);
-            accType[1].SetActive(false);
-            accType[2].SetActive(false);
-            accType[3].SetActive(false);
-            accType[4].SetActive(true);
+            AntCustom.instance.accType[0].SetActive(false);
+            AntCustom.instance.accType[1].SetActive(false);
+            AntCustom.instance.accType[2].SetActive(false);
+            AntCustom.instance.accType[3].SetActive(false);
+            AntCustom.instance.accType[4].SetActive(true);
             AccType = 4;
         });
 
