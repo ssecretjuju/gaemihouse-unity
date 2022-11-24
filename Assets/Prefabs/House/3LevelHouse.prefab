@@ -13,9 +13,7 @@ GameObject:
   - component: {fileID: 6313882958106299407}
   - component: {fileID: 6313882958106299404}
   - component: {fileID: 6313882958106299408}
-  - component: {fileID: 1533577555590198703}
-  - component: {fileID: 2151131669201323782}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: 3LevelHouse
   m_TagString: House
   m_Icon: {fileID: 0}
@@ -121,33 +119,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomInfo: {fileID: 6313882958689689529}
   roomDesc: {fileID: 6313882958346582627}
---- !u!114 &1533577555590198703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6313882958106299405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ea8e1fdf2c497548a0f9d1836e9f95a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roomInfoTMP: {fileID: 6313882958689689529}
-  roomYieldTMP: {fileID: 6313882958346582627}
---- !u!65 &2151131669201323782
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6313882958106299405}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 15, y: 15, z: 20}
-  m_Center: {x: 0.26, y: 7.91, z: 0}
 --- !u!1 &6313882958346582625
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,8 +130,7 @@ GameObject:
   - component: {fileID: 6313882958346582624}
   - component: {fileID: 6313882958346582626}
   - component: {fileID: 6313882958346582627}
-  - component: {fileID: 3452987918893851291}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,18 +254,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &3452987918893851291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6313882958346582625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07a22fa464f610e49a70f05387ce3387, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6313882958689689527
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,8 +265,7 @@ GameObject:
   - component: {fileID: 6313882958689689526}
   - component: {fileID: 6313882958689689528}
   - component: {fileID: 6313882958689689529}
-  - component: {fileID: 5612748734691317957}
-  m_Layer: 3
+  m_Layer: 5
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -432,18 +389,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &5612748734691317957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6313882958689689527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07a22fa464f610e49a70f05387ce3387, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &73391422449952152
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -511,17 +456,9 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -8356442916641819037, guid: 8bfe1e0cdd2b15145b5e575a0a90ccc3, type: 3}
-      propertyPath: m_Layer
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8bfe1e0cdd2b15145b5e575a0a90ccc3, type: 3}
       propertyPath: m_Name
       value: Igloo
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 8bfe1e0cdd2b15145b5e575a0a90ccc3, type: 3}
-      propertyPath: m_Layer
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bfe1e0cdd2b15145b5e575a0a90ccc3, type: 3}
@@ -540,10 +477,6 @@ PrefabInstance:
     - target: {fileID: 100000, guid: de07bf378e7247444a0715ad2ff509e3, type: 3}
       propertyPath: m_Name
       value: CFX3_Snow_Dense
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: de07bf378e7247444a0715ad2ff509e3, type: 3}
-      propertyPath: m_Layer
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: de07bf378e7247444a0715ad2ff509e3, type: 3}
       propertyPath: m_RootOrder

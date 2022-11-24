@@ -5,7 +5,7 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: mixamo.com
+    second: Breathing Idle
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -22,7 +22,11 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'mixamo.com' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'shoulder.R' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'shoulder.L' is inbetween
+      humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -34,9 +38,6 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-<<<<<<< HEAD
-    clipAnimations: []
-=======
     clipAnimations:
     - serializedVersion: 16
       name: Breathing Idle
@@ -67,7 +68,6 @@ ModelImporter:
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
->>>>>>> feature/LYJ
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -115,10 +115,6 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-<<<<<<< HEAD
-    human: []
-    skeleton: []
-=======
     human:
     - boneName: spine
       humanName: Hips
@@ -882,7 +878,6 @@ ModelImporter:
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
->>>>>>> feature/LYJ
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5

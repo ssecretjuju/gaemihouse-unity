@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Prefabs/bull.fbx.meta
-guid: 4048c988a3110ea48a396ddd145a1832
-========
 guid: a0752ee1121743d4a9a3609e18cac945
->>>>>>>> feature/LYJ:Assets/Prefabs/NeckTie.fbx.meta
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
