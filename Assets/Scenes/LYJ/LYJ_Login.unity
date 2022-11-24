@@ -2029,7 +2029,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Enter ID...
+  m_Text: Enter Email...
 --- !u!222 &528244137
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3342,16 +3342,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0abc2bb22fe57f342a8b0c8e041f212a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputRoomName: {fileID: 0}
-  inputMaxPlayer: {fileID: 0}
-  btnCreate: {fileID: 0}
-  roomName: {fileID: 0}
-  roomData:
-    roomCode: 0
-    roomTitle: 
-    roomLimitedNumber: 0
-    roomRegistedNumber: 0
-    roomYield: 0
 --- !u!1 &1000234649
 GameObject:
   m_ObjectHideFlags: 0
@@ -5730,7 +5720,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ID
+  m_Text: Email
 --- !u!222 &1697979048
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7940,6 +7930,7 @@ MonoBehaviour:
     accountNonLocked: 0
     credentialsNonExpired: 0
     yield: 
+    accessToken: 
 --- !u!1 &2109712433
 GameObject:
   m_ObjectHideFlags: 0

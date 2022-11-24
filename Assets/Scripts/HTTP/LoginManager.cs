@@ -160,8 +160,7 @@ public class LoginManager : MonoBehaviour
 
         //print("조회 완료");
 
-        //SceneManager.LoadScene("Test)CAJ_LobbyScene");
-        SceneManager.LoadScene("3.LobbyScene");
+        SceneManager.LoadScene("Test)CAJ_LobbyScene");
 
     }
 
