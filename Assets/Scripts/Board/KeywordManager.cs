@@ -28,7 +28,7 @@ public class KeywordManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.G))
         {
             keywordWindow.SetActive(true);
-            //keywordText.text = ChatKeyword.Instance.keydata.keywordContent1;
+            keywordText.text = ChatKeyword.Instance.keydata.keywordContent1;
             print(keywordText.text);
         }
     }
