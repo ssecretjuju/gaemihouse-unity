@@ -7,12 +7,13 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 using SimpleJSON;
 using UnityEngine.SceneManagement;
+using Newtonsoft.Json.Linq;
 
 // 가져올 커스텀 정보
 [Serializable]
 public class CustomData
 {
-    public string colorMemberNickname;
+    //public string colorMemberNickname;
     public int faceType;
     public int bodyType;
     public int accType;
@@ -27,7 +28,17 @@ public class ResponseCustomData
 }
 public class AntCustom : MonoBehaviour
 {
+    public static AntCustom instance;
 
+
+    public GameObject[] faceType;
+    public GameObject[] bodyType;
+    public GameObject[] accType;
+
+    private void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +47,7 @@ public class AntCustom : MonoBehaviour
         {
             //CustomCanvas.SetActive(false);
             print("로비씬");
-            //onGetCustomData();
+            onGetCustomData();
         }
 
     }
@@ -53,11 +64,11 @@ public class AntCustom : MonoBehaviour
     public void onGetCustomData()
     {
         colorMemberNickname = LoginManager.Instance.playerData.memberNickname;
-        print(colorMemberNickname);
+        //print(colorMemberNickname);
 
         //서버에 저장된 커스텀값들을 가져온다.
         HttpRequester requester = new HttpRequester();
-        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/avatar" + colorMemberNickname; 
+        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/avatar/" + colorMemberNickname;
         requester.requestType = RequestType.GET;
 
         requester.onComplete = OnLoadCustom;
@@ -66,18 +77,28 @@ public class AntCustom : MonoBehaviour
         print("커스텀 정보 겟 완료!");
     }
 
-
+    
     public void OnLoadCustom(DownloadHandler handler)
     {
-        string data = System.Text.Encoding.Default.GetString(handler.data);
-        print("custom data : " + data);
+        //JObject jobject = JObject.Parse(handler.text);
+        //print(jobject.ToString());
 
+
+        string data = System.Text.Encoding.Default.GetString(handler.data);
+
+        print("data : " + data);
         ResponseCustomData responseCustomData = JsonUtility.FromJson<ResponseCustomData>(data);
 
         customdata = responseCustomData.data;
 
-        print(customdata.colorMemberNickname);
+        print(customdata.faceType);
 
+
+        faceType[customdata.faceType].SetActive(true);
+        bodyType[customdata.bodyType].SetActive(true);
+        accType[customdata.accType].SetActive(true);
+
+        
     }
 
 }
