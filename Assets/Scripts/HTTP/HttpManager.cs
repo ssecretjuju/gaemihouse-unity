@@ -38,7 +38,6 @@ public class HttpManager : MonoBehaviour
         UnityWebRequest webRequest = null;
         //requestType 에 따라서 호출해줘야한다.
         string accessToken = PlayerPrefs.GetString("token");
-
         switch (requester.requestType)
         {
 
