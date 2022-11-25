@@ -246,6 +246,37 @@ public class RoomListSetting : MonoBehaviourPunCallbacks
         }
     }
 
+    //방 정보 삭제 
+    public InputField roomName;
+    public void OnClickDelete()
+    {
+        roomDeleteInfo data = new roomDeleteInfo();
+        data.roomTitle = roomName.text;
+        print("삭제하려는 방 이름 : " + roomName.text);
+
+
+        HttpRequester requester = new HttpRequester();
+        //requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/shareholder-room/" + roomdata.roomTitle;
+        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/shareholder-room";
+        print(requester.url);
+        requester.requestType = RequestType.POST;
+
+        requester.postData = JsonUtility.ToJson(data, true);
+        print(requester.postData);
+
+        requester.onComplete = OnCilckDownload;
+
+        HttpManager.instance.SendRequest(requester);
+    }
+
+    public void OnCilckDownload(DownloadHandler handler)
+    {
+        print("삭제 요청조회 완료");
+    }
+
+
+
+
     ////방 만들 때, 방장 정보를 넘겨주고 싶다.
     //public void OnClickHolder()
     //{
@@ -276,14 +307,14 @@ public class RoomListSetting : MonoBehaviourPunCallbacks
     //}
 
 
-    public InputField roomName;
+    //public InputField roomName;
 
 
-    public RoomData roomData;
-    public void OnClickDelete()
-    {
-        
-    }
+    //public RoomData roomData;
+    //public void OnClickDelete()
+    //{
+
+    //}
 
 
 

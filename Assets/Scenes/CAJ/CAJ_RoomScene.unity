@@ -265,6 +265,7 @@ MonoBehaviour:
   chatItemFactory: {fileID: 755022694}
   inputChat: {fileID: 68555375}
   trContent: {fileID: 1534515204}
+  NickName: 
 --- !u!1 &68555373
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,6 +482,7 @@ GameObject:
   m_Component:
   - component: {fileID: 136516982}
   - component: {fileID: 136516981}
+  - component: {fileID: 136516983}
   m_Layer: 0
   m_Name: LobbyManager
   m_TagString: Untagged
@@ -495,7 +497,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136516980}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6beec27db9ed6a0488889dde186265ea, type: 3}
   m_Name: 
@@ -524,6 +526,7 @@ MonoBehaviour:
   entranceCode: 0
   applicationUI: {fileID: 0}
   NoUI: {fileID: 0}
+  inputRoom: 
   roomName: {fileID: 2126383274}
 --- !u!4 &136516982
 Transform:
@@ -540,6 +543,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &136516983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136516980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0abc2bb22fe57f342a8b0c8e041f212a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputRoomName: {fileID: 0}
+  inputMaxPlayer: {fileID: 0}
+  btnCreate: {fileID: 0}
+  roomName: {fileID: 0}
 --- !u!1 &201999120
 GameObject:
   m_ObjectHideFlags: 0
@@ -4949,8 +4968,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 136516981}
-        m_TargetAssemblyTypeName: LobbyManager, Assembly-CSharp
+      - m_Target: {fileID: 136516983}
+        m_TargetAssemblyTypeName: RoomListSetting, Assembly-CSharp
         m_MethodName: OnClickDelete
         m_Mode: 1
         m_Arguments:
