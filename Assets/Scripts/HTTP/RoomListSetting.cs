@@ -257,7 +257,7 @@ public class RoomListSetting : MonoBehaviourPunCallbacks
 
         HttpRequester requester = new HttpRequester();
         //requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/shareholder-room/" + roomdata.roomTitle;
-        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/shareholder-room";
+        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/shareholder-room/remove";
         print(requester.url);
         requester.requestType = RequestType.POST;
 
