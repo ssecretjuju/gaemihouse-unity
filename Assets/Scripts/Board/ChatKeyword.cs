@@ -9,23 +9,23 @@ using SimpleJSON;
 
 
 
-//[Serializable]
-//public class KeywordData
-//{
-//    public string keywordCount2;
-//    public string keywordCount1;
-//    public string keywordContent2;
-//    public string keywordContent1;
-//}
+[Serializable]
+public class KeywordData
+{
+    public string keywordCount2;
+    public string keywordCount1;
+    public string keywordContent2;
+    public string keywordContent1;
+}
 
 
-//[Serializable]
-//public class ResponseKeywordData
-//{
-//    public int status;
-//    public string message;
-//    public KeywordData data;
-//}
+[Serializable]
+public class ResponseKeywordData
+{
+    public int status;
+    public string message;
+    public KeywordData data;
+}
 
 public class ChatKeyword : MonoBehaviour
 {
@@ -44,9 +44,9 @@ public class ChatKeyword : MonoBehaviour
 
     public InputField id;
     public InputField password;
-    //public KeywordData keydata;
-    //public KeywordData keywordCount;
-    
+    public KeywordData keydata;
+    public KeywordData keywordCount;
+
 
     public void OnKeywordClickAll()
     {
@@ -64,17 +64,13 @@ public class ChatKeyword : MonoBehaviour
     public void OnCilckDownloadAll(DownloadHandler handler)
     {
 
-        //string data = System.Text.Encoding.Default.GetString(handler.data);
-        //print("data : " + data);
+        string data = System.Text.Encoding.Default.GetString(handler.data);
+        print("data : " + data);
 
-        //ResponseKeywordData keyword = JsonUtility.FromJson<ResponseKeywordData>(data);
+        ResponseKeywordData keyword = JsonUtility.FromJson<ResponseKeywordData>(data);
 
-        //keydata = keyword.data;
-        //print(keydata.keywordContent1);
-
-        //int("조회완료");
-        //ResponseKeywordData keyword = JsonUtility.FromJson<ResponseKeywordData>(data);
-
+        keydata = keyword.data;
+        print(keydata.keywordContent1);
 
     }
     // Start is called before the first frame update

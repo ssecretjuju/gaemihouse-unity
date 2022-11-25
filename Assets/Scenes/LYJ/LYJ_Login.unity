@@ -1920,6 +1920,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2065370877}
+        m_TargetAssemblyTypeName: KospiInfoManager, Assembly-CSharp
+        m_MethodName: OnGetKospi
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &515501268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7869,6 +7881,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2065370875}
   - component: {fileID: 2065370876}
+  - component: {fileID: 2065370877}
   m_Layer: 0
   m_Name: LoginManager
   m_TagString: Untagged
@@ -7931,6 +7944,19 @@ MonoBehaviour:
     credentialsNonExpired: 0
     yield: 
     accessToken: 
+--- !u!114 &2065370877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065370874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 600dcb2351a2eac4bb85a879126d4cb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kospiInfo: 0
 --- !u!1 &2109712433
 GameObject:
   m_ObjectHideFlags: 0

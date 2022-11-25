@@ -7,11 +7,13 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 using SimpleJSON;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
+using Photon.Realtime;
 
 
 //´Ü, CharacterController¸¦ »ç¿ë
 
-public class AntMove : MonoBehaviour
+public class AntMove : MonoBehaviourPunCallbacks
 {
     public float speed, rotationSpeed;
     private CharacterController characterController;
@@ -29,6 +31,16 @@ public class AntMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //·Îºñ¾ÀÀÌ¸é Æ÷Åæºä½ºÅ©¸³Æ®µé ²ô±â
+        if (SceneManager.GetActiveScene().name == "LYJ_LobbyScene")
+        {
+            gameObject.GetComponent<PhotonView>().enabled = false;
+            gameObject.GetComponent<PhotonTransformView>().enabled = false;
+            gameObject.GetComponentInChildren<PhotonAnimatorView>().enabled = false;
+
+        }
+
+
         if (SceneManager.GetActiveScene().name == "LYJ_CharacterSelection")
         {
             return;
@@ -50,6 +62,7 @@ public class AntMove : MonoBehaviour
                 Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
             }
+
         }
 
     }
