@@ -7,6 +7,7 @@ using UnityEngine.Networking;
 using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.SceneManagement;
 
 //서버에서 데이터 받아와서, 입장할 때 방 만들어주기 (자동)
 //방 클릭해서 입장하기
@@ -403,9 +404,12 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public override void OnConnected()
     {
         base.OnConnected();
-        print(System.Reflection.MethodBase.GetCurrentMethod().Name);
-        PhotonNetwork.JoinLobby();
-        print("로비로 이동!");
+
+        //print(System.Reflection.MethodBase.GetCurrentMethod().Name);
+        
+        //PhotonNetwork.JoinLobby();
+        print("3333333333333333");
+        //print("마스터 서버 접속 완료 -> 로비로 이동!");
     }
 
     //마스터 서버 접속성공시 호출(Lobby에 진입할 수 있는 상태)
@@ -430,14 +434,39 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         RoomOptions roomOptions = new RoomOptions();
         //roomOptions.IsVisible = false;
         roomOptions.MaxPlayers = 20;
-        if (clickRoomName != null)
+
+        
+
+        if (inputRoomName.text != null)
         {
-            PhotonNetwork.JoinOrCreateRoom(clickRoomName, roomOptions, TypedLobby.Default);
+
+            PhotonNetwork.JoinOrCreateRoom(inputRoomName.text, roomOptions, TypedLobby.Default);
+            print(inputRoomName.text);
         }
+
         else
         {
-            PhotonNetwork.LoadLevel("Test)CAJ_LobbyScene");
+            CreateRoom();
+            
         }
+
+        //if (clickRoomName != null)
+        //{
+        //PhotonNetwork.JoinOrCreateRoom(clickRoomName, roomOptions, TypedLobby.Default);
+        //}
+        //else
+        //{
+        //    PhotonNetwork.JoinOrCreateRoom(inputRoomName.text, roomOptions, TypedLobby.Default);
+        //}
+
+
+        //if (clickRoomName != null)
+        //{
+        //}
+        //else
+        //{
+        //    PhotonNetwork.LoadLevel("Test)CAJ_LobbyScene");
+        //}
     }
 
     //방 참가가 완료 되었을 때 호출 되는 함수
@@ -445,6 +474,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         base.OnJoinedRoom();
         print("OnJoinedRoom");
+        print("4444444");
         //전체 방일 때만 다르게 이동 !! 
         if (PhotonNetwork.CurrentRoom.Name == "전체")
         {
@@ -464,8 +494,9 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         base.OnCreatedRoom();
         print("OnCreatedRoom");
+        print("2222222222");
     }
-
+    
     //방 생성이 실패 될때 호출 되는 함수
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
@@ -477,6 +508,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public void JoinRoom(string inputRoomname)
     {
         PhotonNetwork.JoinRoom(inputRoomname);
+        print(inputRoomname);
+        print("33333333333");
     }
 
 
@@ -518,6 +551,9 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         print("Post 완료!");
     }
 
+
+    public string inputRoom;
+    //방 만들기 클릭하면 실행되는 함수 ! 
     public void CreateRoom()
     {
         // 방 옵션을 설정
@@ -545,10 +581,13 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         roomOptions.CustomRoomPropertiesForLobby = new string[] {
             "desc", "map_id", "room_name"
         };
+
         print(roomOptions);
 
+        inputRoom = inputRoomName.text;
+
         // 방 생성 요청 (해당 옵션을 이용해서)
-        print(2222222);
+        print("111111111111111");
 
         OnClickConnect();
 
@@ -560,6 +599,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         //서버 접속 요청
         PhotonNetwork.ConnectUsingSettings();
+        print("2222222222");
     }
 
 
