@@ -71,7 +71,7 @@ public class UserSetting : MonoBehaviour
         print(requester.postData);
 
         ///////////
-        /// 
+
         HttpManager.instance.SendRequest(requester);
         
     }

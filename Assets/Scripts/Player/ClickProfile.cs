@@ -31,15 +31,15 @@ public class ClickProfile : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            //m_PointerEventData = new PointerEventData(m_EventSystem);
-            //m_PointerEventData.position = Input.mousePosition;
+            m_PointerEventData = new PointerEventData(m_EventSystem);
+            m_PointerEventData.position = Input.mousePosition;
 
-            //List<RaycastResult> results = new List<RaycastResult>();
+            List<RaycastResult> results = new List<RaycastResult>();
 
-            //m_Raycaster.Raycast(m_PointerEventData, results);
+            m_Raycaster.Raycast(m_PointerEventData, results);
 
-            //GameObject hitText = results[0].gameObject;
-            //print(hitText);
+            GameObject hitText = results[0].gameObject;
+            print(hitText);
         }
     }
 }

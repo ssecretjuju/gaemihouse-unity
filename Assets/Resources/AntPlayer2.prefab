@@ -2089,7 +2089,6 @@ GameObject:
   m_Component:
   - component: {fileID: 241002978786230710}
   - component: {fileID: 6176715726039063500}
-  - component: {fileID: 8264567976279449857}
   m_Layer: 0
   m_Name: Ant2
   m_TagString: Untagged
@@ -2146,27 +2145,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8264567976279449857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 582061948924664588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowLayerWeightsInspector: 1
-  ShowParameterInspector: 1
-  m_SynchronizeParameters:
-  - Type: 4
-    SynchronizeType: 0
-    Name: isWalk
-  m_SynchronizeLayers:
-  - SynchronizeType: 0
-    LayerIndex: 0
 --- !u!1 &582603842238576624
 GameObject:
   m_ObjectHideFlags: 0
@@ -27950,8 +27928,6 @@ GameObject:
   - component: {fileID: 6636056912409685278}
   - component: {fileID: -6564097418627145630}
   - component: {fileID: -911963803653384695}
-  - component: {fileID: -3657791935059642391}
-  - component: {fileID: 972718046881294098}
   m_Layer: 0
   m_Name: AntPlayer2
   m_TagString: Player
@@ -28021,8 +27997,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc996ef201d004469af2a77f34d895a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  faceType:
+  - {fileID: 7862943809451149986}
+  - {fileID: 6636056912447044551}
+  - {fileID: 6636056912109805206}
+  - {fileID: 6636056912849691433}
+  bodyType:
+  - {fileID: 1235613072098211391}
+  - {fileID: 6636056912640525738}
+  - {fileID: 6636056912086929466}
+  - {fileID: 6636056912463384380}
+  accType:
+  - {fileID: 6636056912772957876}
+  - {fileID: 2900532635813322651}
+  - {fileID: 531638031101157862}
+  - {fileID: 3403200103866186189}
+  - {fileID: 3385110634372444853}
   customdata:
-    colorMemberNickname: 
     faceType: 0
     bodyType: 0
     accType: 0
@@ -28054,46 +28045,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1162091312035326925}
---- !u!114 &-3657791935059642391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6636056912409685273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 3
-  OwnershipTransfer: 0
-  observableSearch: 2
-  ObservedComponents:
-  - {fileID: 972718046881294098}
-  - {fileID: 8264567976279449857}
-  sceneViewId: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
---- !u!114 &972718046881294098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6636056912409685273}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
 --- !u!1 &6636056912447044551
 GameObject:
   m_ObjectHideFlags: 0
