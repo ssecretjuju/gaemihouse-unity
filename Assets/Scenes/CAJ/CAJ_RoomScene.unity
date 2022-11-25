@@ -483,6 +483,7 @@ GameObject:
   - component: {fileID: 136516982}
   - component: {fileID: 136516981}
   - component: {fileID: 136516983}
+  - component: {fileID: 136516984}
   m_Layer: 0
   m_Name: LobbyManager
   m_TagString: Untagged
@@ -559,6 +560,18 @@ MonoBehaviour:
   inputMaxPlayer: {fileID: 0}
   btnCreate: {fileID: 0}
   roomName: {fileID: 0}
+--- !u!114 &136516984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136516980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6161653316a99b47b485c768a55de0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &201999120
 GameObject:
   m_ObjectHideFlags: 0
@@ -6303,6 +6316,7 @@ GameObject:
   - component: {fileID: 2038436807}
   - component: {fileID: 2038436806}
   - component: {fileID: 2038436805}
+  - component: {fileID: 2038436808}
   m_Layer: 5
   m_Name: LeaveRoomBtn
   m_TagString: Untagged
@@ -6375,9 +6389,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 136516981}
-        m_TargetAssemblyTypeName: LobbyManager, Assembly-CSharp
-        m_MethodName: OnClickConnectLobby
+      - m_Target: {fileID: 2038436808}
+        m_TargetAssemblyTypeName: CAJ_LeaveLobby, Assembly-CSharp
+        m_MethodName: LeaveRoom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6425,6 +6439,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038436803}
   m_CullTransparentMesh: 1
+--- !u!114 &2038436808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038436803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6161653316a99b47b485c768a55de0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2048375805
 GameObject:
   m_ObjectHideFlags: 0
