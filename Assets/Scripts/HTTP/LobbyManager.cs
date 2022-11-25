@@ -410,6 +410,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         //PhotonNetwork.JoinLobby();
         print("3333333333333333");
         //print("마스터 서버 접속 완료 -> 로비로 이동!");
+
     }
 
     //마스터 서버 접속성공시 호출(Lobby에 진입할 수 있는 상태)
@@ -431,24 +432,24 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         base.OnJoinedLobby();
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
 
-        RoomOptions roomOptions = new RoomOptions();
-        //roomOptions.IsVisible = false;
-        roomOptions.MaxPlayers = 20;
+        CreateRoom();
 
-        
+        //if (inputRoomName.text != null)
+        //{
+        //    //RoomOptions roomOptions = new RoomOptions();
+        //    //roomOptions.IsVisible = false;
+        //    //roomOptions.MaxPlayers = 20;
 
-        if (inputRoomName.text != null)
-        {
+        //    PhotonNetwork.JoinOrCreateRoom(inputRoomName.text, roomOptions, TypedLobby.Default);
+        //    print(inputRoomName.text);
+        //}
 
-            PhotonNetwork.JoinOrCreateRoom(inputRoomName.text, roomOptions, TypedLobby.Default);
-            print(inputRoomName.text);
-        }
-
-        else
-        {
-            CreateRoom();
-            
-        }
+        //else
+        //{
+        //    //CreateRoom();
+        //    //ClickRoomJoin();
+        //    return;
+        //}
 
         //if (clickRoomName != null)
         //{
@@ -606,7 +607,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public void ClickLobbyBtn()
     {
         PhotonNetwork.LeaveRoom();
-        OnConnected();
+        //OnConnected();
     }
 
     //DeleteRoom

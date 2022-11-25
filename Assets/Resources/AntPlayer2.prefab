@@ -28021,23 +28021,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc996ef201d004469af2a77f34d895a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faceType:
-  - {fileID: 7862943809451149986}
-  - {fileID: 6636056912447044551}
-  - {fileID: 6636056912109805206}
-  - {fileID: 6636056912849691433}
-  bodyType:
-  - {fileID: 1235613072098211391}
-  - {fileID: 6636056912640525738}
-  - {fileID: 6636056912086929466}
-  - {fileID: 6636056912463384380}
-  accType:
-  - {fileID: 6636056912772957876}
-  - {fileID: 2900532635813322651}
-  - {fileID: 531638031101157862}
-  - {fileID: 3403200103866186189}
-  - {fileID: 3385110634372444853}
   customdata:
+    colorMemberNickname: 
     faceType: 0
     bodyType: 0
     accType: 0
@@ -28089,6 +28074,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 972718046881294098}
+  - {fileID: 8264567976279449857}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
