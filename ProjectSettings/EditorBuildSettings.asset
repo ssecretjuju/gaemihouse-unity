@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Beta/CAJ/1.CAJ_LoginScene.unity
-    guid: 77d7a373f708d434b9a1842f2f9b5fec
+    path: Assets/Scenes/CAJ/CAJ_LoginScene.unity
+    guid: b406cce8bf5aeb4419d4de2edce4f8c0
   - enabled: 1
     path: Assets/Scenes/Beta/CAJ/2.CAJ_LobbyScene.unity
     guid: bf950093dada0ab4fa3f72c5d3fd8e0a
