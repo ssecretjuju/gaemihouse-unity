@@ -1,7 +1,11 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/RainMaker/Demo/DemoScript.cs.meta
 guid: 48b592a089d06c44b8340d68e40c31d9
 timeCreated: 1429217329
 licenseType: Store
+========
+guid: e9f29e440b29cac4a9287bd394b6c9ba
+>>>>>>>> feature/LYJ:Assets/RainMaker/Demo/AntCamera.cs.meta
 MonoImporter:
   serializedVersion: 2
   defaultReferences: []
