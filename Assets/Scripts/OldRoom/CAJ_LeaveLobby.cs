@@ -17,15 +17,9 @@ public class CAJ_LeaveLobby : MonoBehaviourPunCallbacks
         
     }
 
-    public void LeaveRoom()
+    public void ClickLeaveLobby()
     {
         PhotonNetwork.LoadLevel("Test)CAJ_LobbyScene");
         PhotonNetwork.Disconnect();
-        //PhotonNetwork.LeaveRoom();
-        //OnConnectedToMaster();
     }
-
-    //public override void O
-
-
 }

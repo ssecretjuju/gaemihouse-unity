@@ -5,7 +5,7 @@ using System.Net;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
-using SimpleJSON;
+
 
 
 
@@ -45,13 +45,13 @@ public class ChatKeyword : MonoBehaviour
     public InputField id;
     public InputField password;
     public KeywordData keydata;
-    public KeywordData keywordCount;
+    //public KeywordData keywordCount;
 
 
     public void OnKeywordClickAll()
     {
         HttpRequester requester = new HttpRequester();
-        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/keyword";
+        requester.url = "http://3.34.133.115:8080/keyword";
         //print(requester.url);
         requester.requestType = RequestType.GET;
 
@@ -72,16 +72,22 @@ public class ChatKeyword : MonoBehaviour
         keydata = keyword.data;
         print(keydata.keywordContent1);
 
+
+
+        //int("?¢Ò?¢¬¢¯?¡¤?");
+        //ResponseKeywordData keyword = JsonUtility.FromJson<ResponseKeywordData>(data);
+
+
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

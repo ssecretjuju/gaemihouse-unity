@@ -117,7 +117,7 @@ public class LoginManager : MonoBehaviour
 
         //print("조회 완료");
 
-        SceneManager.LoadScene("LYJ_CharacterSelection");
+        SceneManager.LoadScene("New)CAJ_LobbyScene");
 
     }
 
@@ -160,7 +160,7 @@ public class LoginManager : MonoBehaviour
 
         //print("조회 완료");
 
-        SceneManager.LoadScene("2.CAJ_LobbyScene");
+        SceneManager.LoadScene("Test)CAJ_LobbyScene");
 
     }
 
