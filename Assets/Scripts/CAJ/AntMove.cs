@@ -7,10 +7,13 @@ using UnityEngine.Networking;
 using UnityEngine.UI;
 using SimpleJSON;
 using UnityEngine.SceneManagement;
+using Photon.Pun;
+using Photon.Realtime;
+
 
 //단, CharacterController를 사용
 
-public class AntMove : MonoBehaviour
+public class AntMove : MonoBehaviourPunCallbacks
 {
     public float speed, rotationSpeed;
     private CharacterController characterController;
@@ -28,40 +31,65 @@ public class AntMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-        float verticalInput = Input.GetAxisRaw("Vertical");
-
-        Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
-        float magnitude = Mathf.Clamp01(movementDirection.magnitude) * speed;
-        movementDirection.Normalize();
-
-        //transform.Translate(movementDirection * magnitude * Time.deltaTime, Space.World);
-        characterController.SimpleMove(movementDirection * magnitude);
-
-        if (movementDirection != Vector3.zero)
+        //로비씬이면 포톤뷰스크립트들 끄기
+        if (SceneManager.GetActiveScene().name == "LYJ_LobbyScene")
         {
-            Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+            gameObject.GetComponent<PhotonView>().enabled = false;
+            gameObject.GetComponent<PhotonTransformView>().enabled = false;
+            gameObject.GetComponentInChildren<PhotonAnimatorView>().enabled = false;
+
         }
+
+
+        if (SceneManager.GetActiveScene().name == "LYJ_CharacterSelection")
+        {
+            return;
+        }
+        else
+        {
+            float horizontalInput = Input.GetAxisRaw("Horizontal");
+            float verticalInput = Input.GetAxisRaw("Vertical");
+
+            Vector3 movementDirection = new Vector3(horizontalInput, 0, verticalInput);
+            float magnitude = Mathf.Clamp01(movementDirection.magnitude) * speed;
+            movementDirection.Normalize();
+
+            //transform.Translate(movementDirection * magnitude * Time.deltaTime, Space.World);
+            characterController.SimpleMove(movementDirection * magnitude);
+
+            if (movementDirection != Vector3.zero)
+            {
+                Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+            }
+
+        }
+
     }
 
     void Update()
     {
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-        float verticalInput = Input.GetAxisRaw("Vertical");
-
-        if (horizontalInput != 0 || verticalInput != 0)
+        if (SceneManager.GetActiveScene().name == "LYJ_CharacterSelection")
         {
-            //상태를 Move로
-            anim.SetBool("isWalk", true);
+            return;
         }
-        //그렇지 않다면
         else
         {
-            //상태를 Idle로
-            anim.SetBool("isWalk", false);
-        }
+            float horizontalInput = Input.GetAxisRaw("Horizontal");
+            float verticalInput = Input.GetAxisRaw("Vertical");
 
+            if (horizontalInput != 0 || verticalInput != 0)
+            {
+                //상태를 Move로
+                anim.SetBool("isWalk", true);
+            }
+            //그렇지 않다면
+            else
+            {
+                //상태를 Idle로
+                anim.SetBool("isWalk", false);
+            }
+        }
     }
 
 

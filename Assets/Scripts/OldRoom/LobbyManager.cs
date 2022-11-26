@@ -7,6 +7,7 @@ using UnityEngine.Networking;
 using TMPro;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.SceneManagement;
 
 //서버에서 데이터 받아와서, 입장할 때 방 만들어주기 (자동)
 //방 클릭해서 입장하기
@@ -113,7 +114,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
         //NormalCreateRoomListUI();
         //CreateRoomUI();
-        print("CreateRoomListUI 생성 함수 시작");
+        //print("CreateRoomListUI 생성 함수 시작");
     }
 
     public void CompleteGetRoomListAll(DownloadHandler handler)
@@ -152,7 +153,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         //}
 
 
-        print("조회 완료");
+        //print("조회 완료");
     }
 
     //방 UI 만들기 
@@ -182,7 +183,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
                     go.name = roomTitles[i];
 
                     count++;
-                    print("생성됨!");
+                    //print("생성됨!");
                 }
 
                 // 2.-10 < 수익률 < -3
@@ -199,7 +200,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
                     go.name = roomTitles[i];
 
                     count++;
-                    print("생성됨!");
+                    //print("생성됨!");
                 }
 
                 // 3. -3 < 수익률 < 3
@@ -216,7 +217,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
                     go.name = roomTitles[i];
 
                     count++;
-                    print("생성됨!");
+                    //print("생성됨!");
                 }
 
                 // 4. 3 < 수익률 < 20
@@ -233,7 +234,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
                     go.name = roomTitles[i];
 
                     count++;
-                    print("생성됨!");
+                    //print("생성됨!");
                 }
 
                 // 5. 20 < 수익률 
@@ -250,7 +251,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
                     go.name = roomTitles[i];
 
                     count++;
-                    print("생성됨!");
+                    //print("생성됨!");
                 }
             }
         }
@@ -272,9 +273,9 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-            print("click");
+            //print("click");
             RaycastHit hit;
-            print("hit");
+            //print("hit");
             //int mask = (1 << 3);
             int mask = 1 << LayerMask.NameToLayer("Building");
             if (Physics.Raycast(ray, out hit, 150f, mask))
@@ -300,7 +301,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         }
     }
 
-
+    //방 가입 누를 때 정보 받아오기 
     public void ClickRoomJoin()
     {
         RoomJoinInfo joinroomdata = new RoomJoinInfo();
@@ -310,13 +311,13 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         HttpRequester requester = new HttpRequester();
         requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/shareholder-room/entrance";
         requester.requestType = RequestType.POST;
-        print("test");
+        //print("test");
 
         requester.postData = JsonUtility.ToJson(joinroomdata, true);
-        print(requester.postData);
+        //print(requester.postData);
 
         requester.onComplete = OnEntranceData;
-        print("룸 이름,아디 보내기 완료");
+        //print("룸 이름,아디 보내기 완료");
         ///////////
         /// 
         HttpManager.instance.SendRequest(requester);
@@ -397,15 +398,20 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         //서버 접속 요청
         PhotonNetwork.ConnectUsingSettings();
+        print("포톤 접속");
     }
 
     //마스터 서버 접속성공시 호출(Lobby에 진입할 수 없는 상태)
     public override void OnConnected()
     {
         base.OnConnected();
-        print(System.Reflection.MethodBase.GetCurrentMethod().Name);
-        PhotonNetwork.JoinLobby();
-        print("로비로 이동!");
+
+        //print(System.Reflection.MethodBase.GetCurrentMethod().Name);
+        
+        //PhotonNetwork.JoinLobby();
+        print("3333333333333333");
+        //print("마스터 서버 접속 완료 -> 로비로 이동!");
+
     }
 
     //마스터 서버 접속성공시 호출(Lobby에 진입할 수 있는 상태)
@@ -427,17 +433,42 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         base.OnJoinedLobby();
         print(System.Reflection.MethodBase.GetCurrentMethod().Name);
 
-        RoomOptions roomOptions = new RoomOptions();
-        //roomOptions.IsVisible = false;
-        roomOptions.MaxPlayers = 20;
-        if (clickRoomName != null)
-        {
-            PhotonNetwork.JoinOrCreateRoom(clickRoomName, roomOptions, TypedLobby.Default);
-        }
-        else
-        {
-            PhotonNetwork.LoadLevel("Test)CAJ_LobbyScene");
-        }
+        CreateRoom();
+
+        //if (inputRoomName.text != null)
+        //{
+        //    //RoomOptions roomOptions = new RoomOptions();
+        //    //roomOptions.IsVisible = false;
+        //    //roomOptions.MaxPlayers = 20;
+
+        //    PhotonNetwork.JoinOrCreateRoom(inputRoomName.text, roomOptions, TypedLobby.Default);
+        //    print(inputRoomName.text);
+        //}
+
+        //else
+        //{
+        //    //CreateRoom();
+        //    //ClickRoomJoin();
+        //    return;
+        //}
+
+        //if (clickRoomName != null)
+        //{
+        //PhotonNetwork.JoinOrCreateRoom(clickRoomName, roomOptions, TypedLobby.Default);
+        //}
+        //else
+        //{
+        //    PhotonNetwork.JoinOrCreateRoom(inputRoomName.text, roomOptions, TypedLobby.Default);
+        //}
+
+
+        //if (clickRoomName != null)
+        //{
+        //}
+        //else
+        //{
+        //    PhotonNetwork.LoadLevel("Test)CAJ_LobbyScene");
+        //}
     }
 
     //방 참가가 완료 되었을 때 호출 되는 함수
@@ -445,6 +476,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         base.OnJoinedRoom();
         print("OnJoinedRoom");
+        print("4444444");
         //전체 방일 때만 다르게 이동 !! 
         if (PhotonNetwork.CurrentRoom.Name == "전체")
         {
@@ -458,14 +490,14 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     }
 
 
-
     //방이 생성되면 호출 되는 함수
     public override void OnCreatedRoom()
     {
         base.OnCreatedRoom();
         print("OnCreatedRoom");
+        print("2222222222");
     }
-
+    
     //방 생성이 실패 될때 호출 되는 함수
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
@@ -477,6 +509,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public void JoinRoom(string inputRoomname)
     {
         PhotonNetwork.JoinRoom(inputRoomname);
+        print(inputRoomname);
+        print("33333333333");
     }
 
 
@@ -518,6 +552,9 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         print("Post 완료!");
     }
 
+
+    public string inputRoom;
+    //방 만들기 클릭하면 실행되는 함수 ! 
     public void CreateRoom()
     {
         // 방 옵션을 설정
@@ -545,10 +582,13 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         roomOptions.CustomRoomPropertiesForLobby = new string[] {
             "desc", "map_id", "room_name"
         };
+
         print(roomOptions);
 
+        inputRoom = inputRoomName.text;
+
         // 방 생성 요청 (해당 옵션을 이용해서)
-        print(2222222);
+        print("111111111111111");
 
         OnClickConnect();
 
@@ -560,13 +600,14 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
         //서버 접속 요청
         PhotonNetwork.ConnectUsingSettings();
+        print("2222222222");
     }
 
 
     public void ClickLobbyBtn()
     {
         PhotonNetwork.LeaveRoom();
-        OnConnected();
+        //OnConnected();
     }
 
     //DeleteRoom
@@ -581,7 +622,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
         HttpRequester requester = new HttpRequester();
         //requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/shareholder-room/" + roomdata.roomTitle;
-        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/shareholder-room";
+        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/shareholder-room/Delete";
         print(requester.url);
         requester.requestType = RequestType.DELETE;
         

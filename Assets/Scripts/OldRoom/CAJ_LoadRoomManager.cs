@@ -9,7 +9,7 @@ using System.IO;
 
 public class CAJ_LoadRoomManager : MonoBehaviour
 {
-    
+
     public void OnClickGetPost()
     {
         //서버에 방 목록 조회 요청 (shareholder-room, GET)
@@ -62,18 +62,18 @@ public class CAJ_LoadRoomManager : MonoBehaviour
         //print(s);
 
 
-        string a = handler.text;    
+        string a = handler.text;
         //print("a : " + a);
 
         //List<PostData>
         RoomDataArray array = JsonUtility.FromJson<RoomDataArray>(s);
         for (int i = 0; i < array.data.Count; i++)
         {
-            
+
             print(array.data[i].roomTitle + "\n" + array.data[i].roomRegistedNumber + "\n" + array.data[i].roomCode + array.data[i].roomYield + array.data[i].roomLimitedNumber);
             //print(array);
         }
-        
+
 
         print("조회 완료");
     }
@@ -87,6 +87,6 @@ public class CAJ_LoadRoomManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

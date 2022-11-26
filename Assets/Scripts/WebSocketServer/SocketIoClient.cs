@@ -22,9 +22,13 @@ public class SocketIoClient : MonoBehaviourPun
     float prevContentH;
     
     private WebSocket ws;
-    
+
+    public string NickName;
+
     void Start()
     {
+        NickName = LoginManager.Instance.playerData.memberNickname;
+
         ws = new WebSocket("ws://3.34.133.115:8001");
         //서버에 연결! 
         ws.Connect();
@@ -82,7 +86,7 @@ public class SocketIoClient : MonoBehaviourPun
             // }
     
             //send : 입력 보내는 것 
-            ws.Send(PhotonNetwork.NickName + "%" + message);
+            ws.Send(NickName + "%" + message);
 
             inputChat.text = "";
             
