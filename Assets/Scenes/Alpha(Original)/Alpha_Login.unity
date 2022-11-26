@@ -2942,6 +2942,11 @@ MonoBehaviour:
     keywordCount1: 
     keywordContent2: 
     keywordContent1: 
+  keywordCount:
+    keywordCount2: 
+    keywordCount1: 
+    keywordContent2: 
+    keywordContent1: 
 --- !u!4 &868567335
 Transform:
   m_ObjectHideFlags: 0
@@ -3371,6 +3376,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0abc2bb22fe57f342a8b0c8e041f212a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputRoomName: {fileID: 0}
+  inputMaxPlayer: {fileID: 0}
+  btnCreate: {fileID: 0}
+  roomName: {fileID: 0}
 --- !u!1 &1000234649
 GameObject:
   m_ObjectHideFlags: 0
@@ -5847,7 +5856,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1740345262}
-  - component: {fileID: 1740345261}
   m_Layer: 0
   m_Name: UserManager
   m_TagString: Untagged
@@ -5855,18 +5863,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1740345261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1740345260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0816c19decdb2484aa4dc2a418cbb89a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1740345262
 Transform:
   m_ObjectHideFlags: 0
