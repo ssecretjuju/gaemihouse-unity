@@ -8,6 +8,7 @@ public class PressF : MonoBehaviour
 
     bool onPlayer = false;
     public GameObject interObject;
+    public GameObject popUpImage;
  
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,8 @@ public class PressF : MonoBehaviour
     {
         if(onPlayer == true)
         {
+            popUpImage.SetActive(true);
+
             if (Input.GetKeyDown(KeyCode.F))
             {
                 interObject.SetActive(true);
