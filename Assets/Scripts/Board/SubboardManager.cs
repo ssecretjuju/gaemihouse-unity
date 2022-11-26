@@ -1,10 +1,34 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using SimpleJSON;
 
 
-//내가 쓴 글을 다른사람이 볼 수 있게 동기화 -> BoardItem에 스크립트?
+// 서버로 보낼 파라미터
+public class RoomboardInsertInfo
+{
+    public int roomBoardCode;
+    public string roomBoardTitle;
+    public string roomBoardContent;
+    public DateTime roomBoardRegistDate;
+    public int roomBoardMemberCode;
+    public int shareholderRoomCode;
+    public int likeCount;
+}
+
+// 받는 데이터
+public class ResponseRoomboard
+{
+    public int status;
+    public string message;
+    public RoomboardInsertInfo data;
+}
+
 
 
 public class SubboardManager : MonoBehaviour
@@ -83,7 +107,27 @@ public class SubboardManager : MonoBehaviour
         string dd = System.DateTime.Now.ToString("dd");
 
         date.text = yy + "-" + mm + "-" + dd;
-        
+
+        //글쓴걸 서버로 보낸다
+        RoomboardInsertInfo data = new RoomboardInsertInfo();
+        data.roomBoardCode = 0;
+        data.roomBoardTitle = title.text;
+        data.roomBoardContent = content.text;
+        data.roomBoardMemberCode = LoginManager.Instance.playerData.memberCode;
+        data.shareholderRoomCode = 0;
+        data.likeCount = 0;
+
+    HttpRequester requester = new HttpRequester();
+        requester.url = "http://secretjujucicd-api-env.eba-iuvr5h2k.ap-northeast-2.elasticbeanstalk.com/roomBoard/insert";
+        requester.requestType = RequestType.POST;
+
+        requester.postData = JsonUtility.ToJson(data, true);
+        print(requester.postData);
+
+        //requester.onComplete = OnCilckDownload;
+
+        HttpManager.instance.SendRequest(requester);
+       
         //만약 내용을 입력하고 ok버튼을 클릭하면 글쓰기창이 닫힌다.
         if (inputTitle.text != null && inputContent.text != null)
         {
@@ -98,11 +142,13 @@ public class SubboardManager : MonoBehaviour
 
     public void OnClickLike()
     {
-        count = count + 1;
+        //count = count + 1;
 
-        string countNumber = count.ToString();
+        //string countNumber = count.ToString();
 
-        likeCountText.text = countNumber;
+        //likeCountText.text = countNumber;
+
+
     }
 
     public void OnClickBackBtn()
